@@ -1,0 +1,83 @@
+<header>
+    <div id="site-name">
+        <a routerLink=".">Kidanemihret</a>
+    </div>
+    <div id="left-items" class="button-row">
+        <a md-button href="https://store.kidanemihret.org" target="_blank"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Store</a>
+    </div>
+    <div class="float-right">
+        <div id="right-items" class="button-row">
+            <a md-button routerLink=".">About</a>
+
+            <a md-button [mdMenuTriggerFor]="resources">Resources</a>
+            <md-menu #resources="mdMenu">
+                <a md-menu-item routerLink="." disabled>
+                    <md-icon md-icon-button><i class="fa fa-calendar fa-special" aria-hidden="true"></i></md-icon>
+                    <span>Calendar</span>
+                </a>
+                <a md-menu-item routerLink="." disabled>
+                    <md-icon>bookmark</md-icon>
+                    <span>English Bible</span>
+                </a>
+                <a md-menu-item routerLink="." disabled>
+                    <md-icon>bookmark_outline</md-icon>
+                    <span>Amharic Bible</span>
+                </a>
+                <a md-menu-item routerLink="." disabled>
+                    <md-icon>search</md-icon>
+                    <span>Find Verse</span>
+                </a>
+            </md-menu>
+
+            <a md-button routerLink=".">Teachings</a>
+
+            <a md-button [mdMenuTriggerFor]="media">Media</a>
+            <md-menu #media="mdMenu">
+                <a md-menu-item routerLink="." disabled>
+                    <md-icon>queue_music</md-icon>
+                    <span>Hymns | Mezmurs</span>
+                </a>
+                <a md-menu-item routerLink="." disabled>
+                    <md-icon>videocam</md-icon>
+                    <span>Videos</span>
+                </a>
+                <a md-menu-item routerLink="." disabled>
+                    <md-icon><i class="fa fa-picture-o fa-special" aria-hidden="true"></i></md-icon>
+                    <span>Photos</span>
+                </a>
+            </md-menu>
+
+            <a md-button routerLink=".">Contact</a>
+
+            <button md-mini-fab mdTooltip="Pick a language!" md-icon-button [mdMenuTriggerFor]="languages">
+                <md-icon id="fa-language"><i class="fa fa-language" aria-hidden="true"></i></md-icon>
+            </button>
+            <md-menu #languages="mdMenu">
+                <button md-menu-item>
+                    <span>English</span>
+                </button>
+                <button md-menu-item>
+                    <span>አማርኛ</span>
+                </button>
+                <button md-menu-item disabled>
+                    <span>عربى</span>
+                </button>
+                <button md-menu-item disabled>
+                    <span>Español</span>
+                </button>
+                <button md-menu-item disabled>
+                    <span>한국어</span>
+                </button>
+                <button md-menu-item disabled>
+                    <span>普通話</span>
+                </button>
+            </md-menu>
+        </div>
+        <!-- menu toggle -->
+        <div id="sidebar-toggle" class="button-row">
+            <button md-mini-fab md-icon-button>
+                <md-icon id="fa-language"><i class="fa fa-bars" aria-hidden="true"></i></md-icon>
+            </button>
+        </div>
+    </div>
+</header>
