@@ -1,0 +1,150 @@
+header {
+    width: calc(100% - 40px);
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0;
+    height: 70px;
+    left: 20px;
+    right: 20px;
+}
+
+#site-logo {
+    float: left;
+    display: block;
+    line-height: 70px;
+    font-family: 'Source Sans Pro';
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 2rem;
+    color: #6830A6;
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+.button-row-link {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-size: 1.2rem;
+    color: #54536D;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0 0 0 20px;
+}
+
+.button-row-link:hover {
+    color: #878698;
+
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+#hero {
+    width: 100%;
+    min-height: calc(100vh - 76px);
+    background-color: #F3F4FC;
+    border-top: 1px solid #F3F4FC;
+
+    /* Center vertically */
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+#hero-wrapper {
+    width: calc(100% - 40px);
+    max-width: 1300px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding: 50px 0;
+}
+
+#lang-toggle {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: .8rem;
+    text-align: right;
+    float: right;
+    margin-top: 20px;
+    color: #616161;
+}
+
+#lang-toggle span {
+    margin-top: -1px;
+    position: absolute;
+    margin-left: -25px;
+}
+
+#hero-wrapper h1 {
+    text-align: center;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #212121;
+    margin: 5px 0;
+}
+
+#hero-wrapper h3 {
+    text-align: center;
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #54536D;
+    margin: 0;
+}
+
+#hero-wrapper h3 a {
+    text-decoration: none;
+    color: #6830A6;
+}
+
+#learn-more-btn {
+    text-align: center;
+    background-color: #6830A6;
+    border-radius: 40px;
+    color: #FFF;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 5px 30px;
+    margin: 20px auto;
+    display: block;
+}
+
+#hero-grid {
+    border: 1px solid red;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 150px auto 0 auto;
+}
+
+.hero-grid-item {
+    border: 1px solid blue;
+}
+
+#about {
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    background-color: #FBFBFD;
+}

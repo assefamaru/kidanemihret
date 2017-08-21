@@ -1,7 +1,38 @@
-<app-header></app-header>
+<div id="page-border"></div>
 
-<!-- hero section -->
+<header>
+    <a id="site-logo" routerLink=".">Kidane Mihret</a>
+
+    <div class="button-row float-right">
+        <a routerLink="." class="button-row-link">About</a>
+        <a routerLink="." class="button-row-link">Teachings</a>
+        <a routerLink="." class="button-row-link">Media</a>
+        <a routerLink="." class="button-row-link">Resources</a>
+        <a routerLink="." class="button-row-link">Contact</a>
+    </div>
+</header>
+
+<!-- Hero section -->
 <section id="hero">
+    <div id="hero-wrapper">
+        <!-- <div id="lang-toggle">
+            <span>AM</span>
+            <md-slide-toggle class="lang-toggle-slide" [color]="color" [checked]="checked"></md-slide-toggle>
+        </div> -->
+
+        <h1>Hamere Noah Kidane Mihret</h1>
+        <h3>Ethiopian Orthodox Tewahedo Church, located in <a target="_blank" href="https://goo.gl/izhSna">Kitchener, ON, Canada</a></h3>
+        <button md-raised-button id="learn-more-btn">Learn more about our church</button>
+
+        <md-grid-list cols="2" rowHeight="2:1" id="hero-grid">
+            <md-grid-tile class="hero-grid-item">1</md-grid-tile>
+            <md-grid-tile class="hero-grid-item">2</md-grid-tile>
+        </md-grid-list>
+    </div>
+</section>
+
+<!-- About section -->
+<section id="about">
 
 </section>
 
