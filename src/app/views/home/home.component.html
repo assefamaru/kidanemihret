@@ -3,6 +3,10 @@
 <header>
     <a id="site-logo" routerLink=".">Kidane Mihret</a>
 
+    <div id="sidebar-toggle" class="button-row float-right">
+        <button md-mini-fab><md-icon>menu</md-icon></button>
+    </div>
+
     <div class="button-row float-right">
         <a routerLink="." class="button-row-link">About</a>
         <a routerLink="." class="button-row-link">Teachings</a>
@@ -15,19 +19,23 @@
 <!-- Hero section -->
 <section id="hero">
     <div id="hero-wrapper">
-        <!-- <div id="lang-toggle">
-            <span>AM</span>
-            <md-slide-toggle class="lang-toggle-slide" [color]="color" [checked]="checked"></md-slide-toggle>
-        </div> -->
-
         <h1>Hamere Noah Kidane Mihret</h1>
         <h3>Ethiopian Orthodox Tewahedo Church, located in <a target="_blank" href="https://goo.gl/izhSna">Kitchener, ON, Canada</a></h3>
-        <button md-raised-button id="learn-more-btn">Learn more about our church</button>
+        <button md-raised-button id="learn-more-btn"></button>
 
-        <md-grid-list cols="2" rowHeight="2:1" id="hero-grid">
-            <md-grid-tile class="hero-grid-item">1</md-grid-tile>
-            <md-grid-tile class="hero-grid-item">2</md-grid-tile>
-        </md-grid-list>
+        <md-toolbar id="hero-donate">
+            <span>Paying tithes/አስራት? Or simply want to donate?</span>
+            <span class="hero-donate-spacer"></span>
+            <a md-raised-button [color]="donate_color" routerLink=".">Pay/Donate</a>
+        </md-toolbar>
+
+        <div id="hero-icons">
+            <h2>Icons</h2>
+            <!-- <p>Over 50,000 Ethiopian Orthodox Tewahedo Church Icons, all in one place.</p>
+            <p>Browse icons and get them printed by preference.</p> -->
+            <p>Over 50,000 EOTC icons available! <a routerLink=".">See all icons</a></p>
+
+        </div>
     </div>
 </section>
 

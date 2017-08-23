@@ -1,3 +1,5 @@
+/* Header section */
+
 header {
     width: calc(100% - 40px);
     max-width: 1300px;
@@ -18,6 +20,15 @@ header {
     text-decoration: none;
     font-size: 2rem;
     color: #6830A6;
+}
+
+#sidebar-toggle {
+    display: none;
+    height: 70px;
+}
+
+#sidebar-toggle button {
+    margin: 15px 0 0 0;
 }
 
 .button-row {
@@ -46,6 +57,17 @@ header {
     transition: .5s;
 }
 
+@media screen and (max-width: 695px) {
+    #sidebar-toggle {
+        display: block !important;
+    }
+    .button-row-link {
+        display: none !important;
+    }
+}
+
+/* Hero section */
+
 #hero {
     width: 100%;
     min-height: calc(100vh - 76px);
@@ -70,24 +92,7 @@ header {
     margin: 0 auto;
     left: 0;
     right: 0;
-    padding: 50px 0;
-}
-
-#lang-toggle {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 700;
-    font-size: .8rem;
-    text-align: right;
-    float: right;
-    margin-top: 20px;
-    color: #616161;
-}
-
-#lang-toggle span {
-    margin-top: -1px;
-    position: absolute;
-    margin-left: -25px;
+    padding: 150px 0 50px 0;
 }
 
 #hero-wrapper h1 {
@@ -103,8 +108,7 @@ header {
 #hero-wrapper h3 {
     text-align: center;
     font-family: 'Source Sans Pro';
-    font-style: italic;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.3rem;
     color: #54536D;
     margin: 0;
@@ -129,16 +133,91 @@ header {
     display: block;
 }
 
-#hero-grid {
-    border: 1px solid red;
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    margin: 150px auto 0 auto;
+#learn-more-btn::before {
+    content: "Learn more about our church";
 }
 
-.hero-grid-item {
-    border: 1px solid blue;
+@media screen and (max-width: 360px) {
+    #learn-more-btn::before {
+        content: "Learn more";
+    }
+}
+
+#hero-donate {
+    background-color: #E8EAF6;
+    max-width: 650px;
+    max-height: 40px !important;
+    padding: 0;
+    border-radius: 50px;
+    margin: 100px auto;
+    padding: 0 30px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #54536D;
+    -webkit-box-shadow: 0px 5px 70px -3px rgba(197,202,233,1);
+    -moz-box-shadow: 0px 5px 70px -3px rgba(197,202,233,1);
+    box-shadow: 0px 5px 70px -3px rgba(197,202,233,1);
+}
+
+@media screen and (max-width: 600px) {
+    #hero-donate span {
+        display: none !important;
+    }
+    #hero-donate a {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+
+#hero-donate a {
+    border-radius: 50px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #FFFFFF;
+}
+
+.hero-donate-spacer {
+    flex: 1 1 auto;
+}
+
+#hero-icons {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+#hero-icons h2 {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#hero-icons p {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0;
+    margin: 0 auto 10px auto;
+    color: #54536D;
+    max-width: 500px;
+}
+
+#hero-icons a {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    color: #6830A6;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: pointer;
 }
 
 #about {
