@@ -92,7 +92,7 @@ header {
     margin: 0 auto;
     left: 0;
     right: 0;
-    padding: 150px 0 50px 0;
+    padding: 100px 0 50px 0;
 }
 
 #hero-wrapper h1 {
@@ -143,7 +143,7 @@ header {
     }
 }
 
-#hero-donate {
+/*#hero-donate {
     background-color: #E8EAF6;
     max-width: 650px;
     max-height: 40px !important;
@@ -153,7 +153,7 @@ header {
     padding: 0 30px;
     font-family: 'Source Sans Pro';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.1rem;
     color: #54536D;
     -webkit-box-shadow: 0px 5px 70px -3px rgba(197,202,233,1);
@@ -176,14 +176,14 @@ header {
     border-radius: 50px;
     font-family: 'Source Sans Pro';
     font-style: normal;
-    font-weight: 400;
-    font-size: 1.1rem;
+    font-weight: 500;
+    font-size: 1rem;
     color: #FFFFFF;
 }
 
 .hero-donate-spacer {
     flex: 1 1 auto;
-}
+}*/
 
 #hero-icons {
     max-width: 700px;
@@ -192,13 +192,13 @@ header {
     text-align: center;
 }
 
-#hero-icons h2 {
+/*#hero-icons h2 {
     font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 300;
     font-size: 2rem;
     margin-bottom: 20px;
-}
+}*/
 
 #hero-icons p {
     font-family: 'Source Sans Pro';
@@ -226,4 +226,15 @@ header {
     margin: 0;
     padding: 0;
     background-color: #FBFBFD;
+}
+
+#about img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    display: block;
+    opacity: .5;
 }

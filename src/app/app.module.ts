@@ -12,6 +12,9 @@ import { HomeComponent } from './views/home/home.component';
 import { PageNotFoundComponent } from './views/404/not-found.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
+import { AboutComponent } from './views/about/about.component';
+import { ContactComponent } from './views/contact/contact.component';
+import { IconsComponent } from './views/icons/icons.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +22,10 @@ import { FooterComponent } from './partials/footer/footer.component';
         HomeComponent,
         PageNotFoundComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        AboutComponent,
+        ContactComponent,
+        IconsComponent
     ],
     imports: [
         BrowserModule,
