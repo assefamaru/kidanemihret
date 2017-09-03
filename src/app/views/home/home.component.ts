@@ -7,10 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-    // constructor() { }
-    // ngOnInit() { }
-
-    learn_more_color = '#6830A6';
-    donate_color = 'primary';
-    // checked = false;
+    
 }

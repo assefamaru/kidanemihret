@@ -11,34 +11,11 @@ body {
     font-size: 62.5%;
 }
 
-/* COLORS HEX
-
+/* COLORS HEX ===
 darker (bright): #823DD0
 darker (dull): #41405D
 lighter: #EBECF6, #F3F4FC
-
 */
-
-#header-base-light {
-    width: 100%;
-    height: 70px;
-    background-color: #FBFBFD;
-    border-top: 5px solid #54536D;
-}
-
-#page-border {
-    width: 100%;
-    height: 5px;
-    background-color: #54536D;
-}
-
-.float-right {
-    float: right;
-}
-
-.float-left {
-    float: left;
-}
 
 /* Fonts: Source Sans Pro */
 
