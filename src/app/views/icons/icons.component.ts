@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
     templateUrl: './icons.component.html',
     styleUrls: ['./icons.component.css']
 })
-export class IconsComponent {
-
-}
+export class IconsComponent { }

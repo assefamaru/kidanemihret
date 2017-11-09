@@ -8,9 +8,12 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFF;
     font-size: 62.5%;
+    background-color: #f6f7f8;
+
+    min-height: 200vh;
 }
+
 
 /* COLORS HEX ===
 darker (bright): #823DD0
