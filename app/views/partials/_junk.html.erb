@@ -1,0 +1,20 @@
+<header class="fixed-top">
+    <div class="wrapper">
+        <%= link_to root_url, class: "logo" do %>
+            <%= image_tag('coptic_cross.png') %>
+        <% end %>
+
+        <%= render 'partials/header_list' %>
+
+        <a class="nav-toggle"  data-toggle="collapse" href="#collapseHeader" role="button" aria-expanded="false" aria-controls="collapseHeader">
+            <i id="ibfirst" class="icon-bar"></i>
+            <i id="ibsec" class="icon-bar"></i>
+            <i id="ibthird" class="icon-bar"></i>
+        </a>
+    </div>
+</header>
+<script>$(".nav-toggle").click(function(g){g.preventDefault(),$("#ibfirst").toggleClass("toggled"),$("#ibsec").toggleClass("toggled"),$("#ibthird").toggleClass("toggled")});</script>
+
+<div class="collapse" id="collapseHeader">
+    <%= render 'partials/header_list' %>
+</div>
