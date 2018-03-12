@@ -1,19 +1,6 @@
-@import "bootstrap";
-@import "custom";
-
-// Universal
-
-body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-size: 62.5%;
-    background-color: #FCFCFC;
-}
-
+@import "settings";
 
 // Temp content styles
-
 #temp {
     width: calc(100% - 20px);
     max-width: 950px;
@@ -24,14 +11,14 @@ body {
         font-size: 3.6rem;
         margin: 0;
         padding: 0;
-        color: #424242;
+        color: $black;
         font-weight: 300;
     }
     h2 {
         font-size: 2rem;
         margin: 0;
         padding: 0;
-        color: #9E9E9E;
+        color: $grey;
         font-weight: 300;
     }
     @media screen and (max-width: 500px) {
@@ -46,7 +33,7 @@ body {
         margin: 40px 0;
         padding: 0;
         overflow-x: hidden;
-        color: #424242;
+        color: $black;
         .row {
             h3 {
                 font-size: 1.7rem;
@@ -61,9 +48,9 @@ body {
     }
     footer {
         padding: 30px 0;
-        border-top: 1px solid #E0E0E0;
+        border-top: 1px solid $light-grey;
         text-align: center;
-        color: #424242;
+        color: $black;
         font-size: .8rem;
         .bull {
             padding: 0 10px;

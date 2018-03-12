@@ -1,0 +1,18 @@
+<header class="">
+    <%= link_to root_path, class: "logo" do %><%= image_tag('logo.png') %>Kidane Mihret<% end %>
+
+    <ul class="fleft">
+        <li><%= link_to coming_soon_path do %>Faith<% end %></li>
+        <li><%= link_to coming_soon_path do %>Media<% end %></li>
+        <li><%= link_to coming_soon_path do %>News Feed<% end %></li>
+    </ul>
+
+    <ul class="fright">
+        <li class="hicon"><%= link_to "https://www.facebook.com/hnkidanemihret/", target: "_blank" do %><i data-feather="facebook"></i><% end %></li>
+        <li class="hicon"><%= link_to "https://twitter.com/hnkidanemihret", target: "_blank" do %><i data-feather="twitter"></i><% end %></li>
+        <li class="bicon"><%= link_to coming_soon_path do %>Online Store!<% end %></li>
+        <li class="hicon"><%= link_to coming_soon_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "left", title: "<em>Log In</em> <u>or</u> <b>Sign Up!</b>" do %><i data-feather="log-in"></i><% end %></li>
+    </ul>
+</header>
+
+<div class="sc-divide"></div>
