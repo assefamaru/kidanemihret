@@ -6,6 +6,36 @@
 // font-family: 'Nunito', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
 
+// font-family: 'geomanist';
+@font-face {
+    font-family: 'geomanist';
+    src: font-url('geomanist/Geomanist-Regular-Webfont/geomanist-regular-webfont.eot');
+    src: font-url('geomanist/Geomanist-Regular-Webfont/geomanist-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('geomanist/Geomanist-Regular-Webfont/geomanist-regular-webfont.woff2') format('woff2'),
+         font-url('geomanist/Geomanist-Regular-Webfont/geomanist-regular-webfont.woff') format('woff'),
+         font-url('geomanist/Geomanist-Regular-Webfont/geomanist-regular-webfont.ttf') format('truetype'),
+         font-url('geomanist/Geomanist-Regular-Webfont/geomanist-regular-webfont.svg#geomanistregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// font-family: 'geomanist-italic';
+@font-face {
+    font-family: 'geomanist-italic';
+    src: font-url('geomanist/Geomanist-Regular-Italic-Webfont/geomanist-regular-italic-webfont.eot');
+    src: font-url('geomanist/Geomanist-Regular-Italic-Webfont/geomanist-regular-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('geomanist/Geomanist-Regular-Italic-Webfont/geomanist-regular-italic-webfont.woff2') format('woff2'),
+         font-url('geomanist/Geomanist-Regular-Italic-Webfont/geomanist-regular-italic-webfont.woff') format('woff'),
+         font-url('geomanist/Geomanist-Regular-Italic-Webfont/geomanist-regular-italic-webfont.ttf') format('truetype'),
+         font-url('geomanist/Geomanist-Regular-Italic-Webfont/geomanist-regular-italic-webfont.svg#geomanistitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
 // Colors =======================================
 $white: #FFFFFF;
 $white-ish: #FDFDFD;
@@ -15,9 +45,10 @@ $light-grey: #E0E0E0;
 $grey: #9E9E9E;
 $dark: #424242;
 $black: #455A64;
-
-$blue: #3F51B5;
-
+// $blue: #3F51B5;
+$blue: #3f51b5;
+$light-blue: #E8EAF6;
+$simply-light-blue: #F5F6F8;
 $light-blue-grey: #F1F3F5;
 $light-blue-grey-alt: #EFF0F1;
 

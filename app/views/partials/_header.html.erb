@@ -1,23 +1,26 @@
-<header class="">
-    <%= link_to root_path, class: "logo" do %><%= image_tag('logo.png') %><span id="logo-name">Kidane Mihret</span><% end %>
-    <a class="hdr-toggle" role="button" data-toggle="collapse" href="#collapseHeader" aria-expanded="false" aria-controls="collapseHeader">
-        <i id="first-icon-bar" class="icon-bar"></i>
-        <i id="second-icon-bar" class="icon-bar"></i>
-        <i id="third-icon-bar" class="icon-bar"></i>
-    </a>
+<header id="header">
+    <div class="wrapper">
+        <%= link_to root_path, class: "logo" do %><%= image_tag('logo.png') %><span id="logo-name">Kidane Mihret</span><% end %>
+        <a class="hdr-toggle" role="button" data-toggle="collapse" href="#collapseHeader" aria-expanded="false" aria-controls="collapseHeader">
+            <i id="first-icon-bar" class="icon-bar"></i>
+            <i id="second-icon-bar" class="icon-bar"></i>
+            <i id="third-icon-bar" class="icon-bar"></i>
+        </a>
 
-    <ul class="fleft">
-        <li><%= link_to coming_soon_path do %>Faith<% end %></li>
-        <li><%= link_to coming_soon_path do %>Media<% end %></li>
-        <li><%= link_to about_path do %>About the Church<% end %></li>
-    </ul>
+        <ul class="fleft">
+            <li><%= link_to coming_soon_path do %>Faith<% end %></li>
+            <li><%= link_to coming_soon_path do %>Media<% end %></li>
+            <li><%= link_to about_path do %>About Us<% end %></li>
+            <li><%= link_to about_path do %>Resources<% end %></li>
+        </ul>
 
-    <ul class="fright">
-        <li class="hicon"><%= link_to "https://www.facebook.com/hnkidanemihret/", target: "_blank" do %><i data-feather="facebook"></i><% end %></li>
-        <li class="hicon"><%= link_to "https://twitter.com/hnkidanemihret", target: "_blank" do %><i data-feather="twitter"></i><% end %></li>
-        <li class="bicon"><%= link_to coming_soon_path do %>Church Store<% end %></li>
-        <li class="hicon"><%= link_to coming_soon_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "left", title: "<em>Log In</em> <u>or</u> <b>Sign Up!</b>" do %><i data-feather="log-in"></i><% end %></li>
-    </ul>
+        <ul class="fright">
+            <li class="hicon"><%= link_to "https://www.facebook.com/hnkidanemihret/", target: "_blank" do %><i data-feather="facebook"></i><% end %></li>
+            <li class="hicon"><%= link_to "https://twitter.com/hnkidanemihret", target: "_blank" do %><i data-feather="twitter"></i><% end %></li>
+            <li class="bicon"><%= link_to coming_soon_path do %>Church Store<% end %></li>
+            <li class="hicon"><%= link_to coming_soon_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "left", title: "<em>Log In</em> <u>or</u> <b>Sign Up!</b>" do %><i data-feather="log-in"></i><% end %></li>
+        </ul>
+    </div>
 </header>
 
 <div class="collapse" id="collapseHeader">
@@ -34,5 +37,3 @@
         <%= link_to "https://twitter.com/hnkidanemihret", target: "_blank" do %><i data-feather="twitter"></i><% end %>
     </div>
 </div>
-
-<div class="sc-divide"></div>
