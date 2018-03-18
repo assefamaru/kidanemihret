@@ -2,46 +2,14 @@
 
 // Site Quote section
 
-#site-quote {
-    width: 100%;
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 30px 50px 25px 50px;
-    background-color: $blue;
-    color: $light-blue;
-    blockquote {
-        font-family: 'Nunito', sans-serif;
-        cite {
-            color: $white-ish;
-        }
-    }
-}
+
 
 // Hero section
 
 #hero {
     width: 100%;
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 100px 50px;
-    background-color: $simply-light-blue;
     height: 150vh;
-    .row {
-        // border: 1px solid red;
-        width: 100%;
-        .col-md-8 {
-            // border: 1px solid blue;
-            font-family: 'Nunito', sans-serif;
-            h1 {
-                font-size: 3.5rem;
-                font-weight: 600;
-                color: $black;
-            }
-            h3 {
-                font-size: 3rem;
-                font-weight: 300;
-                color: $grey;
-            }
-        }
-    }
+    margin: 0;
+    padding: 0;
+    background-color: $blue-ish;
 }

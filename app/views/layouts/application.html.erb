@@ -49,8 +49,13 @@
 
 <body>
     <%= render 'partials/header' %>
-    <%= yield %>
+
+    <div class="page-wrapper">
+        <%= yield %>
+    </div>
+    
     <%= render 'partials/footer' %>
+
     <script>$(function(){$('[data-toggle="tooltip"]').tooltip()});</script>
     <script>feather.replace()</script>
     <script>$(".hdr-toggle").click(function(g){g.preventDefault(),$("#first-icon-bar").toggleClass("toggled"),$("#second-icon-bar").toggleClass("toggled"),$("#third-icon-bar").toggleClass("toggled")});</script>

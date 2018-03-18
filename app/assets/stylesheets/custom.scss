@@ -5,11 +5,24 @@
 
 body {
     width: 100%;
-    min-height: 150vh;
     margin: 0;
     font-size: 62.5%;
-    background-color: $light-blue-grey;
+    background-color: $body-blue;
     padding: $header-height 0 0 0;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: $max-width;
+    min-height: calc(100vh - 80px);
+    margin: 0 auto;
+    padding: 0;
+    border-left: 1px solid #E3E4EA;
+    border-right: 1px solid #E3E4EA;
+
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
+    box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
 }
 
 a, a:hover, button, button:hover {
@@ -23,19 +36,20 @@ a, a:hover, button, button:hover {
 
 header {
     width: 100%;
+    max-width: $max-width;
     height: $header-height;
-    margin: 0;
+    margin: 0 auto;
     padding: 0 40px;
     background-color: $white-ish;
     position: fixed;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    .wrapper {
-        width: 100%;
-        max-width: $max-width;
-        margin: 0 auto;
-    }
+    left: 0;
+    right: 0;
+
+    -webkit-box-shadow: 0px 1px 20px 0px rgba(238,238,238,1);
+    -moz-box-shadow: 0px 1px 20px 0px rgba(238,238,238,1);
+    box-shadow: 0px 1px 20px 0px rgba(238,238,238,1);
     .logo {
         float: left;
         line-height: $header-height;
@@ -97,7 +111,7 @@ header {
             a {
                 display: block;
                 line-height: $header-height - 10px;
-                font-family: 'geomanist';
+                font-family: 'Nunito', sans-serif;
                 font-size: 1rem;
                 font-weight: bold;
                 color: $black;
@@ -159,6 +173,8 @@ header {
     padding: 0;
     background-color: $white-ish;
     border-bottom: 1px solid $white-ish;
+    position: fixed;
+    z-index: 999;
     ul {
         margin: 0;
         padding: 10px 0;
