@@ -1,35 +1,51 @@
 <header id="header">
-    <%= link_to root_path, class: "logo" do %><%= image_tag('logo.png') %><span id="logo-name"></span><% end %>
-    <a class="hdr-toggle" role="button" data-toggle="collapse" href="#collapseHeader" aria-expanded="false" aria-controls="collapseHeader">
-        <i id="first-icon-bar" class="icon-bar"></i>
-        <i id="second-icon-bar" class="icon-bar"></i>
-        <i id="third-icon-bar" class="icon-bar"></i>
+    <%= link_to root_path, class: "site-name" do %>Kidane Mihret<% end %>
+    <a class="hdr-toggle" role="button" data-toggle="collapse" href="#collapse-header" aria-expanded="false" aria-controls="collapse-header">
+        <i id="top-icon-bar" class="icon-bar"></i>
+        <i id="mid-icon-bar" class="icon-bar"></i>
+        <i id="end-icon-bar" class="icon-bar"></i>
     </a>
 
-    <ul class="fleft">
-        <li><%= link_to coming_soon_path do %>Faith<% end %></li>
-        <li><%= link_to coming_soon_path do %>Media<% end %></li>
+    <ul id="hdr-left-ul" class="hdr-links">
+        <li><%= link_to dev_path do %>Faith<% end %></li>
+        <li><%= link_to dev_path do %>Media<% end %></li>
         <li><%= link_to about_path do %>About Us<% end %></li>
-        <li><%= link_to coming_soon_path do %>Resources<% end %></li>
+        <li><%= link_to dev_path do %>Resources<% end %></li>
     </ul>
 
-    <ul class="fright">
-        <li class="hicon"><%= link_to "https://www.facebook.com/hnkidanemihret/", target: "_blank" do %><i data-feather="facebook"></i><% end %></li>
-        <li class="hicon"><%= link_to "https://twitter.com/hnkidanemihret", target: "_blank" do %><i data-feather="twitter"></i><% end %></li>
-        <li class="bicon"><%= link_to coming_soon_path do %>Church Store<% end %></li>
-        <li class="hicon"><%= link_to coming_soon_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "left", title: "<em>Log In</em> <u>or</u> <b>Sign Up!</b>" do %><i data-feather="log-in"></i><% end %></li>
+    <ul id="hdr-right-ul" class="hdr-links">
+        <li>
+            <%= link_to "https://www.facebook.com/hnkidanemihret/", target: "_blank", 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "bottom", title: "<em>facebook</em>/<b>@hnkidanemihret</b>" do %>
+                <i data-feather="facebook"></i>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to "https://twitter.com/hnkidanemihret", target: "_blank", 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "bottom", title: "<em>twitter</em>/<b>@hnkidanemihret</b>" do %>
+                <i data-feather="twitter"></i>
+            <% end %>
+        </li>
+        <li id="hdr-shop-link">
+            <%= link_to dev_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "bottom", title: "<b>Church Shop</b>" do %>
+                <i data-feather="shopping-bag"></i>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to dev_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "bottom", title: "<em>Log In</em> <u>or</u> <b>Sign Up!</b>" do %>
+                <i data-feather="log-in"></i>
+            <% end %>
+        </li>
     </ul>
 </header>
 
-<div class="collapse" id="collapseHeader">
+<div class="collapse" id="collapse-header">
     <ul>
-        <li><%= link_to root_path do %>&middot; Home<% end %></li>
-        <li><%= link_to coming_soon_path do %>&middot; Faith<% end %></li>
-        <li><%= link_to coming_soon_path do %>&middot; Media<% end %></li>
-        <li><%= link_to about_path do %>&middot; About Us<% end %></li>
-        <li><%= link_to coming_soon_path do %>&middot; Resources<% end %></li>
-        <li><%= link_to coming_soon_path do %>&middot; Church Store<% end %></li>
-        <li><%= link_to coming_soon_path do %>&middot; Log In or Sign Up<% end %></li>
+        <li><%= link_to root_path do %><span class="hdr-dot">&middot;</span>Home<% end %></li>
+        <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Faith<% end %></li>
+        <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Media<% end %></li>
+        <li><%= link_to about_path do %><span class="hdr-dot">&middot;</span>About Us<% end %></li>
+        <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Resources<% end %></li>
+        <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Church Store<% end %></li>
+        <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Log In or Sign Up<% end %></li>
     </ul>
     <div class="smedia">
         <%= link_to "https://www.facebook.com/hnkidanemihret/", target: "_blank" do %><i data-feather="facebook"></i><% end %>

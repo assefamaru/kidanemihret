@@ -1,0 +1,217 @@
+@import "bootstrap";
+@import "colors";
+@import "fonts";
+
+// Variables =========================
+
+$max-width: 1500px;
+$control-width: 1000px;
+$header-height: 70px;
+
+// Universal =========================
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    background-color: $blue-ish;
+}
+
+a, a:hover, button, button:hover {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#page-container {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0;
+    border-left: 1px solid #E3E4EA;
+    border-right: 1px solid #E3E4EA;
+
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
+    box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
+    #page-wrapper {
+        width: 100%;
+        min-height: calc(100vh - 70px);
+        background-color: $white-blue;
+    }
+}
+
+// Header =========================
+
+#header {
+    width: 100%;
+    height: $header-height;
+    margin: 0;
+    padding: 0 50px;
+    background-color: $white-ish;
+    border-bottom: 1px solid $white-grey;
+    .site-name {
+        float: left;
+        line-height: $header-height;
+        text-decoration: none;
+        margin-right: 30px;
+        padding: 0;
+        font-family: 'Cormorant Garamond';
+        font-size: 2rem;
+        font-weight: 800;
+        color: $black;
+    }
+    .hdr-toggle {
+        float: right;
+        display: none;
+        height: $header-height;
+        padding: 25px 0 0 0;
+        cursor: pointer;
+        .icon-bar {
+            display: block;
+            width: 30px;
+            height: 1px;
+            margin: 0 auto 7px auto;
+            border-top: 2px solid $black;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        #top-icon-bar.toggled {
+            -ms-transform: translateY(9px) translateX(0px) rotate(45deg);
+            -webkit-transform: translateY(9px) translateX(0px) rotate(45deg);
+            transform: translateY(9px) translateX(0px) rotate(45deg);
+        }
+        #mid-icon-bar.toggled {
+            display: none;
+            margin: 0 auto;
+        }
+        #end-icon-bar.toggled {
+            -ms-transform: translateY(0px) translateX(0px) rotate(-45deg);
+            -webkit-transform: translateY(0px) translateX(0px) rotate(-45deg);
+            transform: translateY(0px) translateX(0px) rotate(-45deg);
+        }
+    }
+    ul, li {
+        margin: 0;
+        padding: 0;
+    }
+    .hdr-links li {
+        display: inline-block;
+        a {
+            display: block;
+        }
+    }
+    #hdr-left-ul {
+        float: left;
+        a {
+            line-height: $header-height;
+            font-family: 'Cormorant Garamond';
+            font-size: 1rem;
+            font-weight: bold;
+            color: $black;
+            padding: 0 20px;
+            text-decoration: none;
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+    #hdr-right-ul {
+        float: right;
+        a {
+            font-size: 1.1rem;
+            padding: 5px 10px 0 10px;
+            line-height: $header-height;
+            color: $black;
+            text-decoration: none;
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+    #hdr-shop-link a {
+        color: $blue;
+    }
+}
+
+// collapse nav
+
+#collapse-header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $white-ish;
+    ul {
+        margin: 0;
+        padding: 10px;
+        li {
+            margin: 0;
+            padding: 0;
+            display: block;
+            a {
+                display: block;
+                line-height: 40px;
+                padding: 0 40px;
+                text-decoration: none;
+                font-family: 'Cormorant Garamond';
+                font-size: 1rem;
+                font-weight: bold;
+                color: $black;
+                &:hover {
+                    color: $blue;
+                    background-color: $white-grey;
+                }
+                .hdr-dot {
+                    margin-right: 10px;
+                    color: $grey;
+                }
+            }
+        }
+    }
+    .smedia {
+        padding: 15px 50px;
+        text-align: right;
+        border-top: 1px solid $white-grey;
+        a {
+            color: $black;
+            text-decoration: none;
+            margin-left: 10px;
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+}
+
+// @media for width display
+
+@media screen and (max-width: 860px) {
+    #hdr-right-ul {
+        display: none;
+    }
+    .hdr-toggle {
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #hdr-left-ul {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .site-name {
+        font-size: 1.2rem !important;
+    }
+}
+
+// Footer =========================
+
+footer {
+
+}

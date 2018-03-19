@@ -1,4 +1,6 @@
-// Fonts ========================================
+// font-family: 'Cormorant Garamond', serif;
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond');
+
 // font-family: 'Open Sans', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 // font-family: 'Lato', sans-serif;
@@ -33,31 +35,3 @@
     font-style: normal;
 
 }
-
-
-// Colors =======================================
-$white: #FFFFFF;
-
-$white-grey: #F7F7F7;
-$light-light-grey: #EEEEEE;
-$light-grey: #E0E0E0;
-$grey: #9E9E9E;
-$dark: #424242;
-$black: #455A64;
-// $blue: #3F51B5;
-$blue: #3f51b5;
-$light-blue: #E8EAF6;
-$simply-light-blue: #F5F6F8;
-$light-blue-grey: #F1F3F5;
-$light-blue-grey-alt: #EFF0F1;
-
-$white-ish: #FDFDFD;
-$blue-ish: #F5F6F8;
-$body-blue: #F1F3F5;
-
-
-// Sizes ========================================
-$max-width: 1500px;
-$control-width: 1000px;
-$header-height: 73px;
-$header-large-height: 150px;

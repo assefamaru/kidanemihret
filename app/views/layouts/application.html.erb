@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= full_title(yield(:title)) %></title>
     <meta name="author" content="Alexander Maru">
-    <meta name="description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church, located in Southern Ontario, Canada, provides spiritual and communal services to Orthodox Tewahedo christians in the region and beyond. We welcome you in faith in the name of the Holy Father, and of the Holy Son, and of the Holy Spirit, One God, Amen.">
+    <meta name="description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church (EOTC) serves the Orthodox Tewahedo Christian community in Southern Ontario, Canada, and beyond. We welcome you in faith in the name of the Holy Father, and of the Holy Son, and of the Holy Spirit, One God, Amen.">
 
     <%= favicon_link_tag 'favicon/apple-touch-icon.png', rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' %>
     <%= favicon_link_tag 'favicon/favicon-32x32.png', rel: 'icon', sizes: '32x32', type: 'image/png' %>
@@ -19,7 +19,7 @@
     <%= csrf_meta_tags %>
 
     <meta property="og:title" content="Kidane Mihret">
-    <meta property="og:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church, located in Southern Ontario, Canada, provides spiritual and communal services to Orthodox Tewahedo christians in the region and beyond. We welcome you in faith in the name of the Holy Father, and of the Holy Son, and of the Holy Spirit, One God, Amen.">
+    <meta property="og:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church (EOTC) serves the Orthodox Tewahedo Christian community in Southern Ontario, Canada, and beyond. We welcome you in faith in the name of the Holy Father, and of the Holy Son, and of the Holy Spirit, One God, Amen.">
     <meta property="og:url" content="https://kidanemihret.org/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kidane Mihret">
@@ -27,7 +27,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kidane Mihret">
-    <meta name="twitter:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church, located in Southern Ontario, Canada, provides spiritual and communal services to Orthodox Tewahedo christians in the region and beyond. We welcome you in faith in the name of the Holy Father, and of the Holy Son, and of the Holy Spirit, One God, Amen.">
+    <meta name="twitter:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church (EOTC) serves the Orthodox Tewahedo Christian community in Southern Ontario, Canada, and beyond. We welcome you in faith in the name of the Holy Father, and of the Holy Son, and of the Holy Spirit, One God, Amen.">
     <meta name="twitter:creator" content="Alexander Maru">
     <meta name="twitter:domain" content="https://kidanemihret.org/">
     <meta name="twitter:site" content="Kidane Mihret">
@@ -48,17 +48,17 @@
 </head>
 
 <body>
-    <%= render 'partials/header' %>
-
-    <div class="page-wrapper">
-        <%= yield %>
+    <div id="page-container">
+        <%= render 'partials/header' %>
+        <div id="page-wrapper">
+            <%= yield %>
+        </div>
+        <%= render 'partials/footer' %>
     </div>
-    
-    <%= render 'partials/footer' %>
 
     <script>$(function(){$('[data-toggle="tooltip"]').tooltip()});</script>
     <script>feather.replace()</script>
-    <script>$(".hdr-toggle").click(function(g){g.preventDefault(),$("#first-icon-bar").toggleClass("toggled"),$("#second-icon-bar").toggleClass("toggled"),$("#third-icon-bar").toggleClass("toggled")});</script>
+    <script>$(".hdr-toggle").click(function(g){g.preventDefault(),$("#top-icon-bar").toggleClass("toggled"),$("#mid-icon-bar").toggleClass("toggled"),$("#end-icon-bar").toggleClass("toggled")});</script>
 </body>
 </html>
 <% end %>
