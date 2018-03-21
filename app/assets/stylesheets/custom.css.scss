@@ -43,6 +43,11 @@ a, a:hover, button, button:hover {
     }
 }
 
+.feather-right-container {
+    position: absolute;
+    padding: 4px 15px 0 15px;
+}
+
 // Header =========================
 
 #header {
@@ -187,9 +192,16 @@ a, a:hover, button, button:hover {
     }
 }
 
+#break-header {
+    width: 100%;
+    height: 5px;
+    background-color: #D0D1D5;
+    opacity: .4;
+}
+
 // @media for width display
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 950px) {
     #hdr-right-ul {
         display: none;
     }
@@ -198,7 +210,7 @@ a, a:hover, button, button:hover {
     }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
     #hdr-left-ul {
         display: none;
     }
@@ -212,6 +224,6 @@ a, a:hover, button, button:hover {
 
 // Footer =========================
 
-footer {
+#footer {
 
 }

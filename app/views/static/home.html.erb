@@ -1,0 +1,30 @@
+<section id="home-banner">
+    <div class="row">
+        <div class="col-md-9">
+            <blockquote class="blockquote mb-0">
+                <p>Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Spirit.</p>
+                <footer class="blockquote-footer">From the Holy Book of <cite title="Book Title">Matthew 28:19</cite></footer>
+            </blockquote>
+        </div>
+        <div class="col-md-3">
+            <%= image_tag('cross.gif', alt: "Ethiopian Orthodox Tewahedo Cross") %>
+        </div>
+    </div>
+</section>
+
+<section id="hero">
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Hamere Noah Kidane<br>Mihret</h1>
+            <h3>Ethiopian Orthodox Tewahedo Church</h3>
+            <div class="hero-buttons-container">
+                <%= link_to about_path, class: "button lm-button", role: "button" do %>Learn More!<% end %>
+                <%= link_to dev_path, class: "button su-button", role: "button" do %>Sign Up <span class="feather-right-container"><i data-feather="bar-chart-2"></i></span><% end %>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <%= image_tag('virgin_mary.jpg', alt: "Holy Virgin Mary") %>
+            <small>Check out the <%= link_to dev_path do %>store<% end %> for church <strong>icons</strong> and more!</small>
+        </div>
+    </div>
+</section>

@@ -7,10 +7,11 @@
     </a>
 
     <ul id="hdr-left-ul" class="hdr-links">
+        <li><%= link_to about_path do %>About Us<% end %></li>
         <li><%= link_to dev_path do %>Faith<% end %></li>
         <li><%= link_to dev_path do %>Media<% end %></li>
-        <li><%= link_to about_path do %>About Us<% end %></li>
         <li><%= link_to dev_path do %>Resources<% end %></li>
+        <li><%= link_to dev_path do %>News<% end %></li>
     </ul>
 
     <ul id="hdr-right-ul" class="hdr-links">
@@ -25,7 +26,7 @@
             <% end %>
         </li>
         <li id="hdr-shop-link">
-            <%= link_to dev_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "bottom", title: "<b>Church Shop</b>" do %>
+            <%= link_to dev_path, 'data-toggle': "tooltip", 'data-html': true, 'data-placement': "bottom", title: "<b>Church Store</b>" do %>
                 <i data-feather="shopping-bag"></i>
             <% end %>
         </li>
@@ -40,10 +41,11 @@
 <div class="collapse" id="collapse-header">
     <ul>
         <li><%= link_to root_path do %><span class="hdr-dot">&middot;</span>Home<% end %></li>
+        <li><%= link_to about_path do %><span class="hdr-dot">&middot;</span>About Us<% end %></li>
         <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Faith<% end %></li>
         <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Media<% end %></li>
-        <li><%= link_to about_path do %><span class="hdr-dot">&middot;</span>About Us<% end %></li>
         <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Resources<% end %></li>
+        <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>News<% end %></li>
         <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Church Store<% end %></li>
         <li><%= link_to dev_path do %><span class="hdr-dot">&middot;</span>Log In or Sign Up<% end %></li>
     </ul>
@@ -52,3 +54,5 @@
         <%= link_to "https://twitter.com/hnkidanemihret", target: "_blank" do %><i data-feather="twitter"></i><% end %>
     </div>
 </div>
+
+<div id="break-header"></div>
