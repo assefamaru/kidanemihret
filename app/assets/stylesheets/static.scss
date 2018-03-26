@@ -20,8 +20,6 @@
             p, footer {
                 color: $white-ish;
                 font-family: 'Lato';
-                // color: #E8EAF6;
-                // color: $white-ish;
             }
             p {
                 font-weight: 400;
@@ -145,11 +143,11 @@
                     font-size: 1rem;
                     color: $grey-ish;
                     a {
-                        color: $orange;
+                        color: $blue;
                         font-weight: bold;
                     }
                     span {
-                        color: $black;
+                        color: $blue;
                         padding-right: 10px;
                     }
                 }
@@ -172,7 +170,7 @@
                 padding: 10px;
                 color: $grey-ish;
                 a {
-                    color: $orange;
+                    color: $blue;
                     font-weight: bold;
                 }
             }
@@ -195,3 +193,5 @@
         }
     }
 }
+
+// Clergy section =========================
