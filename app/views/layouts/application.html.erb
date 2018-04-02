@@ -37,7 +37,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
@@ -49,17 +48,12 @@
 </head>
 
 <body>
-    <div id="page-container">
-        <%= render 'partials/header' %>
-        <div id="page-wrapper">
-            <%= yield %>
-        </div>
-        <%= render 'partials/footer' %>
-    </div>
+    <%= render 'partials/header' %>
+    <%= yield %>
+    <%= render 'partials/footer' %>
 
     <script>$(function(){$('[data-toggle="tooltip"]').tooltip()});</script>
-    <script>feather.replace()</script>
-    <script>$(".hdr-toggle").click(function(g){g.preventDefault(),$("#top-icon-bar").toggleClass("toggled"),$("#mid-icon-bar").toggleClass("toggled"),$("#end-icon-bar").toggleClass("toggled")});</script>
+    <script>feather.replace({ class: 'feather-icons', 'stroke-width': 2 })</script>
 </body>
 </html>
 <% end %>

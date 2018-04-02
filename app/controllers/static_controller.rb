@@ -8,7 +8,7 @@ class StaticController < ApplicationController
     def contact
     end
 
-    def coming
+    def dev
     end
 
     def temp

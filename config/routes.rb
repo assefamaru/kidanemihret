@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     get  '/about',           to: 'static#about'
     get  '/contact',         to: 'static#contact'
 
-    get  '/dev',             to: 'static#coming'
+    get  '/dev',             to: 'static#dev'
     get  '/temp',            to: 'static#temp'
 end

@@ -2,222 +2,183 @@
 @import "colors";
 @import "fonts";
 
-// Variables =========================
-
-$max-width: 1500px;
-$control-width: 1000px;
-$header-height: 70px;
-
-// Universal =========================
+/* Universal */
 
 body {
     width: 100%;
     margin: 0;
     padding: 0;
+    background-color: $white;
     font-size: 62.5%;
-    background-color: $blue-ish;
 }
 
-a, a:hover, button, button:hover {
+a, button, .feather-icons {
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+	&:hover {
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
 }
 
-#page-container {
-    width: 100%;
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 0;
-    border-left: 1px solid #E3E4EA;
-    border-right: 1px solid #E3E4EA;
+/* Header */
 
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
-    box-shadow: 0px 0px 10px 0px rgba(227,228,234,1);
-    #page-wrapper {
-        width: 100%;
-        min-height: calc(100vh - 70px);
-        background-color: $white-blue;
-    }
-}
-
-.feather-right-container {
-    position: absolute;
-    padding: 4px 15px 0 15px;
-}
-
-// Header =========================
+$header-height: 70px;
 
 #header {
     width: 100%;
     height: $header-height;
     margin: 0;
-    padding: 0 50px;
-    background-color: $white-ish;
-    border-bottom: 1px solid $white-grey;
-    .site-name {
-        float: left;
-        line-height: $header-height;
-        text-decoration: none;
-        margin-right: 30px;
-        padding: 0;
-        font-family: 'Cormorant Garamond';
-        font-size: 2rem;
-        font-weight: 800;
-        color: $black;
-    }
-    .hdr-toggle {
-        float: right;
-        display: none;
+    padding: 0 20px;
+    background-color: $white;
+    border-bottom: 1px solid $white-ish;
+
+    font-family: 'Halant', serif;
+    color: $black;
+    #hdr-wrapper {
+        width: 100%;
+        max-width: 1100px;
         height: $header-height;
-        padding: 25px 0 0 0;
-        cursor: pointer;
-        .icon-bar {
-            display: block;
-            width: 30px;
-            height: 1px;
-            margin: 0 auto 7px auto;
-            border-top: 2px solid $black;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-        }
-        #top-icon-bar.toggled {
-            -ms-transform: translateY(9px) translateX(0px) rotate(45deg);
-            -webkit-transform: translateY(9px) translateX(0px) rotate(45deg);
-            transform: translateY(9px) translateX(0px) rotate(45deg);
-        }
-        #mid-icon-bar.toggled {
-            display: none;
-            margin: 0 auto;
-        }
-        #end-icon-bar.toggled {
-            -ms-transform: translateY(0px) translateX(0px) rotate(-45deg);
-            -webkit-transform: translateY(0px) translateX(0px) rotate(-45deg);
-            transform: translateY(0px) translateX(0px) rotate(-45deg);
-        }
-    }
-    ul, li {
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
-    }
-    .hdr-links li {
-        display: inline-block;
-        a {
-            display: block;
-        }
-    }
-    #hdr-left-ul {
-        float: left;
-        a {
+        #logo {
+            float: left;
             line-height: $header-height;
-            font-family: 'Cormorant Garamond';
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.3rem;
             color: $black;
-            padding: 0 20px;
+            font-weight: 600;
             text-decoration: none;
-            &:hover {
-                color: $blue;
-            }
         }
-    }
-    #hdr-right-ul {
-        float: right;
-        a {
-            font-size: 1.1rem;
-            padding: 5px 10px 0 10px;
+        .header-toggle {
+            float: right;
+            display: none;
+            cursor: pointer;
             line-height: $header-height;
             height: $header-height;
             color: $black;
-            text-decoration: none;
-            &:hover {
-                color: $blue;
+            .feather-icons {
+                height: $header-height;
+            }
+            &:focus {
+                -webkit-transition: anim 5s ease-out;
+            }
+        }
+        #hdr-ul-left {
+            float: left;
+            margin: 0 0 0 30px;
+            padding: 0;
+            height: $header-height;
+            li {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                a {
+                    display: block;
+                    padding: 0 20px;
+                    line-height: $header-height;
+                    font-size: 1rem;
+                    color: $black;
+                    font-weight: 400;
+                    text-decoration: none;
+                    &:hover {
+                        color: $green;
+                    }
+                }
+            }
+        }
+        #hdr-ul-right {
+            float: right;
+            height: $header-height;
+            li {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                height: inherit;
+                a {
+                    display: block;
+                    padding: 0 10px;
+                    line-height: $header-height;
+                    height: $header-height;
+                    font-size: 1rem;
+                    color: $black;
+                    .feather-icons {
+                        height: $header-height;
+                        padding: 2px;
+                    }
+                    &:hover {
+                        color: $green;
+                    }
+                }
+                #hdr-store-link {
+                    border-left: 1px solid #F5F5F5;
+                    border-right: 1px solid #F5F5F5;
+                    margin: 0 10px;
+                    padding: 0 20px;
+                }
+                #hdr-login-link {
+                    padding: 0 0 0 10px;
+                }
             }
         }
     }
-    #hdr-shop-link a {
-        color: $blue;
-    }
 }
 
-// collapse nav
-
-#collapse-header {
+#collapse-nav {
     width: 100%;
     margin: 0;
-    padding: 0;
-    background-color: $white-ish;
+    padding: 10px 20px;
+    background-color: $white;
+    border-bottom: 1px solid $white-ish;
     ul {
-        margin: 0;
-        padding: 10px;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0;
         li {
+            display: block;
             margin: 0;
             padding: 0;
-            display: block;
+            width: 100%;
             a {
                 display: block;
-                line-height: 40px;
-                padding: 0 40px;
-                text-decoration: none;
-                font-family: 'Cormorant Garamond';
-                font-size: 1rem;
-                font-weight: bold;
+                line-height: 50px;
                 color: $black;
+                font-size: 1rem;
+                text-decoration: none;
+                font-family: 'Halant', serif;
                 &:hover {
-                    color: $blue;
-                    background-color: $white-grey;
-                }
-                .hdr-dot {
-                    margin-right: 10px;
-                    color: $grey;
+                    color: $green;
                 }
             }
         }
-    }
-    .smedia {
-        padding: 15px 50px;
-        text-align: right;
-        border-top: 1px solid $white-grey;
-        a {
-            color: $black;
-            text-decoration: none;
-            margin-left: 10px;
-            &:hover {
-                color: $blue;
+        .collapse-nav-media {
+            text-align: right;
+            a {
+                display: inline-block;
+                padding: 0 10px;
+                .feather-icons {
+                    padding: 2px;
+                }
             }
         }
     }
 }
 
-// @media for width display
-
-@media screen and (max-width: 970px) {
-    #hdr-right-ul {
+@media screen and (max-width: 975px) {
+    #hdr-ul-right {
         display: none;
     }
-    .hdr-toggle {
+    .header-toggle {
         display: block !important;
     }
 }
 
-@media screen and (max-width: 830px) {
-    #hdr-left-ul {
+@media screen and (max-width: 790px) {
+    #hdr-ul-left {
         display: none;
     }
-}
-
-@media screen and (max-width: 400px) {
-    .site-name {
-        font-size: 1.2rem !important;
-    }
-}
-
-// Footer =========================
-
-#footer {
-    width: 100%;
 }
