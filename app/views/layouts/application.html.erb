@@ -49,10 +49,12 @@
 
 <body>
     <%= render 'partials/header' %>
-    <%= yield %>
+    <div class="page-container">
+        <%= yield %>
+    </div>
     <%= render 'partials/footer' %>
 
-    <script>$(function(){$('[data-toggle="tooltip"]').tooltip()});</script>
+    <script>$(function(){$('[data-toggle="tooltip"]').tooltip()});$('.carousel').carousel()</script>
     <script>feather.replace({ class: 'feather-icons', 'stroke-width': 2 })</script>
 </body>
 </html>

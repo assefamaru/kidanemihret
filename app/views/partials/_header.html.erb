@@ -1,5 +1,5 @@
 <header id="header">
-    <div id="hdr-wrapper">
+    <div class="content-wrapper">
         <%= link_to root_path, id: "logo" do %>kidanemihret/org<% end %>
         <a class="header-toggle" data-toggle="collapse" href="#collapse-nav" role="button" aria-expanded="false" aria-controls="collapse-nav">
             <i data-feather="menu"></i>
@@ -42,7 +42,7 @@
 </header>
 
 <nav class="collapse" id="collapse-nav">
-    <ul>
+    <ul class="content-wrapper">
         <li><%= link_to about_path, class: "" do %>About Us<% end %></li>
         <li><%= link_to dev_path, class: "" do %>Teachings<% end %></li>
         <li><%= link_to dev_path, class: "" do %>Media<% end %></li>

@@ -12,7 +12,19 @@ body {
     font-size: 62.5%;
 }
 
-a, button, .feather-icons {
+.page-container {
+    min-height: calc(100vh - 65px);
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+a, button,
+.feather-icons {
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
@@ -39,89 +51,82 @@ $header-height: 70px;
 
     font-family: 'Halant', serif;
     color: $black;
-    #hdr-wrapper {
-        width: 100%;
-        max-width: 1100px;
+    #logo {
+        float: left;
+        line-height: $header-height;
+        font-size: 1.3rem;
+        color: $black;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .header-toggle {
+        float: right;
+        display: none;
+        cursor: pointer;
+        line-height: $header-height;
         height: $header-height;
-        margin: 0 auto;
+        color: $black;
+        .feather-icons {
+            height: $header-height;
+        }
+        &:focus {
+            -webkit-transition: anim 5s ease-out;
+        }
+    }
+    #hdr-ul-left {
+        float: left;
+        margin: 0 0 0 30px;
         padding: 0;
-        #logo {
-            float: left;
-            line-height: $header-height;
-            font-size: 1.3rem;
-            color: $black;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .header-toggle {
-            float: right;
-            display: none;
-            cursor: pointer;
-            line-height: $header-height;
-            height: $header-height;
-            color: $black;
-            .feather-icons {
-                height: $header-height;
-            }
-            &:focus {
-                -webkit-transition: anim 5s ease-out;
-            }
-        }
-        #hdr-ul-left {
-            float: left;
-            margin: 0 0 0 30px;
+        height: $header-height;
+        li {
+            margin: 0;
             padding: 0;
-            height: $header-height;
-            li {
-                margin: 0;
-                padding: 0;
-                display: inline-block;
-                a {
-                    display: block;
-                    padding: 0 20px;
-                    line-height: $header-height;
-                    font-size: 1rem;
-                    color: $black;
-                    font-weight: 400;
-                    text-decoration: none;
-                    &:hover {
-                        color: $green;
-                    }
+            display: inline-block;
+            a {
+                display: block;
+                padding: 0 20px;
+                line-height: $header-height;
+                font-size: 1rem;
+                color: $black;
+                font-weight: 400;
+                text-decoration: none;
+                &:hover {
+                    color: $green;
                 }
             }
         }
-        #hdr-ul-right {
-            float: right;
-            height: $header-height;
-            li {
-                margin: 0;
-                padding: 0;
-                display: inline-block;
-                height: inherit;
-                a {
-                    display: block;
-                    padding: 0 10px;
-                    line-height: $header-height;
+    }
+    #hdr-ul-right {
+        float: right;
+        height: $header-height;
+        li {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            height: inherit;
+            a {
+                display: block;
+                padding: 0 10px;
+                line-height: $header-height;
+                height: $header-height;
+                font-size: 1rem;
+                color: $black;
+                .feather-icons {
                     height: $header-height;
-                    font-size: 1rem;
-                    color: $black;
-                    .feather-icons {
-                        height: $header-height;
-                        padding: 2px;
-                    }
-                    &:hover {
-                        color: $green;
-                    }
+                    padding: 2px;
                 }
-                #hdr-store-link {
-                    border-left: 1px solid #F5F5F5;
-                    border-right: 1px solid #F5F5F5;
-                    margin: 0 10px;
-                    padding: 0 20px;
+                &:hover {
+                    color: $green;
                 }
-                #hdr-login-link {
-                    padding: 0 0 0 10px;
-                }
+            }
+            #hdr-store-link {
+                border-left: 1px solid #F5F5F5;
+                border-right: 1px solid #F5F5F5;
+                margin: 0 10px;
+                padding: 0 20px;
+            }
+            #hdr-login-link {
+                padding: 0 0 0 10px;
             }
         }
     }
@@ -134,10 +139,6 @@ $header-height: 70px;
     background-color: $white;
     border-bottom: 1px solid $white-ish;
     ul {
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0;
         li {
             display: block;
             margin: 0;
@@ -168,7 +169,7 @@ $header-height: 70px;
     }
 }
 
-@media screen and (max-width: 975px) {
+@media screen and (max-width: 985px) {
     #hdr-ul-right {
         display: none;
     }
