@@ -13,7 +13,7 @@ body {
 }
 
 .page-container {
-    min-height: calc(100vh - 65px);
+    min-height: calc(100vh - 100px);
 }
 
 .content-wrapper {
@@ -181,5 +181,97 @@ $header-height: 70px;
 @media screen and (max-width: 790px) {
     #hdr-ul-left {
         display: none;
+    }
+}
+
+/* Footer */
+
+#footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #343A40;
+    .content-wrapper {
+        padding: 50px 20px;
+        .row {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            .footer-col-left {
+                margin: 0;
+                padding: 0;
+                h1 {
+                    font-family: 'Halant', serif;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    color: $white-ish;
+                }
+                .btn-group {
+                    margin: 10px 0 30px 0;
+                    font-family: 'Halant', serif;
+                    button {
+                        font-weight: 400;
+                        font-size: .9rem;
+                        color: #C5C8C6;
+                    }
+                }
+            }
+            .footer-col-mid {
+                margin: 0;
+                padding: 0;
+                h1 {
+                    font-family: 'Halant', serif;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    color: $white-ish;
+                }
+                ul {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    vertical-align: top;
+                    margin-right: 50px;
+                    li {
+                        display: block;
+                        margin: 0;
+                        padding: 0;
+                        a {
+                            display: block;
+                            font-family: 'Halant', serif;
+                            font-size: .9rem;
+                            font-weight: 400;
+                            color: #C5C8C6;
+                        }
+                    }
+                }
+            }
+            .footer-col-right {
+                margin: 0;
+                padding: 20px 0 0 0;
+                font-family: 'Halant', serif;
+                color: #C5C8C6;
+                font-size: 1rem;
+                font-weight: 500;
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        margin: 0;
+                        padding: 0;
+                        display: inline-block;
+                        a {
+                            display: block;
+                            color: $white-ish;
+                            margin-right: 10px;
+                            .feather-icons {
+                                height: 30px;
+                                width: auto;
+                                padding: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
