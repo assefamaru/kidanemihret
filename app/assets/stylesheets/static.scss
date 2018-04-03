@@ -1,7 +1,7 @@
 @import "colors";
 @import "fonts";
 
-/* Home page - headlines section */
+/* Home page - quotes section */
 
 #site-quotes {
     width: 100%;
@@ -10,7 +10,7 @@
     background-color: $white-ish;
     .carousel-indicators {
         li {
-            background-color: #BDBDBD;
+            background-color: $grey;
             border-radius: 5px;
             cursor: pointer;
             width: 7px;
@@ -42,6 +42,99 @@
     #site-quotes {
         .carousel-item {
             min-height: 250px;
+        }
+    }
+}
+
+/* Home page - hero section */
+
+#hero {
+    width: 100%;
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .row {
+        width: 100%;
+        margin: 0 auto;
+        padding: 50px 20px;
+        .col-md-8 {
+            margin: 0;
+            padding: 0 0 50px 0;
+            font-family: 'Halant', serif;
+            h1 {
+                font-size: 1.9rem;
+                color: $black;
+                font-weight: 600;
+            }
+            h3 {
+                font-size: 1.3rem;
+                color: $grey;
+                font-weight: 600;
+                margin-bottom: 30px;
+            }
+            .hero-para {
+                margin: 10px 0 0 0;
+                padding: 0;
+                color: $black;
+                font-size: 1rem;
+                font-weight: 500;
+                max-width: 500px;
+            }
+            .hero-btn {
+                padding: 30px 0;
+                a {
+                    font-family: 'Halant', serif;
+                    margin-right: 10px;
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
+            .hero-loc {
+                padding: 0;
+                color: $black;
+                font-size: 1rem;
+                font-weight: 500;
+                max-width: 500px;
+            }
+            .hero-tithe, .hero-donate-link {
+                display: inline-block;
+            }
+            .hero-tithe {
+                font-size: 1rem;
+                font-weight: 500;
+                font-family: 'Halant', serif;
+                color: $black;
+                padding-right: 20px;
+            }
+            .hero-donate-link {
+                font-size: 1rem;
+                font-weight: 500;
+                font-family: 'Halant', serif;
+                color: $black;
+                img {
+                    width: 80px;
+                    height: auto;
+                }
+            }
+        }
+        .col-md-4 {
+            margin: 0;
+            padding: 0;
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+            p {
+                font-family: 'Halant', serif;
+                text-align: center;
+                color: $black;
+                font-size: .8rem;
+                font-weight: 500;
+                margin-top: 10px;
+            }
         }
     }
 }
