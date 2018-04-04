@@ -13,12 +13,12 @@ body {
 }
 
 .page-container {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 250px);
 }
 
 .content-wrapper {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0;
 }
@@ -48,8 +48,7 @@ $header-height: 70px;
     padding: 0 20px;
     background-color: $white;
     border-bottom: 1px solid $white-ish;
-
-    font-family: 'Halant', serif;
+    font-family: 'Source Sans Pro', sans-serif;
     color: $black;
     #logo {
         float: left;
@@ -58,6 +57,7 @@ $header-height: 70px;
         color: $black;
         font-weight: 600;
         text-decoration: none;
+        font-family: 'Cormorant Garamond', serif;
     }
     .header-toggle {
         float: right;
@@ -86,9 +86,8 @@ $header-height: 70px;
                 display: block;
                 padding: 0 20px;
                 line-height: $header-height;
-                font-size: 1rem;
+                font-size: .95rem;
                 color: $black;
-                font-weight: 400;
                 text-decoration: none;
                 &:hover {
                     color: $green;
@@ -113,7 +112,7 @@ $header-height: 70px;
                 color: $black;
                 .feather-icons {
                     height: $header-height;
-                    padding: 2px;
+                    padding: 4px;
                 }
                 &:hover {
                     color: $green;
@@ -148,9 +147,9 @@ $header-height: 70px;
                 display: block;
                 line-height: 50px;
                 color: $black;
-                font-size: 1rem;
+                font-size: .95rem;
                 text-decoration: none;
-                font-family: 'Halant', serif;
+                font-family: 'Source Sans Pro', sans-serif;
                 &:hover {
                     color: $green;
                 }
@@ -201,14 +200,14 @@ $header-height: 70px;
                 margin: 0;
                 padding: 0;
                 h1 {
-                    font-family: 'Halant', serif;
+                    font-family: 'Cormorant Garamond', serif;
                     font-size: 1.1rem;
-                    font-weight: 500;
-                    color: $white-ish;
+                    font-weight: 600;
+                    color: $light-grey;
                 }
                 .btn-group {
                     margin: 10px 0 30px 0;
-                    font-family: 'Halant', serif;
+                    font-family: 'Source Sans Pro', sans-serif;
                     button {
                         font-weight: 400;
                         font-size: .9rem;
@@ -220,10 +219,10 @@ $header-height: 70px;
                 margin: 0;
                 padding: 0;
                 h1 {
-                    font-family: 'Halant', serif;
+                    font-family: 'Cormorant Garamond', serif;
                     font-size: 1.1rem;
-                    font-weight: 500;
-                    color: $white-ish;
+                    font-weight: 600;
+                    color: $light-grey;
                 }
                 ul {
                     display: inline-block;
@@ -237,7 +236,7 @@ $header-height: 70px;
                         padding: 0;
                         a {
                             display: block;
-                            font-family: 'Halant', serif;
+                            font-family: 'Source Sans Pro', sans-serif;
                             font-size: .9rem;
                             font-weight: 400;
                             color: #C5C8C6;
@@ -248,7 +247,7 @@ $header-height: 70px;
             .footer-col-right {
                 margin: 0;
                 padding: 20px 0 0 0;
-                font-family: 'Halant', serif;
+                font-family: 'Source Sans Pro', sans-serif;
                 color: #C5C8C6;
                 font-size: 1rem;
                 font-weight: 500;
@@ -261,7 +260,7 @@ $header-height: 70px;
                         display: inline-block;
                         a {
                             display: block;
-                            color: $white-ish;
+                            color: $light-grey;
                             margin-right: 10px;
                             .feather-icons {
                                 height: 30px;
