@@ -53,11 +53,11 @@ $header-height: 70px;
     #logo {
         float: left;
         line-height: $header-height;
-        font-size: 1.3rem;
+        font-size: 1rem;
         color: $black;
         font-weight: 600;
         text-decoration: none;
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'PT Serif', serif;
     }
     .header-toggle {
         float: right;
@@ -200,8 +200,8 @@ $header-height: 70px;
                 margin: 0;
                 padding: 0;
                 h1 {
-                    font-family: 'Cormorant Garamond', serif;
-                    font-size: 1.1rem;
+                    font-family: 'PT Serif', serif;
+                    font-size: .95rem;
                     font-weight: 600;
                     color: $light-grey;
                 }
@@ -219,8 +219,8 @@ $header-height: 70px;
                 margin: 0;
                 padding: 0;
                 h1 {
-                    font-family: 'Cormorant Garamond', serif;
-                    font-size: 1.1rem;
+                    font-family: 'PT Serif', serif;
+                    font-size: .95rem;
                     font-weight: 600;
                     color: $light-grey;
                 }
