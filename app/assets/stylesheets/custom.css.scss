@@ -47,13 +47,14 @@ $header-height: 70px;
     margin: 0;
     padding: 0 20px;
     background-color: $white;
-    border-bottom: 1px solid $white-ish;
+    border-bottom: 1px solid #EDEEEF;
     font-family: 'Source Sans Pro', sans-serif;
     color: $black;
     #logo {
         float: left;
-        line-height: $header-height;
-        font-size: 1rem;
+        line-height: $header-height - 10px;
+        margin-top: 2px;
+        font-size: 1.2rem;
         color: $black;
         font-weight: 600;
         text-decoration: none;
@@ -68,9 +69,6 @@ $header-height: 70px;
         color: $black;
         .feather-icons {
             height: $header-height;
-        }
-        &:focus {
-            -webkit-transition: anim 5s ease-out;
         }
     }
     #hdr-ul-left {
@@ -119,10 +117,7 @@ $header-height: 70px;
                 }
             }
             #hdr-store-link {
-                border-left: 1px solid #F5F5F5;
-                border-right: 1px solid #F5F5F5;
-                margin: 0 10px;
-                padding: 0 20px;
+                color: $blue;
             }
             #hdr-login-link {
                 padding: 0 0 0 10px;

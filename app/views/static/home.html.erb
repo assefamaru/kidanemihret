@@ -34,7 +34,8 @@
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-8">
-                <p class="hero-para">In the name of <strong>the Father</strong>, <strong>the Son</strong>, and <strong>the Holy Spirit</strong>, <strong>One God</strong> Amen. Welcome to the official website of <strong>Hamere Noah Kidane Mihret</strong> (St. Mary) Ethiopian Orthodox Tewahedo Church.</p>
+                <h3>Hamere Noah Kidane Mihret Church</h3>
+                <p class="hero-para">In the name of the Father, the Son, and the Holy Spirit, One God Amen. Welcome to the official website of <%= link_to root_path do %>Hamere Noah Kidane Mihret<% end %> (St. Mary) Ethiopian Orthodox Tewahedo Church.</p>
                 <p class="hero-para">This website provides information about the essential services the church provides to the community. It also contains great resources about our faith and Ethiopian tradition.</p>
                 <p class="hero-para">We call upon everyone to join us as we worship and glorify God according to the faith, order and tradition of the Ethiopian Orthodox Tewahedo Church.</p>
 
@@ -43,7 +44,7 @@
                     <%= link_to dev_path, class: "btn btn-outline-dark", role: "button" do %>Sign Up <u>or</u> Log In<% end %>
                 </div>
 
-                <p class="hero-loc">We are located at <a target="_blank" href="https://goo.gl/maps/QY1VrqWBim52">1677 Snyder's Rd E</a>. See <%= link_to contact_path, class: "" do %>Contact Us<% end %> page for details.</p>
+                <p class="hero-para">We are located at <a target="_blank" href="https://goo.gl/maps/QY1VrqWBim52">1677 Snyder's Rd E</a>. See <%= link_to contact_path, class: "" do %>Contact Us<% end %> page for details.</p>
             </div>
             <div class="col-md-4">
                 <%= image_tag('virgin_mary.jpg', alt: 'Virgin Mary Image') %>
