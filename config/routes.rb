@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
     get  '/dev',             to: 'static#dev'
     get  '/temp',            to: 'static#temp'
+
+    get '/sitemap.xml',      to: redirect("sitemap.xml")
 end
