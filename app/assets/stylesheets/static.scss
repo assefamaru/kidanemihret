@@ -176,3 +176,30 @@
     height: 500px;
     border: 1px solid #EDEEEF;
 }
+
+#contact-list-group {
+    margin: 20px 0;
+    .active {
+        background-color: $black;
+        border: 1px solid $black;
+        border-top-right-radius: 0px !important;
+        border-top-left-radius: 0px !important;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    .list-group-item:last-child {
+        border-bottom-right-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+    }
+    .lgi-rest {
+        font-family: 'PT Serif', serif;
+        color: $black;
+        font-size: 1.1rem;
+        .badge {
+            font-family: 'Source Sans Pro', sans-serif;
+            float: right;
+            font-weight: 400;
+        }
+    }
+}
