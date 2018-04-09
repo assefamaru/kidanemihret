@@ -17,7 +17,14 @@ body {
     padding: 0;
 }
 
-.content-wrapper {
+.sizing-x {
+    width: calc(100% - 40px);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.sizing-x-full {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
@@ -38,15 +45,28 @@ a, button,
 	}
 }
 
+.section-divider-strip {
+    width: 100%;
+    height: 35px;
+    background-image: url('striped.jpg');
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.coming-soon {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #424242;
+    padding: 20px 0;
+}
+
 /* Header */
 
 $header-height: 70px;
 
 #header {
-    width: 100%;
     height: $header-height;
-    margin: 0;
-    padding: 0 20px;
     background-color: $white;
     border-bottom: 1px solid #EDEEEF;
     font-family: 'Source Sans Pro', sans-serif;
@@ -128,9 +148,7 @@ $header-height: 70px;
 }
 
 #collapse-nav {
-    width: 100%;
-    margin: 0;
-    padding: 10px 20px;
+    padding: 10px 0;
     background-color: $white;
     border-bottom: 1px solid $white-ish;
     ul {
@@ -186,8 +204,8 @@ $header-height: 70px;
     margin: 0;
     padding: 0;
     background-color: #343A40;
-    .content-wrapper {
-        padding: 50px 20px;
+    .sizing-x {
+        padding: 50px 0;
         .row {
             width: 100%;
             margin: 0;
@@ -271,3 +289,5 @@ $header-height: 70px;
         }
     }
 }
+
+/* Txt blocks styling */
