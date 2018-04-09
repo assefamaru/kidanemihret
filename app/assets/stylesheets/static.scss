@@ -26,6 +26,14 @@
             color: $black;
         }
     }
+    .txt-block-quote {
+        font-style: italic;
+        max-width: 740px;
+        border-left: 3px solid $black;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 17px;
+    }
 }
 
 /* Home page - quotes section */

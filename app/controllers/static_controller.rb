@@ -5,6 +5,15 @@ class StaticController < ApplicationController
     def about
     end
 
+    def teachings
+    end
+
+    def media
+    end
+
+    def news
+    end
+
     def contact
     end
 
