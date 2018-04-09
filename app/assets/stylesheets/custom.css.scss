@@ -290,4 +290,9 @@ $header-height: 70px;
     }
 }
 
-/* Txt blocks styling */
+@media screen and (max-width: 450px) {
+    #footer .footer-col-left,
+    #footer .footer-col-mid {
+        padding-left: 30px !important;
+    }
+}
