@@ -293,6 +293,7 @@ $header-height: 70px;
 @media screen and (max-width: 450px) {
     #footer .footer-col-left,
     #footer .footer-col-mid {
-        padding-left: 30px !important;
+        width: 220px !important;
+        margin: 0 auto !important;
     }
 }
