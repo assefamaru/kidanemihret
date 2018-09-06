@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: '<%= ENV['kidanemihret_pass'] %>'
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: kidanemihret_development
+  database: kidanemihret
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: kidanemihret_production
-  username: kidanemihret
-  password: <%= ENV['KIDANEMIHRET_DATABASE_PASSWORD'] %>
+  database: <%= ENV['KIDANEMIHRET_DB'] %>
+  username: <%= ENV['KIDANEMIHRET_USER'] %>
+  password: <%= ENV['KIDANEMIHRET_PASSWD'] %>
