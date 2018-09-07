@@ -1,0 +1,25 @@
+@import "bootstrap";
+
+/* universal */
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.hn-wrapper {
+    width: calc(100% - 20px);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* header */
+
+#header {
+    width: 100%;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+}
