@@ -13,5 +13,20 @@
 </section>
 
 <section id="home-welcome">
-
+    <div class="hn-wrapper">
+        <div class="row">
+            <div class="col-md-8">
+                <p>In the name of the Father, the Son, and the Holy Spirit, One God Amen. Welcome to the official website of <%=link_to root_path do %>Hamere Noah Kidane Mihret<% end %> (St. Mary) Ethiopian Orthodox Tewahedo Church.</p>
+                <p>This website provides information about the essential services the church provides to the community. It also contains great resources about our faith and Ethiopian tradition.</p>
+                <p>We call upon everyone to join us as we worship and glorify God according to the faith, order and tradition of the Ethiopian Orthodox Tewahedo Church.</p>
+                <p>We are located at <%= link_to "https://goo.gl/maps/QY1VrqWBim52", target: "_blank" do %>1677 Snyder's Rd E<% end %>. See <%= link_to contact_path do %>Contact Us<% end %> page for details.</p>
+            </div>
+            <div class="col-md-4">
+                <%= link_to root_path, class: "btn btn-3 btn-3e btn-green" do %>Donate online<i data-feather="dollar-sign"></i><% end %>
+                <%= link_to root_path, class: "btn btn-3 btn-3e btn-yellow" do %>Shop at store<i data-feather="shopping-cart"></i><% end %>
+                <%= link_to root_path, class: "btn btn-3 btn-3e btn-red" do %>View calendar<i data-feather="calendar"></i><% end %>
+                <%= link_to root_path, class: "btn btn-3 btn-3e btn-blue" do %>Pick a language<i class="material-icons">g_translate</i><% end %>
+            </div>
+        </div>
+    </div>
 </section>
