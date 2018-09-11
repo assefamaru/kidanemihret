@@ -3,18 +3,19 @@
 #home-hero {
     width: 100%;
     margin: 0;
-    padding: 50px 0;
+    padding: 50px 0 30px 0;
+    border-bottom: 1px solid $white-shade3;
     h1 {
         font-family: Lato;
         color: $black;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 400;
         font-style: italic;
     }
     h3 {
         font-family: Lato;
         color: $black;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 400;
         font-style: italic;
     }
@@ -39,18 +40,16 @@
             font-family: 'Source Sans Pro';
             font-size: 1.2rem;
         }
-    }
-    #home-hero-btn {
-        padding-top: 40px;
         p {
             font-family: Lato;
-            font-size: 1.1rem;
-            color: $black;
+            font-size: 1.2rem;
             font-weight: 400;
+            font-style: italic;
+            color: $black;
+            margin-top: 30px;
             a {
-                text-decoration: underline;
-                text-decoration-style: dashed;
                 color: $violet;
+                text-decoration: underline;
             }
         }
     }
@@ -59,39 +58,33 @@
 #home-welcome {
     width: 100%;
     margin: 0;
-    padding: 0;
-    background-color: $yellow-shade1;
+    padding: 50px 0;
     .row {
         margin: 0;
         padding: 0;
         width: 100%;
         .col-md-8 {
             margin: 0;
-            padding: 80px 0 50px 0;
+            padding: 0;
             p {
-                font-family: Lato;
+                font-family: 'Source Sans Pro';
                 font-size: 1.1rem;
-                font-weight: 300;
-                color: #000;
-                max-width: 500px;
+                font-style: italic;
+                color: $black;
+                max-width: 600px;
                 a {
                     text-decoration: underline;
-                    color: #000;
+                    text-decoration-style: dashed;
+                    color: $violet;
                 }
-            }
-        }
-        @media screen and (max-width: 500px) {
-            .col-md-8 {
-                border-bottom: 1px solid #fcad26;
             }
         }
         .col-md-4 {
             margin: 0;
-            padding: 70px 0 80px 0;
+            padding: 0;
             text-align: right;
             .btn {
-                width: 100%;
-                max-width: 300px;
+                max-width: 285px;
             	border: none;
             	font-family: Lato;
             	font-size: .8rem;
@@ -149,10 +142,7 @@
                 background: #fcad26;
             }
             .btn-red {
-                background: #f06060;
-            }
-            .btn-blue {
-                background: #9e54bd;
+                background: #cb4e4e;
             }
             .btn-green:hover {
                 background: #17aa56;
@@ -162,9 +152,6 @@
             }
             .btn-red:hover {
                 background: #cb4e4e;
-            }
-            .btn-blue:hover {
-                background: #823aa0;
             }
             .btn-3:hover {
                 text-decoration: none;
@@ -213,4 +200,10 @@
             }
         }
     }
+}
+
+#random-filler-div {
+    width: 100%;
+    height: 400px;
+    background-color: #823aa0;
 }

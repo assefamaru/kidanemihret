@@ -63,15 +63,28 @@ body {
     .hn-links {
         float: right;
         font-family: Lato;
-        a {
+        margin: 0;
+        padding: 0;
+        li {
             display: inline-block;
-            line-height: 70px;
-            padding: 0 15px;
-            color: $black;
-            &:hover {
-                color: $blue;
+            margin: 0;
+            padding: 0;
+            a {
+                display: block;
+                line-height: 70px;
+                padding: 0 15px;
+                color: $black;
+                // font-family: 'Source Sans Pro';
+                font-family: Lato;
+                text-decoration: none;
+                font-size: 1rem;
+                color: $black;
+                &:hover {
+                    color: $blue;
+                }
             }
         }
+
         .hn-links-item {
             .feather-icon {
                 width: 20px;
