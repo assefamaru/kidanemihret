@@ -13,12 +13,12 @@
 </head>
 
 <body>
+    <%= render 'partials/sidebar' %>
     <%= render 'partials/header' %>
     <%= yield %>
-    <%= render 'partials/footer' %>
 
     <script>
-        feather.replace({ class: 'feather-icon', 'stroke-width': 2 })
+        feather.replace({ class: 'feather-icon', 'stroke-width': 1 })
         $(function () { $('[data-toggle="tooltip"]').tooltip() })
     </script>
 </body>
