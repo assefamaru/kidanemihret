@@ -1,10 +1,23 @@
 <div id="sidebar" class="">
-    <%= link_to root_path, id: "sbar-top" do %><% end %>
-    <%= link_to root_path do %><i data-feather="home"></i><span class="sbar-text">Home</span><% end %>
-    <%= link_to about_path do %><i data-feather="grid"></i><span class="sbar-text">About</span><% end %>
-    <%= link_to contact_path do %><i data-feather="send"></i><span class="sbar-text">Contact</span><% end %>
-    <%= link_to root_path do %><i data-feather="aperture"></i><span class="sbar-text">Media</span><% end %>
-    <%= link_to root_path do %><i data-feather="book"></i><span class="sbar-text">Teachings</span><% end %>
-    <%= link_to root_path do %><i data-feather="bell"></i><span class="sbar-text">Resources</span><% end %>
-    <%= link_to root_path do %><i data-feather="log-in"></i><span class="sbar-text">Log In</span><% end %>
+    <%= link_to root_path, id: "sbar-top" do %>
+        <i data-feather="calendar"></i><span class="sbar-text">Calendar</span>
+    <% end %>
+    <%= link_to root_path, id: "sbar-home-link" do %>
+        <i data-feather="home"></i><span class="sbar-text">Home</span>
+    <% end %>
+    <%= link_to about_path, id: "sbar-about-link" do %>
+        <i data-feather="grid"></i><span class="sbar-text">About</span>
+    <% end %>
+    <%= link_to contact_path, id: "sbar-contact-link" do %>
+        <i data-feather="send"></i><span class="sbar-text">Contact</span>
+    <% end %>
+    <%= link_to root_path, id: "sbar-media-link" do %>
+        <i data-feather="aperture"></i><span class="sbar-text">Media</span>
+    <% end %>
+    <%= link_to root_path, id: "sbar-teachings-link" do %>
+        <i data-feather="book"></i><span class="sbar-text">Teachings</span>
+    <% end %>
+    <%= link_to root_path, id: "sbar-resources-link" do %>
+        <i data-feather="layers"></i><span class="sbar-text">Resources</span>
+    <% end %>
 </div>
