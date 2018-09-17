@@ -145,6 +145,26 @@ body {
                 font-weight: 400;
                 padding-left: 10px;
             }
+            ::-webkit-input-placeholder {
+                color: $grey-shade1;
+            }
+            :-moz-placeholder {
+                color: $grey-shade1;
+                opacity:  1;
+            }
+            ::-moz-placeholder {
+                color: $grey-shade1;
+                opacity:  1;
+            }
+            :-ms-input-placeholder {
+                color: $grey-shade1;
+            }
+            ::-ms-input-placeholder {
+                color: $grey-shade1;
+            }
+            ::placeholder {
+                color: $grey-shade1;
+            }
         }
     }
 }
