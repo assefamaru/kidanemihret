@@ -1,9 +1,12 @@
+<%= spaceless do %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kidane Mihret ― Ethiopian Orthodox Tewahedo Church.</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <title><%= full_title(yield(:title)) %></title>
+    <meta name="author" content="Alexander Maru">
+    <meta name="description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church, located in Southern Ontario, Canada.">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,9 +21,7 @@
     <%= yield %>
     <%= render 'partials/footer' %>
 
-    <script>
-        feather.replace({ class: 'feather-icon', 'stroke-width': 1 })
-        $(function () { $('[data-toggle="tooltip"]').tooltip() })
-    </script>
+    <script>feather.replace({class:"feather-icon","stroke-width":1}),$(function(){$('[data-toggle="tooltip"]').tooltip()});</script>
 </body>
 </html>
+<% end %>
