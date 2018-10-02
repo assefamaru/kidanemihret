@@ -10,18 +10,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <%= render 'partials/sidebar' %>
     <%= render 'partials/header' %>
     <%= yield %>
-    <%= render 'partials/footer' %>
-
-    <script>feather.replace({class:"feather-icon","stroke-width":1}),$(function(){$('[data-toggle="tooltip"]').tooltip()});</script>
 </body>
 </html>
 <% end %>
