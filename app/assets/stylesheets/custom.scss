@@ -7,11 +7,11 @@ body {
     width: 100%;
     min-height: 101vh;
     margin: 0;
-    padding: 0 0 0 50px;
-    font-size: 62.5%;
+    padding: 0;
+    // font-size: 62.5%;
 }
 
-.control-wrapper {
+.control-width {
     width: calc(100% - 20px);
     max-width: 1000px;
     margin: auto;
