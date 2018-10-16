@@ -1,9 +1,10 @@
 @import "colors";
 
-/* Home page styles */
+/* home */
 
 #hero {
     width: 100%;
     height: 500px;
-    background-color: #7E7CFA;
+    background: $shade7;
+    background-image: linear-gradient($shade7, $shade6);
 }

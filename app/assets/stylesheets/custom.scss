@@ -17,11 +17,10 @@
 
 body {
     width: 100%;
-    min-height: 101vh;
     margin: 0;
-    padding: 0;
+    padding: 80px 0 0 0;
     font-size: 62.5%;
-    background-color: #F8F8FC;
+    background-color: $shade1;
 }
 
 .control-width {
@@ -30,10 +29,15 @@ body {
     margin: auto;
 }
 
-/* Header */
+
+/* header */
 
 #header {
     width: 100%;
-    height: 60px;
-    position: absolute;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: $shade7;
 }

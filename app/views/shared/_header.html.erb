@@ -1,19 +1,22 @@
 <!-- <header id="header">
     <div class="control-width">
-        <%= link_to root_path, id: "site-name" do %>
-            <span>kidanemihret</span>
-            <span id="eotc"> eotc</span>
-        <% end %>
-        <ul id="site-links">
-            <li><%= link_to "About", about_path %></li>
-            <li><%= link_to "Contact", contact_path %></li>
+        <ul id="hdr-left">
+            <li id="hdr-toggle"><a href="#"><i data-feather="menu"></i></a></li>
+            <li id="site-name">
+                <%= link_to root_path do %>kidanemihret<% end %>
+            </li>
+        </ul>
+        <ul id="hdr-right">
             <% if logged_in? %>
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Users", users_path %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li><%= link_to "Log out", logout_path, method: :delete %></li>
             <% else %>
-                <li id="hdr-login"><%= link_to "Register / Log in", login_path %></li>
+                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Contact", contact_path %></li>
+                <li id="hdr-signup"><%= link_to "Create account", signup_path %></li>
+                <li id="hdr-login"><%= link_to "Sign in", login_path %></li>
             <% end %>
         </ul>
     </div>
