@@ -17,11 +17,12 @@
 <body>
     <%= render 'shared/header' %>
 
-    </div>
     <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
     <%= yield %>
+
+    <%= render 'shared/footer' %>
 
     <script>feather.replace({ class: 'feather-icon', 'stroke-width': 2 })</script>
 </body>
