@@ -2,18 +2,49 @@
 
 /* home */
 
+.home-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-separator-1 {
+    width: 200px;
+    border: 2px solid $shade3;
+}
+
+.custom-btn {
+    width: 170px;
+    line-height: 40px;
+    padding-left: 23px;
+    border-radius: 100px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+    margin-top: 60px;
+    display: block;
+    &:hover {
+        text-decoration: none;
+    }
+    .feather-icon {
+        float: right;
+        width: 34px;
+        height: 34px;
+        margin-top: 3px;
+        margin-right: 3px;
+        border-radius: 100px;
+        padding: 7px;
+        font-weight: bold;
+    }
+}
+
 #hero {
     width: 100%;
-    height: 500px;
     background: $shade7;
     color: $white;
     background-image: linear-gradient($shade7, $shade6);
-    .hero-container {
-        width: 100%;
-        max-width: 600px;
-        height: 500px;
-        margin: 0 auto;
-        padding: 100px 0 0 0;
+    .home-container {
+        padding: 60px 0 100px 0;
         h1 {
             font-family: 'PT Sans', sans-serif;
             font-size: 2.4rem;
@@ -28,33 +59,47 @@
             color: $shade2;
         }
         #hero-signup-btn {
-            width: 170px;
-            line-height: 40px;
-            padding-left: 23px;
             background-color: lighten(#00B0FF, 12%);
-            border-radius: 100px;
             color: $white;
-            font-family: 'PT Sans', sans-serif;
-            font-size: .9rem;
-            font-weight: 700;
-            margin-top: 60px;
-            display: block;
             -webkit-box-shadow: 0px 0px 25px 3px rgba(126,124,250,1);
             -moz-box-shadow: 0px 0px 25px 3px rgba(126,124,250,1);
             box-shadow: 0px 0px 25px 3px rgba(126,124,250,1);
-            &:hover {
-                text-decoration: none;
-            }
             .feather-icon {
-                float: right;
-                width: 34px;
-                height: 34px;
-                margin-top: 3px;
-                margin-right: 3px;
-                border-radius: 100px;
-                padding: 7px;
                 background-color: lighten(#00B0FF, 20%);
-                font-weight: bold;
+            }
+        }
+    }
+}
+
+#home-intro {
+    .home-container {
+        padding: 100px 0;
+        h1 {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            color: #5B616A;
+        }
+        img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 3px;
+            margin: 40px 0;
+        }
+        p {
+            font-family: 'PT Sans', sans-serif;
+            font-size: .9rem;
+            font-weight: 700;
+            color: lighten(#5B616A, 25%);
+            max-width: 500px;
+        }
+        #home-intro-btn {
+            background-color: $shade7;
+            color: $white;
+            .feather-icon {
+                background-color: lighten($shade7, 10%);
             }
         }
     }

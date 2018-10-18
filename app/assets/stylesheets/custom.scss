@@ -29,6 +29,13 @@ body {
     margin: auto;
 }
 
+a {
+    color: $shade7;
+    &:hover {
+        color: $shade7;
+    }
+}
+
 
 /* header */
 
@@ -71,5 +78,11 @@ body {
         a {
             font-size: .9rem;
         }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #hdr-right {
+        display: none;
     }
 }
