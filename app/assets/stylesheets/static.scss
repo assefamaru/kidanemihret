@@ -2,15 +2,10 @@
 
 /* home */
 
-.home-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 .section-separator-1 {
-    width: 200px;
-    border: 2px solid $shade3;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #edeefb;
 }
 
 .custom-btn {
@@ -43,7 +38,7 @@
     background: $shade7;
     color: $white;
     background-image: linear-gradient($shade7, $shade6);
-    .home-container {
+    .control-width-inner {
         padding: 60px 0 100px 0;
         h1 {
             font-family: 'PT Sans', sans-serif;
@@ -72,7 +67,7 @@
 }
 
 #home-intro {
-    .home-container {
+    .control-width-inner {
         padding: 100px 0;
         h1 {
             font-family: 'PT Sans', sans-serif;
@@ -89,7 +84,6 @@
             margin: 40px 0;
         }
         p {
-            font-family: 'PT Sans', sans-serif;
             font-size: .9rem;
             font-weight: 700;
             color: lighten(#5B616A, 25%);
@@ -101,6 +95,23 @@
             .feather-icon {
                 background-color: lighten($shade7, 10%);
             }
+        }
+    }
+}
+
+#home-quote {
+    .control-width-inner {
+        padding: 100px 0;
+        p {
+            color: lighten(#5B616A, 20%);
+            font-style: italic;
+            font-family: Lato;
+            font-weight: 700;
+            font-size: .9rem;
+            max-width: 500px;
+        }
+        footer {
+            font-size: .9rem;
         }
     }
 }
