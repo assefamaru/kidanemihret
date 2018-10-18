@@ -24,8 +24,8 @@ body {
 }
 
 .control-width {
-    width: calc(100% - 20px);
-    max-width: 1000px;
+    width: calc(100% - 40px);
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -40,4 +40,36 @@ body {
     left: 0;
     z-index: 1000;
     background-color: $shade7;
+    ul {
+        margin: 0;
+        padding: 0;
+        height: 80px;
+        li {
+            margin: inherit;
+            padding: inherit;
+            height: inherit;
+            display: inline-block;
+            a {
+                display: block;
+                line-height: 80px;
+                padding: 0 20px;
+                color: $white;
+                font-family: 'PT Sans', sans-serif;
+                font-weight: bold;
+                font-size: 1.1rem;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    #hdr-left {
+        float: left;
+    }
+    #hdr-right {
+        float: right;
+        a {
+            font-size: .9rem;
+        }
+    }
 }
