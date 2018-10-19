@@ -85,8 +85,9 @@
         }
         p {
             font-size: .9rem;
-            color: lighten(#5B616A, 10%);
-            max-width: 500px;
+            color: lighten(#5B616A, 15%);
+            font-family: 'PT Sans', serif;
+            font-weight: 700;
         }
         #home-intro-btn {
             background-color: $shade7;
@@ -106,7 +107,7 @@
 
 .article-title {
     font-family: 'PT Sans', sans-serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 700;
     margin: 50px 0 20px 0;
     color: #5B616A;
@@ -115,13 +116,13 @@
 .article-para {
     font-size: 1rem;
     color: #5B616A;
+    font-family: 'PT Serif', serif;
 }
 
 .article-quote {
     font-family: 'PT Serif', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #5B616A;
-    max-width: 500px;
     font-style: italic;
     margin-left: -20px;
     border-left: 3px solid #5B616A;
@@ -131,10 +132,58 @@
 /* contact */
 
 .about-table {
+    h1 {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin: 0 0 20px 0;
+        color: #5B616A;
+    }
     padding: 80px 0;
     font-size: .9rem;
     color: #5B616A;
     .tt-title {
         font-weight: bold;
+    }
+}
+
+/* signup & login */
+
+#signup .control-width-inner,
+#login .control-width-inner {
+    padding: 80px 0;
+    color: #5B616A;
+    h1 {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin: 0 0 20px 0;
+        color: #5B616A;
+    }
+    p {
+        font-size: .9rem;
+    }
+    label {
+        margin-top: 10px;
+        font-size: .8rem;
+    }
+    input {
+        margin-top: -5px;
+        margin-bottom: 10px;
+    }
+    .pass-reset-link {
+        font-size: .8rem;
+    }
+    .remember-me {
+        margin-top: -2px;
+        margin-left: 5px;
+        position: absolute;
+    }
+    .btn {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        background-color: $shade7;
+        border: 1px solid $shade7;
     }
 }
