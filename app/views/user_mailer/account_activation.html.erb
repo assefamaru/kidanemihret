@@ -1,10 +1,9 @@
-<h1>Kidane Mihret EOTC</h1>
-
 <p>Hi <%= @user.name %>,</p>
 
 <p>
-Welcome to Kidane Mihret EOTC! Click on the link below to activate your account:
+Welcome to Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church!
+You are one step away from joining the online community. Click on the link below to activate your account:
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+<%= link_to "Activate your account", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
