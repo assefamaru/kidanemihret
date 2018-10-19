@@ -38,6 +38,14 @@ a {
     }
 }
 
+.top-alert-message {
+    position: absolute;
+    width: calc(100% - 40px);
+    left: 20px;
+    top: 90px;
+    font-size: .8rem;
+}
+
 
 /* header */
 

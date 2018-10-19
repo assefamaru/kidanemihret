@@ -1,10 +1,24 @@
 <% provide(:title, 'Users') %>
-<h1>All users</h1>
 
-<%= will_paginate %>
+<section id="users-list">
+    <div class="control-width">
+        <div class="control-width-inner">
+            <h1>All users</h1>
 
-<ul class="users">
-    <%= render @users %>
-</ul>
+            <div class="digg_pagination">
+                <%= will_paginate %>
+            </div>
 
-<%= will_paginate %>
+            <ul class="users list-group">
+                <%= render @users %>
+            </ul>
+
+            <div class="digg_pagination">
+                <div class="page_info">
+                    <%= page_entries_info @users %>
+                </div>
+                <%= will_paginate %>
+            </div>
+        </div>
+    </div>
+</section>
