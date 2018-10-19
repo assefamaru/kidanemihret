@@ -147,10 +147,11 @@
     }
 }
 
-/* signup & login */
+/* signup & login & reset */
 
 #signup .control-width-inner,
-#login .control-width-inner {
+#login .control-width-inner,
+#pass-reset .control-width-inner {
     padding: 80px 0;
     color: #5B616A;
     h1 {
