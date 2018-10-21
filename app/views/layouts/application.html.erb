@@ -41,7 +41,12 @@
     <%= render 'shared/header' %>
 
     <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type} top-alert-message") %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type} top-alert-message alert-dismissible fade show") do %>
+            <%= message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        <% end %>
     <% end %>
     <%= yield %>
 
