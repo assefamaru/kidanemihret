@@ -1,9 +1,0 @@
-<p>Hi <%= @user.name %>,</p>
-
-<p>
-Welcome to Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church!
-You are one step away from joining the online community. Click on the link below to activate your account:
-</p>
-
-<%= link_to "Activate your account", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
