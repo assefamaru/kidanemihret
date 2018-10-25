@@ -2,23 +2,17 @@
     <div class="control-width">
         <div class="float-left">
             <ul>
-                <li id="sidebar-toggle">
-                    <a href="#" data-toggle="modal" data-target="#sidebar-nav">
-                        <i data-feather="align-left"></i>
-                    </a>
-                </li>
-                <li id="site-name"><%= link_to "Kidanemihret", root_path %></li>
+                <li><%= link_to "Kidanemihret", root_path %></li>
             </ul>
         </div>
         <div class="float-right">
             <ul>
-                <li><%= link_to "Home", root_path %></li>
                 <li><%= link_to "About", about_path %></li>
                 <li><%= link_to "Contact", contact_path %></li>
                 <li><%= link_to "Log in", root_path %></li>
-                <li id="header-search">
-                    <a href="#" data-toggle="modal" data-target="#search-bar">
-                        <i data-feather="search"></i>
+                <li id="sidebar-toggle">
+                    <a href="#" data-toggle="modal" data-target="#sidebar-nav">
+                        <i data-feather="align-right"></i>
                     </a>
                 </li>
             </ul>
@@ -51,25 +45,6 @@
                     <li><a href="https://www.facebook.com/hnkidanemihret/" target="_blank"><i data-feather="facebook"></i></a></li>
                     <li><a href="https://twitter.com/hnkidanemihret" target="_blank"><i data-feather="twitter"></i></a></li>
                 </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="search-bar" tabindex="-1" role="dialog" aria-labelledby="search-bar-title" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i data-feather="x"></i></span>
-                </button>
-                <form class="form-inline">
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="search-bar-input" class="sr-only">Search</label>
-                        <input type="text" class="form-control" id="search-bar-input" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2"><i data-feather="search"></i></button>
-                </form>
             </div>
         </div>
     </div>

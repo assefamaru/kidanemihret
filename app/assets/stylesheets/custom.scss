@@ -54,24 +54,13 @@ body {
         ul li a {
             display: block;
             line-height: $header-height;
-            padding: 0 20px;
+            padding: 0;
             font-size: 1rem;
             font-family: 'Abril Fatface', cursive;
-            color: darken(#7482A7, 10%);
-            margin-top: -2px;
+            color: darken(#7482A7, 15%);
             &:hover {
                 text-decoration: none;
             }
-            .feather-icon {
-                padding: 3px;
-                margin-top: -4px;
-            }
-        }
-        #sidebar-toggle a {
-            padding: 0;
-        }
-        #site-name a {
-            color: darken(#7482A7, 15%);
         }
     }
     .float-right {
@@ -84,25 +73,28 @@ body {
             text-transform: uppercase;
             font-family: 'Lato', sans-serif;
             color: darken(#7482A7, 10%);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 700;
             &:hover {
                 text-decoration: none;
             }
         }
-        #header-search {
+        #sidebar-toggle {
             a {
                 padding: 0 0 0 20px;
             }
             .feather-icon {
-                padding: 5px;
+                padding: 4px;
                 margin-top: -3px;
             }
         }
     }
-    @media screen and (max-width: 700px) {
-        .float-right {
+    @media screen and (max-width: 600px) {
+        .float-right li {
             display: none;
+        }
+        .float-right #sidebar-toggle {
+            display: inline-block;
         }
     }
 }
