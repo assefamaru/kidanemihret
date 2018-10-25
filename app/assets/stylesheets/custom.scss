@@ -1,0 +1,191 @@
+@import "bootstrap";
+
+/* fonts */
+
+// font-family: 'Lato', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+
+/* settings */
+
+$primary-color: #7E7CFA;
+$secondary-color: #F8F8FC;
+$white: #FCFCFD;
+$header-height: 70px;
+
+/* universal */
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 70px 0 0 0;
+    background-color: $secondary-color;
+}
+
+.control-width {
+    width: calc(100% - 40px);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* header */
+
+#header {
+    width: 100%;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    box-shadow: 0px 3px 15px darken($secondary-color, 3%);
+    ul, li {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+    }
+    .float-left {
+        float: left;
+        ul li a {
+            display: block;
+            line-height: $header-height;
+            padding: 0 20px;
+            font-size: 1rem;
+            font-family: 'Lato', sans-serif;
+            font-style: italic;
+            font-weight: 900;
+            color: darken(#7482A7, 10%);
+            &:hover {
+                text-decoration: none;
+            }
+            .feather-icon {
+                padding: 3px;
+                margin-top: -3px;
+            }
+        }
+        #sidebar-toggle a {
+            padding: 0;
+        }
+    }
+    .float-right {
+        float: right;
+        ul li a {
+            display: block;
+            line-height: $header-height;
+            padding: 0 20px;
+            font-size: .6rem;
+            text-transform: uppercase;
+            font-family: 'Lato', sans-serif;
+            color: darken(#7482A7, 10%);
+            letter-spacing: 3px;
+            font-weight: 700;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        #header-search {
+            .feather-icon {
+                padding: 5px;
+                margin-top: -3px;
+            }
+        }
+    }
+    @media screen and (max-width: 800px) {
+        .float-right {
+            display: none;
+        }
+    }
+}
+
+/* sidebar */
+
+#sidebar-nav {
+    width: calc(100vw - 50px);
+    max-width: 300px;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    .modal-dialog, .modal-content {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    .modal-content {
+        background-color: $white;
+        border-radius: 0px;
+        border: 1px solid $white;
+        .modal-header {
+            height: $header-height;
+            padding: 0;
+            h5 {
+                line-height: $header-height;
+                font-family: 'Lato', sans-serif;
+                font-style: italic;
+                font-weight: 900;
+                padding: 0 0 0 40px;
+                font-size: 1.2rem;
+                color: darken(#7482A7, 20%);
+            }
+            button {
+                height: $header-height;
+                width: $header-height;
+                margin: 0;
+            }
+        }
+        .modal-body {
+            padding: 20px 0 0 0;
+            ul, li {
+                margin: 0;
+                padding: 0;
+            }
+            ul p {
+                font-family: 'Lato', sans-serif;
+                color: lighten(#7482A7, 15%);
+                font-weight: 700;
+                font-size: .7rem;
+                padding: 20px 40px 0 30px;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }
+            li {
+                display: block;
+                a {
+                    display: block;
+                    text-transform: uppercase;
+                    font-size: .8rem;
+                    padding: 10px 50px;
+                    font-family: 'Lato', sans-serif;
+                    color: darken(#7482A7, 10%);
+                    &:hover {
+                        text-decoration: none;
+                        background-color: $secondary-color;
+                    }
+                }
+            }
+        }
+        .modal-footer {
+            ul, li {
+                margin: 0;
+                padding: 0;
+            }
+            li {
+                display: inline-block;
+                a {
+                    display: block;
+                    padding: 5px;
+                    color: lighten(#7482A7, 15%);
+                    .feather-icon {
+                        padding: 5px;
+                    }
+                    &:hover {
+                        color: darken(#7482A7, 10%);
+                    }
+                }
+            }
+        }
+    }
+}

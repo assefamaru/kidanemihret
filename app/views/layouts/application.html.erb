@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Kidanemihret</title>
+<head>
+    <title>Kidane Mihret ― Ethiopian Orthodox Tewahedo Church.</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+
+<body>
+    <%= render 'shared/header' %>
     <%= yield %>
-  </body>
+    <%= render 'shared/footer' %>
+
+    <script>feather.replace({ class: 'feather-icon', 'stroke-width': 2 })</script>
+</body>
 </html>

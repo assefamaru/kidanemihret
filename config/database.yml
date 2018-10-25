@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: kidanemihret_production
-  username: kidanemihret
-  password: <%= ENV['KIDANEMIHRET_DATABASE_PASSWORD'] %>
+  database: <%= ENV['KIDANEMIHRET_DB'] %>
+  username: <%= ENV['KIDANEMIHRET_USER'] %>
+  password: <%= ENV['KIDANEMIHRET_PASSWD'] %>
