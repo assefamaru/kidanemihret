@@ -5,6 +5,9 @@
 // font-family: 'Lato', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
 
+// font-family: 'Abril Fatface', cursive;
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
 /* settings */
 
 $primary-color: #7E7CFA;
@@ -53,20 +56,22 @@ body {
             line-height: $header-height;
             padding: 0 20px;
             font-size: 1rem;
-            font-family: 'Lato', sans-serif;
-            font-style: italic;
-            font-weight: 900;
+            font-family: 'Abril Fatface', cursive;
             color: darken(#7482A7, 10%);
+            margin-top: -2px;
             &:hover {
                 text-decoration: none;
             }
             .feather-icon {
                 padding: 3px;
-                margin-top: -3px;
+                margin-top: -4px;
             }
         }
         #sidebar-toggle a {
             padding: 0;
+        }
+        #site-name a {
+            color: darken(#7482A7, 15%);
         }
     }
     .float-right {
@@ -86,20 +91,21 @@ body {
             }
         }
         #header-search {
+            a {
+                padding: 0 0 0 20px;
+            }
             .feather-icon {
                 padding: 5px;
                 margin-top: -3px;
             }
         }
     }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 700px) {
         .float-right {
             display: none;
         }
     }
 }
-
-/* sidebar */
 
 #sidebar-nav {
     width: calc(100vw - 50px);
@@ -123,11 +129,9 @@ body {
             padding: 0;
             h5 {
                 line-height: $header-height;
-                font-family: 'Lato', sans-serif;
-                font-style: italic;
-                font-weight: 900;
-                padding: 0 0 0 40px;
-                font-size: 1.2rem;
+                font-family: 'Abril Fatface', cursive;
+                padding: 0 0 0 50px;
+                font-size: 1rem;
                 color: darken(#7482A7, 20%);
             }
             button {
@@ -155,8 +159,9 @@ body {
                 display: block;
                 a {
                     display: block;
+                    letter-spacing: 1px;
                     text-transform: uppercase;
-                    font-size: .8rem;
+                    font-size: .7rem;
                     padding: 10px 50px;
                     font-family: 'Lato', sans-serif;
                     color: darken(#7482A7, 10%);

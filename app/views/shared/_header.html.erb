@@ -7,7 +7,7 @@
                         <i data-feather="align-left"></i>
                     </a>
                 </li>
-                <!-- <li id="site-map"><%= link_to "kidanemihret", root_path %></li> -->
+                <li id="site-name"><%= link_to "Kidanemihret", root_path %></li>
             </ul>
         </div>
         <div class="float-right">
@@ -16,7 +16,11 @@
                 <li><%= link_to "About", about_path %></li>
                 <li><%= link_to "Contact", contact_path %></li>
                 <li><%= link_to "Log in", root_path %></li>
-                <li id="header-search"><a href="#"><i data-feather="search"></i></a></li>
+                <li id="header-search">
+                    <a href="#" data-toggle="modal" data-target="#search-bar">
+                        <i data-feather="search"></i>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -26,18 +30,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="sidebar-nav-title">kidanemihret</h5>
+                <h5 class="modal-title" id="sidebar-nav-title">Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i data-feather="x"></i></span>
                 </button>
             </div>
             <div class="modal-body">
                 <ul>
-                    <p>― Pages</p>
+                    <p>― Pages ―</p>
                     <li><%= link_to "Home", root_path %></li>
                     <li><%= link_to "About", about_path %></li>
                     <li><%= link_to "Contact", contact_path %></li>
-                    <p>― Sessions</p>
+                    <p>― Sessions ―</p>
                     <li><%= link_to "Log in", root_path %></li>
                     <li><%= link_to "Sign up", root_path %></li>
                 </ul>
@@ -47,6 +51,25 @@
                     <li><a href="https://www.facebook.com/hnkidanemihret/" target="_blank"><i data-feather="facebook"></i></a></li>
                     <li><a href="https://twitter.com/hnkidanemihret" target="_blank"><i data-feather="twitter"></i></a></li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="search-bar" tabindex="-1" role="dialog" aria-labelledby="search-bar-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i data-feather="x"></i></span>
+                </button>
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="search-bar-input" class="sr-only">Search</label>
+                        <input type="text" class="form-control" id="search-bar-input" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2"><i data-feather="search"></i></button>
+                </form>
             </div>
         </div>
     </div>
