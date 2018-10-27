@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "settings";
 
 /* fonts */
 
@@ -8,20 +9,14 @@
 // font-family: 'Abril Fatface', cursive;
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 
-/* settings */
-
-$primary-color: #7E7CFA;
-$secondary-color: #F8F8FC;
-$white: #FCFCFD;
-$header-height: 70px;
-
 /* universal */
 
 body {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh + 1px);
     margin: 0;
-    padding: 70px 0 0 0;
+    padding: $header-height 0 0 0;
+    position: relative;
     background-color: $secondary-color;
 }
 
@@ -55,9 +50,9 @@ body {
             display: block;
             line-height: $header-height;
             padding: 0;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-family: 'Abril Fatface', cursive;
-            color: darken(#7482A7, 15%);
+            color: darken($tertiary-color, 15%);
             &:hover {
                 text-decoration: none;
             }
@@ -69,10 +64,10 @@ body {
             display: block;
             line-height: $header-height;
             padding: 0 20px;
-            font-size: .6rem;
+            font-size: .65rem;
             text-transform: uppercase;
             font-family: 'Lato', sans-serif;
-            color: darken(#7482A7, 10%);
+            color: darken($tertiary-color, 10%);
             letter-spacing: 2px;
             font-weight: 700;
             &:hover {
@@ -124,7 +119,7 @@ body {
                 font-family: 'Abril Fatface', cursive;
                 padding: 0 0 0 50px;
                 font-size: 1rem;
-                color: darken(#7482A7, 20%);
+                color: darken($tertiary-color, 20%);
             }
             button {
                 height: $header-height;
@@ -140,7 +135,7 @@ body {
             }
             ul p {
                 font-family: 'Lato', sans-serif;
-                color: lighten(#7482A7, 15%);
+                color: lighten($tertiary-color, 15%);
                 font-weight: 700;
                 font-size: .7rem;
                 padding: 20px 40px 0 30px;
@@ -156,7 +151,7 @@ body {
                     font-size: .7rem;
                     padding: 10px 50px;
                     font-family: 'Lato', sans-serif;
-                    color: darken(#7482A7, 10%);
+                    color: darken($tertiary-color, 10%);
                     &:hover {
                         text-decoration: none;
                         background-color: $secondary-color;
@@ -174,12 +169,12 @@ body {
                 a {
                     display: block;
                     padding: 5px;
-                    color: lighten(#7482A7, 15%);
+                    color: lighten($tertiary-color, 15%);
                     .feather-icon {
                         padding: 5px;
                     }
                     &:hover {
-                        color: darken(#7482A7, 10%);
+                        color: darken($tertiary-color, 10%);
                     }
                 }
             }

@@ -1,5 +1,52 @@
-#hero {
+@import "settings";
+
+.page-text-nav {
+    float: left;
     width: 100%;
-    height: 500px;
-    
+    max-width: 250px;
+    padding-top: 50px;
+    h4 {
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 0;
+        margin: 0 0 10px 0;
+        color: darken($tertiary-color, 20%);
+    }
+    ul, li {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: block;
+        padding: 5px 0;
+        a {
+            color: $primary-color;
+        }
+    }
+}
+
+.page-text-content {
+    float: right;
+    width: 100%;
+    max-width: 700px;
+    padding: 50px 0;
+    color: darken($tertiary-color, 20%);
+    h3 {
+        font-family: 'Lato', sans-serif;
+        font-weight: 900;
+        font-size: 1.2rem;
+    }
+    .bottom-pad {
+        margin-bottom: 50px;
+    }
+    .ptc-quote {
+        border-left: 3px solid darken($tertiary-color, 20%);
+        padding-left: 15px;
+        margin-left: -18px;
+        font-style: italic;
+    }
+    a {
+        color: $primary-color;
+    }
 }
