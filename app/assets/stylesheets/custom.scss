@@ -9,6 +9,9 @@
 // font-family: 'Abril Fatface', cursive;
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 
+// font-family: 'PT Serif', serif;
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i');
+
 /* universal */
 
 body {
@@ -62,13 +65,12 @@ body {
         float: right;
         ul li a {
             display: block;
+            cursor: pointer;
             line-height: $header-height;
             padding: 0 20px;
-            font-size: .65rem;
-            text-transform: uppercase;
-            font-family: 'Lato', sans-serif;
-            color: darken($tertiary-color, 10%);
-            letter-spacing: 2px;
+            font-size: .9rem;
+            font-family: 'PT Serif', serif;
+            color: darken($tertiary-color, 15%);
             font-weight: 700;
             &:hover {
                 text-decoration: none;
