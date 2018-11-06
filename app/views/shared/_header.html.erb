@@ -1,3 +1,20 @@
 <header id="header">
-
+    <div class="control-width">
+        <%= link_to root_path, id: "site-name" do %>kidanemihret<% end %>
+        <ul>
+            <li><%= link_to "About", about_path %></li>
+            <li>
+                <%= link_to "#", id: "resources-dropdown", role: "button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false" do %>
+                    Resources <i data-feather="chevron-down"></i>
+                <% end %>
+                <div class="dropdown-menu" aria-labelledby="resources-dropdown">
+                    <a class="dropdown-item" href="#">Holy Bible (NKJV)</a>
+                    <a class="dropdown-item" href="#">Pay tithes online</a>
+                    <a class="dropdown-item" href="#">Find a verse</a>
+                </div>
+            </li>
+            <li><%= link_to "Contact", contact_path %></li>
+            <li class="last-item"><%= link_to "Log in", root_path %></li>
+        </ul>
+    </div>
 </header>

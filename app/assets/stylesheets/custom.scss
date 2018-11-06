@@ -6,11 +6,8 @@
 // font-family: 'Lato', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
 
-// font-family: 'Abril Fatface', cursive;
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
-
-// font-family: 'PT Serif', serif;
-@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i');
+// font-family: 'Trocchi', serif;
+@import url('https://fonts.googleapis.com/css?family=Trocchi');
 
 /* universal */
 
@@ -39,15 +36,61 @@ body {
     top: 0;
     left: 0;
     background-color: $white;
-    border-bottom: 1px solid darken($white, 5%);
-}
-
-#header-mini {
-    width: 100%;
-    height: 40px;
-    background-color: $white;
-
-    -webkit-box-shadow: 0px 0px 15px 5px rgba(248,248,252,1);
--moz-box-shadow: 0px 0px 15px 5px rgba(248,248,252,1);
-box-shadow: 0px 0px 15px 5px rgba(248,248,252,1);
+    border-bottom: 1px solid lighten($tertiary-color, 35%);
+    #site-name {
+        float: left;
+        display: block;
+        line-height: $header-height;
+        font-family: 'Trocchi', serif;
+        font-size: 1.2rem;
+        color: darken($tertiary-color, 10%);
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    ul {
+        float: right;
+        margin: 0;
+        padding: 0;
+        height: $header-height;
+        li {
+            display: inline-block;
+            height: inherit;
+            margin: inherit;
+            padding: inherit;
+            a {
+                display: block;
+                line-height: $header-height;
+                padding: 0 20px;
+                font-family: 'Trocchi', serif;
+                font-size: .9rem;
+                color: darken($tertiary-color, 10%);
+                &:hover {
+                    text-decoration: none;
+                }
+                .feather-icon {
+                    float: right;
+                    height: $header-height;
+                    padding: 3px;
+                }
+            }
+        }
+        .last-item a {
+            padding-right: 0;
+        }
+        .dropdown-menu {
+            margin-top: 0px;
+            border-radius: 0;
+            border: 1px solid $white;
+            background-color: $white;
+            box-shadow: 0 14px 28px lighten($tertiary-color, 35%), 0 10px 10px lighten($tertiary-color, 35%);
+            a {
+                line-height: 50px;
+                &:hover, &:focus {
+                    text-decoration: none;
+                    background-color: $secondary-color;
+                }
+            }
+        }
+    }
 }
