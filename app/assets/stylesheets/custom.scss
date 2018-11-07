@@ -36,7 +36,7 @@ body {
     top: 0;
     left: 0;
     background-color: $white;
-    border-bottom: 1px solid lighten($tertiary-color, 35%);
+    border-bottom: 1px solid lighten($tertiary-color, 38%);
     #site-name {
         float: left;
         display: block;
@@ -92,5 +92,17 @@ body {
                 }
             }
         }
+        #sm-menu-dropdown {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #header ul li {
+        display: none;
+    }
+    #sm-menu-dropdown {
+        display: inline-block !important;
     }
 }
