@@ -1,20 +1,37 @@
 @import "settings";
 
-#about-content-container {
-    margin: 20px 0;
-    padding-top: 20px;
+#about-page-container {
+    width: 100%;
     background-color: $white;
-    border: 1px solid lighten($tertiary-color, 38%);
+    padding: 0 0 40px 0;
+    color: darken($tertiary-color, 20%);
     h3 {
-        padding: 0 20px;
-        color: darken($tertiary-color, 10%);
-        font-family: 'Lato', sans-serif;
-        font-weight: 900;
-        font-style: italic;
-        font-size: 1.2rem;
+        font-family: 'PT Sans', sans-serif;
+        font-weight: 700;
+        font-size: 1.7rem;
+        padding: 0;
+        margin: 40px 0 10px 0;
     }
     p {
-        padding: 0 20px;
-        color: darken($tertiary-color, 10%);
+        font-family: 'PT Sans', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0;
+        margin: 0 0 20px 0;
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+    }
+    .ptc-quote {
+        border-left: 3px solid darken($tertiary-color, 20%);
+        padding-left: 17px;
+        margin-left: -20px;
+        font-style: italic;
+        .qt-source {
+            font-family: 'PT Sans', sans-serif;
+            font-style: normal;
+            font-weight: bold;
+        }
     }
 }

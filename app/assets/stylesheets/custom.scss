@@ -3,11 +3,15 @@
 
 /* fonts */
 
-// font-family: 'Lato', sans-serif;
-@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+// font-family: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300');
 
-// font-family: 'Trocchi', serif;
-@import url('https://fonts.googleapis.com/css?family=Trocchi');
+// font-family: 'PT Sans', sans-serif;
+// font-family: 'PT Serif', serif;
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Serif:400,400i,700,700i&subset=cyrillic,cyrillic-ext,latin-ext');
+
+// font-family: 'Noto Serif JP', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:200,300,400,500,600,700,900');
 
 /* universal */
 
@@ -42,9 +46,10 @@ body {
         float: left;
         display: block;
         line-height: $header-height;
-        font-family: 'Trocchi', serif;
-        font-size: 1.2rem;
-        color: darken($tertiary-color, 10%);
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: darken($tertiary-color, 15%);
         &:hover {
             text-decoration: none;
         }
@@ -62,9 +67,11 @@ body {
             a {
                 display: block;
                 line-height: $header-height;
-                padding: 0 20px;
-                font-family: 'Trocchi', serif;
+                padding: 0;
+                margin-left: 40px;
+                font-family: 'PT Sans', sans-serif;
                 font-size: .9rem;
+                font-weight: 700;
                 color: darken($tertiary-color, 10%);
                 &:hover {
                     text-decoration: none;
@@ -76,9 +83,6 @@ body {
                 }
             }
         }
-        .last-item a {
-            padding-right: 0;
-        }
         .dropdown-menu {
             margin-top: 0px;
             border-radius: 0;
@@ -86,6 +90,8 @@ body {
             background-color: $white;
             box-shadow: 0 14px 28px lighten($tertiary-color, 35%), 0 10px 10px lighten($tertiary-color, 35%);
             a {
+                margin: 0;
+                padding: 0 20px;
                 line-height: 50px;
                 &:hover, &:focus {
                     text-decoration: none;
