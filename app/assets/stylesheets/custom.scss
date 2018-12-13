@@ -4,14 +4,10 @@
 /* fonts */
 
 // font-family: 'Roboto', sans-serif;
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
 
-// font-family: 'PT Sans', sans-serif;
-// font-family: 'PT Serif', serif;
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Serif:400,400i,700,700i&subset=cyrillic,cyrillic-ext,latin-ext');
-
-// font-family: 'Noto Serif JP', sans-serif;
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:200,300,400,500,600,700,900');
+// font-family: 'Open Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
 
 /* universal */
 
@@ -19,9 +15,9 @@ body {
     width: 100%;
     min-height: calc(100vh + 1px);
     margin: 0;
-    padding: $header-height 0 0 0;
+    // padding: $header-height 0 0 0;
     position: relative;
-    background-color: $secondary-color;
+    // background-color: $secondary-color;
 }
 
 .control-width {
@@ -32,84 +28,3 @@ body {
 }
 
 /* header */
-
-#header {
-    width: 100%;
-    height: $header-height;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: $white;
-    border-bottom: 1px solid lighten($tertiary-color, 38%);
-    #site-name {
-        float: left;
-        display: block;
-        line-height: $header-height;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 300;
-        font-size: 1.5rem;
-        color: darken($tertiary-color, 15%);
-        &:hover {
-            text-decoration: none;
-        }
-    }
-    ul {
-        float: right;
-        margin: 0;
-        padding: 0;
-        height: $header-height;
-        li {
-            display: inline-block;
-            height: inherit;
-            margin: inherit;
-            padding: inherit;
-            a {
-                display: block;
-                line-height: $header-height;
-                padding: 0;
-                margin-left: 40px;
-                font-family: 'PT Sans', sans-serif;
-                font-size: .9rem;
-                font-weight: 700;
-                color: darken($tertiary-color, 10%);
-                &:hover {
-                    text-decoration: none;
-                }
-                .feather-icon {
-                    float: right;
-                    height: $header-height;
-                    padding: 3px;
-                }
-            }
-        }
-        .dropdown-menu {
-            margin-top: 0px;
-            border-radius: 0;
-            border: 1px solid $white;
-            background-color: $white;
-            box-shadow: 0 14px 28px lighten($tertiary-color, 35%), 0 10px 10px lighten($tertiary-color, 35%);
-            a {
-                margin: 0;
-                padding: 0 20px;
-                line-height: 50px;
-                &:hover, &:focus {
-                    text-decoration: none;
-                    background-color: $secondary-color;
-                }
-            }
-        }
-        #sm-menu-dropdown {
-            display: none;
-        }
-    }
-}
-
-@media screen and (max-width: 700px) {
-    #header ul li {
-        display: none;
-    }
-    #sm-menu-dropdown {
-        display: inline-block !important;
-    }
-}
