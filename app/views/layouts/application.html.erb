@@ -15,8 +15,16 @@
 
 <body>
     <%= render 'shared/header' %>
+
+    <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+
     <%= yield %>
+
     <%= render 'shared/footer' %>
+
+    <%= debug(params) if Rails.env.development? %>
 
     <script>feather.replace({ class: 'feather-icon', 'stroke-width': 2 })</script>
 </body>
