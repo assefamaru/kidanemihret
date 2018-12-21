@@ -1,14 +1,51 @@
-<ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Contact", contact_path %></li>
-    <% if logged_in? %>
-        <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Profile", current_user %></li>
-        <li><%= link_to "Setting", edit_user_path(current_user) %></li>
-        <li><%= link_to "Log out", logout_path, method: :delete %></li>
-    <% else %>
-        <li><%= link_to "Log in", login_path %></li>
-        <li><%= link_to "Sign up", signup_path %></li>
-    <% end %>
-</ul>
+<header id="header">
+    <div id="site-logo">
+        <%= link_to "Kidanemihret", root_path, id: "site-name" %>
+    </div>
+    <div id="site-search">
+        <div id="search-bar-group">
+            <%= form_tag(search_path, method: :get) do %>
+                <%= button_tag(type: "submit", name: nil) do %>
+                    <i data-feather="search"></i>
+                <% end %>
+                <%= text_field_tag(:query, params[:query], placeholder: "Search the site ...", autocomplete: "off") %>
+            <% end %>
+        </div>
+    </div>
+    <div id="site-links">
+        <ul>
+            <li><%= link_to root_path do %>Home<% end %></li>
+            <li><%= link_to about_path do %>About<% end %></li>
+            <li><%= link_to contact_path do %>Contact<% end %></li>
+            <li id="hdr-resources-link" class="dropdown">
+                <a class="" href="#" role="button" id="resourcesMenuLink" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
+                    Resources <i data-feather="chevron-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="resourcesMenuLink">
+                    <a class="dropdown-item" href="#">Holy Bible</a>
+                    <a class="dropdown-item" href="#">Search a verse</a>
+                    <a class="dropdown-item" href="#">Calendar</a>
+                </div>
+            </li>
+            <% if logged_in? %>
+                <li id="hdr-profile-link" class="dropdown">
+                    <a class="" href="#" role="button" id="profileMenuLink" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
+                        <%= gravatar_for current_user, size: 50 %>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileMenuLink">
+                        <%= link_to "View profile", current_user, class: 'dropdown-item' %>
+                        <%= link_to "Settings", edit_user_path(current_user), class: 'dropdown-item' %>
+                        <div class="dropdown-divider"></div>
+                        <%= link_to "All users", users_path, class: 'dropdown-item' %>
+                        <div class="dropdown-divider"></div>
+                        <%= link_to "Log out", logout_path, method: :delete, class: 'dropdown-item' %>
+                    </div>
+                </li>
+            <% else %>
+                <li id="hdr-login-link"><%= link_to login_path do %>Log in<% end %></li>
+                <li id="hdr-signup-link"><%= link_to signup_path do %>Sign up<% end %></li>
+            <% end %>
+            <li id="hdr-sidebar-toggle"><a href="#"><i data-feather="menu"></i></a></li>
+        </ul>
+    </div>
+</header>

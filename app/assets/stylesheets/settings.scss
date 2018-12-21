@@ -1,16 +1,18 @@
 /* fonts */
 
-// font-family: 'Roboto', sans-serif;
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+// font-family: 'Alegreya Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
 
-// font-family: 'Open Sans', sans-serif;
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+// font-family: 'PT Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=cyrillic');
 
-/* settings */
+/* sizing */
 
-$primary-color: #7E7CFA;
-$secondary-color: #F8F8FC;
-$tertiary-color: #7482A7;
-$white: #FFFFFF;
-$black: #4F5277;
-$header-height: 66px;
+$header-height: 6rem;
+$control-width: 100rem;
+
+/* colors */
+
+$primary-color: #52565E;
+$secondary-color: #F3F4F7;
+$green: #2DDE98;

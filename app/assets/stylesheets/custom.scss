@@ -3,19 +3,171 @@
 
 /* universal */
 
+:root {
+    font-size: 62.5%;
+}
+
 body {
     width: 100%;
     margin: 0;
-    // padding: $header-height 0 0 0;
+    padding: $header-height 0 0 0;
     position: relative;
-    // background-color: $secondary-color;
+    font-size: 1.6rem;
+    background-color: lighten($secondary-color, 1%);
 }
 
 .control-width {
-    width: calc(100% - 40px);
-    max-width: 1000px;
+    width: calc(100% - 4rem);
+    max-width: $control-width;
     margin: 0 auto;
     padding: 0;
 }
 
 /* header */
+
+#header {
+    width: 100%;
+    height: $header-height;
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    padding: 0 2rem;
+    background-color: lighten($secondary-color, 3%);
+    border-bottom: .1rem solid darken($secondary-color, 3%);
+    font-family: 'PT Sans', sans-serif;
+    #site-logo {
+        height: $header-height;
+        #site-name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            line-height: $header-height;
+            display: block;
+            color: $primary-color;
+            font-family: 'Alegreya Sans', sans-serif;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    $search-bar-height: 3.8rem;
+    #site-search {
+        flex: 1 1 auto;
+        padding: 0 2.5rem 0 3rem;
+        #search-bar-group {
+            width: 100%;
+            height: $search-bar-height;
+            background-color: lighten($primary-color, 60%);
+            border-radius: .5rem;
+            display: block;
+            margin-top: 1.1rem;
+            overflow: hidden;
+            button {
+                height: $search-bar-height;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                width: 4rem;
+                .feather-icon {
+                    margin-top: -.5rem;
+                    color: lighten($primary-color, 20%);
+                }
+            }
+            input {
+                height: $search-bar-height;
+                border: none;
+                outline: none;
+                width: calc(100% - 4rem);
+                background-color: transparent;
+                padding-right: 2rem;
+            }
+        }
+    }
+    #site-links {
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                margin: inherit;
+                padding: inherit;
+                display: inline-block;
+                a {
+                    display: block;
+                    margin: 0 2.5rem;
+                    line-height: $header-height;
+                    color: $primary-color;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+            #hdr-resources-link, #hdr-profile-link {
+                .feather-icon {
+                    padding: .3rem;
+                }
+                .dropdown-menu {
+                    padding: 1.5rem 0;
+                    min-width: 20rem;
+                    border: none;
+                    background-color: lighten($secondary-color, 3%);
+                    -webkit-box-shadow: 0px 5px 25px 8px rgba(243,244,247,1);
+                    -moz-box-shadow: 0px 5px 25px 8px rgba(243,244,247,1);
+                    box-shadow: 0px 5px 25px 8px rgba(243,244,247,1);
+                }
+                .dropdown-item {
+                    margin: 0;
+                    line-height: 3rem;
+                    &:hover, &:focus {
+                        text-decoration: none;
+                        background-color: lighten($secondary-color, 1%);
+                    }
+                }
+                img {
+                    width: 4rem;
+                    height: auto;
+                    border-radius: 50rem;
+                    border: .1rem solid $green;
+                    padding: .2rem;
+                }
+            }
+            #hdr-profile-link {
+                background-color: $secondary-color;
+            }
+            #hdr-login-link a {
+                color: $green;
+            }
+            #hdr-signup-link a {
+                padding: .3rem 1.5rem 0 1.5rem;
+                line-height: normal;
+                border: .2rem solid $green;
+                height: 3rem;
+                color: $green;
+                margin: .9rem 0 0 0;
+                border-radius: .3rem;
+            }
+            #hdr-sidebar-toggle {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #site-links {
+        ul li {
+            display: none !important;
+        }
+        #hdr-sidebar-toggle {
+            display: inline-block !important;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #site-search {
+        visibility: hidden;
+    }
+}
