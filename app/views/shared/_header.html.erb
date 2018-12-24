@@ -4,12 +4,12 @@
     </div>
     <div id="site-search">
         <div id="search-bar-group">
-            <%= form_tag(search_path, method: :get) do %>
+            <form action="<%= search_path %>" method="get">
                 <%= button_tag(type: "submit", name: nil) do %>
                     <i data-feather="search"></i>
                 <% end %>
-                <%= text_field_tag(:query, params[:query], placeholder: "Search the site ...", autocomplete: "off") %>
-            <% end %>
+                <%= text_field_tag(:q, params[:q], placeholder: "Search the site ...", autocomplete: "off") %>
+            </form>
         </div>
     </div>
     <div id="site-links">
@@ -22,6 +22,9 @@
                     Resources <i data-feather="chevron-down"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="resourcesMenuLink">
+                    <a class="dropdown-item" href="#">Teachings</a>
+                    <a class="dropdown-item" href="#">Media</a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Holy Bible</a>
                     <a class="dropdown-item" href="#">Search a verse</a>
                     <a class="dropdown-item" href="#">Calendar</a>

@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
     def results
-        @users = User.where('first_name LIKE ?', "#{params[:query]}")
+        @users = User.where('first_name LIKE ?', "#{params[:q]}")
     end
 
     private
