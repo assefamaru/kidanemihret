@@ -171,3 +171,100 @@ body {
         visibility: hidden;
     }
 }
+
+/* page content wrapper */
+
+.page-content-wrapper {
+    min-height: calc(100vh - 35rem);
+}
+
+/* footer */
+
+#footer {
+    width: 100%;
+    background-color: lighten($secondary-color, 3%);
+    border-top: .1rem solid darken($secondary-color, 3%);
+    .ft-links {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        padding: 5rem 0;
+    }
+    .ft-link-group {
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                display: block;
+                margin: 0;
+                padding: 0;
+                a {
+                    display: block;
+                    font-size: 1.4rem;
+                    font-family: 'PT Sans', sans-serif;
+                    font-weight: 700;
+                    color: lighten($primary-color, 20%);
+                    margin-bottom: .2rem;
+                }
+            }
+        }
+        form {
+            select {
+                width: 20rem;
+                height: 3.5rem;
+                cursor: pointer;
+                font-size: 1.4rem;
+                font-family: 'PT Sans', sans-serif;
+                font-weight: 700;
+                color: lighten($primary-color, 10%);
+            }
+            option {
+                cursor: pointer;
+                font-weight: 700;
+            }
+        }
+        .ft-icons-hdr {
+            margin-top: 5rem;
+            font-size: 1.4rem;
+            font-family: 'PT Sans', sans-serif;
+            font-weight: 700;
+            color: lighten($primary-color, 20%);
+        }
+        .ft-icons-links {
+            margin-left: -1rem;
+            a {
+                padding: .5rem;
+                color: lighten($primary-color, 10%);
+                .feather-icon {
+                    padding: .3rem;
+                }
+            }
+        }
+    }
+    .footer-small {
+        width: 100%;
+        background-color: lighten($secondary-color, 3%);
+        border-top: .1rem solid darken($secondary-color, 3%);
+        text-align: center;
+        padding: 1.5rem 2rem;
+        small {
+            font-family: 'PT Sans', sans-serif;
+            color: lighten($primary-color, 20%);
+            font-weight: 700;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .ft-links {
+        flex-direction: column !important;
+    }
+    .ft-link-group {
+        form {
+            margin-top: 3rem;
+        }
+        .ft-icons-hdr {
+            margin-top: 3rem !important;
+        }
+    }
+}

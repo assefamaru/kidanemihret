@@ -1,0 +1,50 @@
+<footer id="footer">
+    <div class="control-width">
+        <div class="ft-links">
+            <div class="ft-link-group">
+                <ul>
+                    <li><%= link_to "Home", root_path %></li>
+                    <li><%= link_to "About Us", about_path %></li>
+                    <li><%= link_to "Contact Us", contact_path %></li>
+                    <li><%= link_to "Log In", login_path %></li>
+                    <li><%= link_to "Sign Up", signup_path %></li>
+                </ul>
+            </div>
+            <div class="ft-link-group">
+                <ul>
+                    <li><%= link_to "Teachings", root_path %></li>
+                    <li><%= link_to "Media", root_path %></li>
+                    <li><%= link_to "Holy Bible", root_path %></li>
+                    <li><%= link_to "Calendar", root_path %></li>
+                    <li><%= link_to "Pay tithes online", root_path %></li>
+                    <li><%= link_to "Church store", root_path %></li>
+                </ul>
+            </div>
+            <div class="ft-link-group">
+                <ul>
+                    <li><%= link_to "Sitemap", root_path %></li>
+                    <li><%= link_to "FAQ", root_path %></li>
+                </ul>
+            </div>
+            <div class="ft-link-group">
+                <form>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option selected>en &mdash; English</option>
+                        <option value="1">am &mdash; Amharic</option>
+                    </select>
+                </form>
+                <p class="ft-icons-hdr">follow us on social media:</p>
+                <div class="ft-icons-links">
+                    <a target="_blank" href="https://www.facebook.com/hnkidanemihret/"><i data-feather="facebook"></i></a>
+                    <a target="_blank" href="https://twitter.com/hnkidanemihret/"><i data-feather="twitter"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/kidanemihret-church-270a67101/"><i data-feather="linkedin"></i></a>
+                    <a target="_blank" href="#"><i data-feather="youtube"></i></a>
+                    <a target="_blank" href="https://store.Kidanemihret.org/"><i data-feather="shopping-bag"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-small">
+        <small>Copyright &copy; 2001&mdash;<%= Time.current.year %>. All rights reserved.</small>
+    </div>
+</footer>
