@@ -1,20 +1,20 @@
 <%= form_for(@user) do |f| %>
     <%= render 'errors', object: @user %>
 
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: 'form-control' %>
+    <%= f.label :first_name, class: "af-label" %>
+    <%= f.text_field :first_name, class: "form-control af-input", autocomplete: "off" %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: 'form-control' %>
+    <%= f.label :last_name, class: "af-label" %>
+    <%= f.text_field :last_name, class: "form-control af-input", autocomplete: "off" %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+    <%= f.label :email, class: "af-label" %>
+    <%= f.email_field :email, class: "form-control af-input", autocomplete: "off" %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
+    <%= f.label :password, class: "af-label" %>
+    <%= f.password_field :password, class: "form-control af-input" %>
 
-    <%= f.label :password_confirmation, "Password confirmation" %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
+    <%= f.label :password_confirmation, "Password confirmation", class: "af-label" %>
+    <%= f.password_field :password_confirmation, class: "form-control af-input" %>
 
-    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary", id: "af-submit" %>
 <% end %>

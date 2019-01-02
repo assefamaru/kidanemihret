@@ -1,6 +1,10 @@
 <% provide(:title, 'Sign up') %>
-<% provide(:button_text, 'Create my account') %>
+<% provide(:button_text, 'Submit') %>
 
-<h1>Sign up</h1>
+<div class="auth-form">
+    <h1>Sign up</h1>
 
-<%= render 'form' %>
+    <%= render 'form' %>
+
+    <p>Already have an account? <%= link_to "Log in!", login_path, class: "auth-form-link" %></p>
+</div>

@@ -12,15 +12,29 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 
 <body>
     <%= render 'shared/header' %>
 
-    <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end %>
+    <div class="alert-tag-container">
+        <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= "#{message_type}" %> alert-dismissible fade show">
+                <% if "#{message_type}" == "success" %>
+                    <strong>Success!</strong> <%= message %>
+                <% elsif "#{message_type}" == "warning" %>
+                    <strong>Pending!</strong> <%= message %>
+                <% elsif "#{message_type}" == "danger" %>
+                    <strong>Error!</strong> <%= message %>
+                <% end %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        <% end %>
+    </div>
 
     <div class="page-content-wrapper">
         <%= yield %>

@@ -1,16 +1,19 @@
 <% provide(:title, 'Reset password') %>
-<h1>Reset password</h1>
 
-<%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
-    <%= render 'errors' %>
+<div class="auth-form">
+    <h1>Reset password</h1>
 
-    <%= hidden_field_tag :email, @user.email %>
+    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+        <%= render 'errors' %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
+        <%= hidden_field_tag :email, @user.email %>
 
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <%= f.label :password, class: "af-label" %>
+        <%= f.password_field :password, class: "form-control af-input" %>
 
-    <%= f.submit "Update password", class: "btn btn-primary" %>
-<% end %>
+        <%= f.label :password_confirmation, "Confirmation", class: "af-label" %>
+        <%= f.password_field :password_confirmation, class: "form-control af-input" %>
+
+        <%= f.submit "Update password", class: "btn btn-primary", id: "af-submit" %>
+    <% end %>
+</div>
