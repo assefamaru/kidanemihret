@@ -205,6 +205,9 @@ body {
                     font-weight: 700;
                     color: lighten($primary-color, 20%);
                     margin-bottom: .2rem;
+                    &:hover {
+                        color: $primary-color;
+                    }
                 }
             }
         }
@@ -237,6 +240,9 @@ body {
                 color: lighten($primary-color, 10%);
                 .feather-icon {
                     padding: .3rem;
+                }
+                &:hover {
+                    color: $accent;
                 }
             }
         }
