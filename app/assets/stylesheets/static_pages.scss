@@ -1,5 +1,35 @@
 @import "settings";
 
+/* Home page */
+
+#home-banner {
+    width: 100%;
+    .control-width {
+        background-color: $accent;
+        color: $white;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        .hb-am {
+            font-size: 2.1rem;
+        }
+        .hb-en {
+
+        }
+    }
+}
+
+#hero {
+    width: 100%;
+    // background-color: lighten($secondary-color, 3%);
+
+}
+
+
+
+/* About page */
+
 .custom-article-model1 {
     color: $primary-color;
     margin-top: -1rem;
