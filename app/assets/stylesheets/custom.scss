@@ -1,0 +1,32 @@
+@import "bootstrap";
+@import "settings";
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: $header-height 0 0 0;
+  font-size: 1.6rem;
+  background-color: $white;
+}
+
+.header {
+  width: 100%;
+  height: calc(#{$header-height} / 2);
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  background-color: $white;
+  border-bottom: .1rem solid darken($white, 4%);
+}
+
+#header-top {
+  top: 0;
+}
+
+#header-bottom {
+  top: calc(calc(#{$header-height} / 2) + .1rem);
+}
