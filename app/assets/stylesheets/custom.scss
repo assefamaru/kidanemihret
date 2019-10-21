@@ -13,6 +13,13 @@ body {
   background-color: $white;
 }
 
+.control-width {
+  width: calc(100% - 4rem);
+  max-width: $control-width;
+  margin: 0 auto;
+  padding: 0;
+}
+
 .header {
   width: 100%;
   height: calc(#{$header-height} / 2);
@@ -25,8 +32,68 @@ body {
 
 #header-top {
   top: 0;
+  .ht-child {
+    float: left;
+    height: inherit;
+  }
+  #ht-left {
+    width: 15rem;
+    line-height: calc(#{$header-height} / 2);
+    a {
+      font-family: 'Source Sans Pro', sans-serif;
+      color: lighten($black, 5%);
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-left: 2rem;
+      border-bottom: .05rem solid lighten($black, 5%);
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  #ht-mid {
+    width: calc(100% - 30rem);
+    text-align: center;
+    line-height: calc(#{$header-height} / 2);
+    a {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: lighten($black, 5%);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  #ht-right {
+    width: 15rem;
+    ul {
+      text-align: right;
+    }
+    ul li {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+      a {
+        display: block;
+        line-height: calc(#{$header-height} / 2);
+        color: lighten($black, 5%);
+        padding-right: 1rem;
+        font-size: 1.5rem;
+        &:hover, &:focus {
+          text-decoration: none;
+          color: #000;
+        }
+      }
+    }
+  }
 }
 
 #header-bottom {
-  top: calc(calc(#{$header-height} / 2) + .1rem);
+  top: calc(#{$header-height} / 2);
 }

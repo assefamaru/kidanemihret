@@ -1,12 +1,28 @@
 <header id="header-top" class="header">
-  <div class="">
-
+  <div id="ht-left" class="ht-child">
+    <a href="/"><% if I18n.locale == :am %>አማርኛ<% else %>English<% end %></a>
   </div>
-  <div class="">
-
+  <div id="ht-mid" class="ht-child">
+    <%= link_to "Hamere Noah Kidane Mihret EOTC", root_path %>
   </div>
-  <div class="">
-
+  <div id="ht-right" class="ht-child">
+    <ul>
+      <li>
+        <a href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
   </div>
 </header>
 
