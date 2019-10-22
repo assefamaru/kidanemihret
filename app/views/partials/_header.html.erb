@@ -8,17 +8,17 @@
   <div id="ht-right" class="ht-child">
     <ul>
       <li>
-        <a href="#">
+        <a target="_blank" href="https://www.facebook.com/Hamere-Noah-Kitchener-Kidanemhret-Ethiopian-Orthodox-Tewahedo-Church-2327802594098503/">
           <i class="fab fa-facebook-f"></i>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a target="_blank" href="#">
           <i class="fab fa-instagram"></i>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a target="_blank" href="#">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -27,5 +27,31 @@
 </header>
 
 <header id="header-bottom" class="header">
-
+  <div id="hb-left" class="hb-child">
+    <ul>
+      <li>
+        <a id="site-menu" href="#"><i class="fas fa-bars"></i>Menu</a>
+      </li>
+      <li>
+        <a id="site-search" href="#"><i class="fas fa-search"></i></a>
+      </li>
+    </ul>
+  </div>
+  <div id="hb-mid" class="hb-child">
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to "Resources", root_path %></li>
+      <li><%= link_to "FAQ", faq_path %></li>
+    </ul>
+  </div>
+  <div id="hb-right" class="hb-child">
+    <ul>
+      <li><%= link_to "Log in/Sign up", root_path %></li>
+      <li>
+        <a target="_blank" href="https://store.kidanemihret.org/"><i class="fas fa-store"></i>Shop</a>
+      </li>
+    </ul>
+  </div>
 </header>

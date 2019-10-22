@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "settings";
 
+// Universal ====================================
+
 :root {
   font-size: 62.5%;
 }
@@ -8,7 +10,7 @@
 body {
   width: 100%;
   margin: 0;
-  padding: $header-height 0 0 0;
+  padding: 0;
   font-size: 1.6rem;
   background-color: $white;
 }
@@ -20,25 +22,30 @@ body {
   padding: 0;
 }
 
+a, a:hover, button, button:hover {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+// Header =======================================
+
 .header {
   width: 100%;
   height: calc(#{$header-height} / 2);
-  position: fixed;
-  z-index: 1000;
-  left: 0;
   background-color: $white;
   border-bottom: .1rem solid darken($white, 4%);
 }
 
 #header-top {
-  top: 0;
   .ht-child {
     float: left;
     height: inherit;
+    line-height: calc(#{$header-height} / 2);
   }
   #ht-left {
     width: 15rem;
-    line-height: calc(#{$header-height} / 2);
     a {
       font-family: 'Source Sans Pro', sans-serif;
       color: lighten($black, 5%);
@@ -54,12 +61,11 @@ body {
   #ht-mid {
     width: calc(100% - 30rem);
     text-align: center;
-    line-height: calc(#{$header-height} / 2);
     a {
       text-align: center;
       text-transform: uppercase;
       font-family: 'Source Sans Pro', sans-serif;
-      color: lighten($black, 5%);
+      color: lighten($black, 17%);
       font-size: 1.5rem;
       font-weight: 600;
       letter-spacing: .1rem;
@@ -70,24 +76,24 @@ body {
   }
   #ht-right {
     width: 15rem;
+    text-align: right;
+    padding-right: 1rem;
     ul {
-      text-align: right;
-    }
-    ul li {
       margin: 0;
       padding: 0;
-    }
-    li {
-      display: inline-block;
-      a {
-        display: block;
-        line-height: calc(#{$header-height} / 2);
-        color: lighten($black, 5%);
-        padding-right: 1rem;
-        font-size: 1.5rem;
-        &:hover, &:focus {
-          text-decoration: none;
-          color: #000;
+      li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        a {
+          display: block;
+          color: lighten($black, 5%);
+          padding-right: 1rem;
+          font-size: 1.5rem;
+          &:hover, &:focus {
+            text-decoration: none;
+            color: #000;
+          }
         }
       }
     }
@@ -95,5 +101,109 @@ body {
 }
 
 #header-bottom {
-  top: calc(#{$header-height} / 2);
+  .hb-child {
+    float: left;
+    height: inherit;
+  }
+  #hb-left {
+    width: 30rem;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        a {
+          display: block;
+          line-height: calc(#{$header-height} / 2);
+          padding: 0 2rem;
+          text-transform: uppercase;
+          font-family: 'Source Sans Pro', sans-serif;
+          color: lighten($black, 17%);
+          font-size: 1.5rem;
+          letter-spacing: .1rem;
+          font-weight: 600;
+          &:hover, &:focus {
+            text-decoration: none;
+          }
+          i {
+            margin-right: 1rem;
+          }
+        }
+        #site-menu {
+          border-right: .1rem solid darken($white, 4%);
+        }
+      }
+    }
+  }
+  #hb-mid {
+    width: calc(100% - 60rem);
+    ul {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        a {
+          display: block;
+          line-height: calc(#{$header-height} / 2);
+          padding: 0 2rem;
+          text-transform: uppercase;
+          font-family: 'Source Sans Pro', sans-serif;
+          color: lighten($black, 17%);
+          font-size: 1.5rem;
+          letter-spacing: .1rem;
+          font-weight: 600;
+          border-left: .1rem solid darken($white, 4%);
+          &:hover, &:focus {
+            text-decoration: none;
+          }
+        }
+        &:last-child {
+          border-right: .1rem solid darken($white, 4%);
+        }
+      }
+    }
+  }
+  #hb-right {
+    width: 30rem;
+    text-align: right;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        a {
+          display: block;
+          line-height: calc(#{$header-height} / 2);
+          padding: 0 2rem;
+          text-transform: uppercase;
+          font-family: 'Source Sans Pro', sans-serif;
+          color: lighten($black, 17%);
+          font-size: 1.5rem;
+          letter-spacing: .1rem;
+          font-weight: 600;
+          &:hover, &:focus {
+            text-decoration: none;
+          }
+        }
+        &:last-child a {
+          padding: 0 2rem 0 4rem;
+          color: $white;
+          background-color: darken($primary-color, 3%);
+          &:hover {
+            background-color: darken($primary-color, 5%);
+          }
+          i {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
 }
