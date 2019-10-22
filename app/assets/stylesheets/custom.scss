@@ -131,7 +131,7 @@ a, a:hover, button, button:hover {
             margin-right: 1rem;
           }
         }
-        #site-menu {
+        &:first-child {
           border-right: .1rem solid darken($white, 4%);
         }
       }
@@ -206,4 +206,25 @@ a, a:hover, button, button:hover {
       }
     }
   }
+}
+
+@media screen and (max-width: 70rem) {
+  #hb-mid ul {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  #ht-mid a {
+    display: none;
+  }
+  #hb-right ul {
+    display: none !important;
+  }
+}
+
+// Sidebar ======================================
+
+#sidebar {
+  
 }
