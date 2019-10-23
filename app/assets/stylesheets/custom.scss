@@ -29,6 +29,10 @@ a, a:hover, button, button:hover {
 	transition: all 0.3s ease;
 }
 
+.dropdown-toggle::after {
+  display: none;
+}
+
 // Header =======================================
 
 .header {
@@ -36,6 +40,7 @@ a, a:hover, button, button:hover {
   height: calc(#{$header-height} / 2);
   background-color: $white;
   border-bottom: .1rem solid darken($white, 4%);
+  overflow: hidden;
 }
 
 #header-top {
@@ -149,7 +154,7 @@ a, a:hover, button, button:hover {
         display: inline-block;
         a {
           display: block;
-          line-height: calc(#{$header-height} / 2);
+          line-height: calc(calc(#{$header-height} / 2) - .1rem);
           padding: 0 2rem;
           text-transform: uppercase;
           font-family: 'Source Sans Pro', sans-serif;
@@ -160,10 +165,22 @@ a, a:hover, button, button:hover {
           border-left: .1rem solid darken($white, 4%);
           &:hover, &:focus {
             text-decoration: none;
+            background-color: #FFFFFF;
           }
         }
         &:last-child {
           border-right: .1rem solid darken($white, 4%);
+        }
+        .dropdown-menu {
+          border: none;
+          padding: 0;
+          border-left: .1rem solid darken($white, 4%);
+          border-right: .1rem solid darken($white, 4%);
+          background-color: $white;
+          border-radius: 0;
+          a {
+            border-bottom: .1rem solid darken($white, 4%);
+          }
         }
       }
     }
@@ -193,7 +210,6 @@ a, a:hover, button, button:hover {
           }
         }
         &:last-child a {
-          padding: 0 2rem 0 4rem;
           color: $white;
           background-color: darken($primary-color, 3%);
           &:hover {
@@ -225,6 +241,110 @@ a, a:hover, button, button:hover {
 
 // Sidebar ======================================
 
+.sidebar-closed {
+  margin-left: -$sidebar-width;
+}
+
+.sidebar-open {
+  margin-left: 0 !important;
+}
+
 #sidebar {
-  
+  width: 95%;
+  max-width: $sidebar-width;
+  height: 100%;
+  background-color: $white;
+  border-right: .1rem solid darken($white, 4%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  .sidebar-menu {
+    width: 100%;
+    line-height: calc(calc(#{$header-height} / 2) - .1rem);
+    padding: 0 0 0 2rem;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: lighten($black, 17%);
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    display: block;
+    text-align: left;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+    i {
+      margin-right: 3rem;
+    }
+    .fa-times {
+      float: right;
+      line-height: inherit;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      display: block;
+      a {
+        display: block;
+        width: 100%;
+        line-height: calc(calc(#{$header-height} / 2) - .1rem);
+        padding: 0 2rem;
+        text-transform: uppercase;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: lighten($black, 17%);
+        font-size: 1.5rem;
+        letter-spacing: .1rem;
+        font-weight: 600;
+        border-top: .1rem solid darken($white, 4%);
+        &:hover, &:focus {
+          text-decoration: none;
+          background-color: #FFFFFF;
+        }
+        i {
+          margin-right: 3rem;
+        }
+      }
+      #sidebar-shop-link {
+        color: $white;
+        background-color: darken($primary-color, 3%);
+        &:hover {
+          background-color: darken($primary-color, 5%);
+        }
+      }
+    }
+    #collapseResources ul {
+      margin: 0;
+      padding: 0;
+      background-color: $white;
+      li {
+        margin: 0;
+        padding: 0;
+        display: block;
+        a {
+          display: block;
+          width: 100%;
+          line-height: calc(calc(#{$header-height} / 2) - .1rem);
+          padding: 0 2rem 0 6.5rem;
+          text-transform: uppercase;
+          font-family: 'Source Sans Pro', sans-serif;
+          color: lighten($black, 17%);
+          font-size: 1.5rem;
+          letter-spacing: .1rem;
+          font-weight: 600;
+          &:hover, &:focus {
+            text-decoration: none;
+            background-color: #FFFFFF;
+          }
+          i {
+            margin-right: 3rem;
+          }
+        }
+      }
+    }
+  }
 }

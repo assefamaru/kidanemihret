@@ -18,7 +18,7 @@
         </a>
       </li>
       <li>
-        <a target="_blank" href="#">
+        <a target="_blank" href="https://twitter.com/hnkidanemihret">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -30,7 +30,7 @@
   <div id="hb-left" class="hb-child">
     <ul>
       <li>
-        <a href="#"><i class="fas fa-bars"></i>Menu</a>
+        <a href="#" id="toggle-menu-open" onclick="openSidebar()"><i class="fas fa-bars"></i>Menu</a>
       </li>
       <li>
         <a href="#"><i class="fas fa-search"></i></a>
@@ -42,7 +42,14 @@
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Contact", contact_path %></li>
-      <li><%= link_to "Resources", root_path %></li>
+      <li>
+        <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <%= link_to "Calendar", calendar_path, class: "dropdown-item" %>
+          <%= link_to "Holy Bible", bible_path, class: "dropdown-item" %>
+          <%= link_to "Pay Tithes/Donate", donate_path, class: "dropdown-item" %>
+        </div>
+      </li>
       <li><%= link_to "FAQ", faq_path %></li>
     </ul>
   </div>
