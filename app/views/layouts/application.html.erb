@@ -18,7 +18,9 @@
   <body>
     <%= render 'partials/header' %>
     <%= render 'partials/sidebar' %>
-    <%= yield %>
+    <div class="content-height">
+      <%= yield %>
+    </div>
     <%= render 'partials/footer' %>
   </body>
 </html>

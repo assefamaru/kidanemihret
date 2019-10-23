@@ -13,7 +13,7 @@
         </a>
       </li>
       <li>
-        <a target="_blank" href="#">
+        <a target="_blank" href="https://www.instagram.com/hnkidanemihret/">
           <i class="fab fa-instagram"></i>
         </a>
       </li>
@@ -32,15 +32,8 @@
       <li>
         <a href="#" id="toggle-menu-open" onclick="openSidebar()"><i class="fas fa-bars"></i>Menu</a>
       </li>
-      <li>
-        <a href="#"><i class="fas fa-search"></i></a>
-      </li>
-    </ul>
-  </div>
-  <div id="hb-mid" class="hb-child">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to root_path do %>Home<% end %></li>
+      <li><%= link_to about_path do %>About<% end %></li>
       <li><%= link_to "Contact", contact_path %></li>
       <li>
         <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
@@ -50,6 +43,8 @@
           <%= link_to "Pay Tithes/Donate", donate_path, class: "dropdown-item" %>
         </div>
       </li>
+      <li><%= link_to "Teachings", root_path %></li>
+      <li><%= link_to "Media", root_path %></li>
       <li><%= link_to "FAQ", faq_path %></li>
     </ul>
   </div>

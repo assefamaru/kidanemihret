@@ -10,7 +10,7 @@
 body {
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: $header-height 0 0 0;
   font-size: 1.6rem;
   background-color: $white;
 }
@@ -20,6 +20,10 @@ body {
   max-width: $control-width;
   margin: 0 auto;
   padding: 0;
+}
+
+.content-height {
+  min-height: calc(100vh - 10rem);
 }
 
 a, a:hover, button, button:hover {
@@ -40,10 +44,12 @@ a, a:hover, button, button:hover {
   height: calc(#{$header-height} / 2);
   background-color: $white;
   border-bottom: .1rem solid darken($white, 4%);
-  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
 }
 
 #header-top {
+  top: 0;
   .ht-child {
     float: left;
     height: inherit;
@@ -106,12 +112,13 @@ a, a:hover, button, button:hover {
 }
 
 #header-bottom {
+  top: calc(#{$header-height} / 2);
   .hb-child {
     float: left;
     height: inherit;
   }
   #hb-left {
-    width: 30rem;
+    width: calc(100% - 30rem);
     ul {
       margin: 0;
       padding: 0;
@@ -127,49 +134,15 @@ a, a:hover, button, button:hover {
           font-family: 'Source Sans Pro', sans-serif;
           color: lighten($black, 17%);
           font-size: 1.5rem;
-          letter-spacing: .1rem;
           font-weight: 600;
+          border-right: .1rem solid darken($white, 4%);
           &:hover, &:focus {
             text-decoration: none;
           }
           i {
             margin-right: 1rem;
+            font-size: 1.3rem;
           }
-        }
-        &:first-child {
-          border-right: .1rem solid darken($white, 4%);
-        }
-      }
-    }
-  }
-  #hb-mid {
-    width: calc(100% - 60rem);
-    ul {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      li {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        a {
-          display: block;
-          line-height: calc(calc(#{$header-height} / 2) - .1rem);
-          padding: 0 2rem;
-          text-transform: uppercase;
-          font-family: 'Source Sans Pro', sans-serif;
-          color: lighten($black, 17%);
-          font-size: 1.5rem;
-          letter-spacing: .1rem;
-          font-weight: 600;
-          border-left: .1rem solid darken($white, 4%);
-          &:hover, &:focus {
-            text-decoration: none;
-            background-color: #FFFFFF;
-          }
-        }
-        &:last-child {
-          border-right: .1rem solid darken($white, 4%);
         }
         .dropdown-menu {
           border: none;
@@ -180,6 +153,11 @@ a, a:hover, button, button:hover {
           border-radius: 0;
           a {
             border-bottom: .1rem solid darken($white, 4%);
+          }
+        }
+        &:not(:first-child) {
+          a:hover, a:focus {
+            background-color: #FFFFFF;
           }
         }
       }
@@ -203,7 +181,6 @@ a, a:hover, button, button:hover {
           font-family: 'Source Sans Pro', sans-serif;
           color: lighten($black, 17%);
           font-size: 1.5rem;
-          letter-spacing: .1rem;
           font-weight: 600;
           &:hover, &:focus {
             text-decoration: none;
@@ -225,8 +202,10 @@ a, a:hover, button, button:hover {
 }
 
 @media screen and (max-width: 70rem) {
-  #hb-mid ul {
-    display: none;
+  #hb-left ul li {
+    &:not(:first-child) {
+      display: none !important;
+    }
   }
 }
 
@@ -234,16 +213,18 @@ a, a:hover, button, button:hover {
   #ht-mid a {
     display: none;
   }
+}
+
+@media screen and (max-width: 30rem) {
   #hb-right ul {
     display: none !important;
+  }
+  #hb-left {
+    width: 100% !important;
   }
 }
 
 // Sidebar ======================================
-
-.sidebar-closed {
-  margin-left: -$sidebar-width;
-}
 
 .sidebar-open {
   margin-left: 0 !important;
@@ -259,6 +240,7 @@ a, a:hover, button, button:hover {
   top: 0;
   left: 0;
   z-index: 1000;
+  margin-left: -$sidebar-width;
   .sidebar-menu {
     width: 100%;
     line-height: calc(calc(#{$header-height} / 2) - .1rem);
