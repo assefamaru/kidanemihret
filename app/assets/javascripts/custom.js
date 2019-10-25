@@ -1,13 +1,11 @@
-function openSidebar() {
-  var element, name;
-  element = document.getElementById("sidebar");
-  name = "sidebar-open";
-  element.className += " " + name;
-}
+$(document).on('turbolinks:load', function() {
+  $('#sidebar-menu-open').click(function() {
+    $('#sidebar').className += " sidebar-open";
+  });
+});
 
-function closeSidebar() {
-  var element, name;
-  element = document.getElementById("sidebar");
-  name = "sidebar-open"
-  element.className = element.className.replace(/\bname\b/g, "");
-}
+$(document).on('turbolinks:load', function() {
+  $('#sidebar-menu-close').click(function() {
+    $('#sidebar').removeClass('sidebar-open');
+  });
+});

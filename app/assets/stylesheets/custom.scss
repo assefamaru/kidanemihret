@@ -241,10 +241,13 @@ a, a:hover, button, button:hover {
   left: 0;
   z-index: 1000;
   margin-left: -$sidebar-width;
-  .sidebar-menu {
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  a {
     width: 100%;
     line-height: calc(calc(#{$header-height} / 2) - .1rem);
-    padding: 0 0 0 2rem;
     text-transform: uppercase;
     font-family: 'Source Sans Pro', sans-serif;
     color: lighten($black, 17%);
@@ -252,43 +255,24 @@ a, a:hover, button, button:hover {
     letter-spacing: .1rem;
     font-weight: 600;
     display: block;
-    text-align: left;
     &:hover, &:focus {
       text-decoration: none;
     }
     i {
       margin-right: 3rem;
     }
-    .fa-times {
-      float: right;
-      line-height: inherit;
-    }
+  }
+  #sidebar-menu-close {
+    padding: 0 0 0 2rem;
   }
   ul {
-    margin: 0;
-    padding: 0;
     li {
-      margin: 0;
-      padding: 0;
       display: block;
       a {
-        display: block;
-        width: 100%;
-        line-height: calc(calc(#{$header-height} / 2) - .1rem);
         padding: 0 2rem;
-        text-transform: uppercase;
-        font-family: 'Source Sans Pro', sans-serif;
-        color: lighten($black, 17%);
-        font-size: 1.5rem;
-        letter-spacing: .1rem;
-        font-weight: 600;
         border-top: .1rem solid darken($white, 4%);
-        &:hover, &:focus {
-          text-decoration: none;
+        &:hover {
           background-color: #FFFFFF;
-        }
-        i {
-          margin-right: 3rem;
         }
       }
       #sidebar-shop-link {
@@ -300,30 +284,13 @@ a, a:hover, button, button:hover {
       }
     }
     #collapseResources ul {
-      margin: 0;
-      padding: 0;
       background-color: $white;
       li {
-        margin: 0;
-        padding: 0;
         display: block;
         a {
-          display: block;
-          width: 100%;
-          line-height: calc(calc(#{$header-height} / 2) - .1rem);
           padding: 0 2rem 0 6.5rem;
-          text-transform: uppercase;
-          font-family: 'Source Sans Pro', sans-serif;
-          color: lighten($black, 17%);
-          font-size: 1.5rem;
-          letter-spacing: .1rem;
-          font-weight: 600;
           &:hover, &:focus {
-            text-decoration: none;
             background-color: #FFFFFF;
-          }
-          i {
-            margin-right: 3rem;
           }
         }
       }

@@ -1,14 +1,18 @@
 <section id="sidebar" class="">
-  <a href="#" class="sidebar-menu" id="toggle-menu-close" onclick="closeSidebar()"><i class="fas fa-church"></i>Kidane Mihret <i class="fas fa-times"></i></a>
+  <a href="#" id="sidebar-menu-close">
+    <i class="fas fa-long-arrow-alt-left"></i>Close Menu</a>
   <ul>
     <li>
-      <%= link_to root_path do %><i class="fas fa-home"></i>Home<% end %>
+      <%= link_to root_path do %>
+      <i class="fas fa-home"></i>Home<% end %>
     </li>
     <li>
-      <%= link_to about_path do %><i class="fas fa-landmark"></i>About<% end %>
+      <%= link_to about_path do %>
+      <i class="fas fa-landmark"></i>About<% end %>
     </li>
     <li>
-      <%= link_to contact_path do %><i class="fas fa-paper-plane"></i>Contact<% end %>
+      <%= link_to contact_path do %>
+      <i class="fas fa-paper-plane"></i>Contact<% end %>
     </li>
     <li>
       <a data-toggle="collapse" href="#collapseResources" role="button" aria-expanded="false" aria-controls="collapseResources">
@@ -16,19 +20,39 @@
     </li>
     <div class="collapse" id="collapseResources">
       <ul>
-        <li><%= link_to calendar_path do %><i class="fas fa-calendar-alt"></i>Calendar<% end %></li>
-        <li><%= link_to bible_path do %><i class="fas fa-bible"></i>Holy Bible<% end %></li>
-        <li><%= link_to donate_path do %><i class="fas fa-donate"></i>Pay Tithes/Donate<% end %></li>
+        <li>
+          <%= link_to calendar_path do %>
+          <i class="fas fa-calendar-alt"></i>Calendar<% end %>
+        </li>
+        <li>
+          <%= link_to bible_path do %>
+          <i class="fas fa-bible"></i>Holy Bible<% end %>
+        </li>
+        <li>
+          <%= link_to donate_path do %>
+          <i class="fas fa-donate"></i>Pay Tithes/Donate<% end %>
+        </li>
+        <li>
+          <%= link_to root_path do %>
+          <i class="fas fa-book-open"></i>Teachings<% end %>
+        </li>
+        <li>
+          <%= link_to root_path do %>
+          <i class="fas fa-camera-retro"></i>Media<% end %>
+        </li>
       </ul>
     </div>
     <li>
-      <%= link_to faq_path do %><i class="fas fa-question-circle"></i>FAQ<% end %>
+      <%= link_to faq_path do %>
+      <i class="fas fa-question-circle"></i>FAQ<% end %>
     </li>
     <li>
-      <a id="sidebar-shop-link" target="_blank" href="https://store.kidanemihret.org/"><i class="fas fa-store"></i>Shop</a>
+      <a id="sidebar-shop-link" target="_blank" href="https://store.kidanemihret.org/">
+        <i class="fas fa-store"></i>Shop</a>
     </li>
     <li>
-      <%= link_to root_path do %><i class="fas fa-sign-in-alt"></i>Log in/Sign up<% end %>
+      <%= link_to root_path do %>
+      <i class="fas fa-sign-in-alt"></i>Log in/Sign up<% end %>
     </li>
   </ul>
 </section>
