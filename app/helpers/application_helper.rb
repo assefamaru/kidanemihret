@@ -4,7 +4,7 @@ module ApplicationHelper
     if page_title.empty?
       "Kidane Mihret — Ethiopian Orthodox Tewahedo Church."
     else
-      page_title + " — Kidane Mihret"
+      page_title + " — Kidane Mihret EOTC"
     end
   end
 

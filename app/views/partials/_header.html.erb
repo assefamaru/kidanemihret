@@ -32,19 +32,23 @@
       <li>
         <a href="#" id="toggle-menu-open" onclick="openSidebar()"><i class="fas fa-bars"></i>Menu</a>
       </li>
+    </ul>
+  </div>
+  <div id="hb-mid" class="hb-child">
+    <ul>
       <li><%= link_to root_path do %>Home<% end %></li>
       <li><%= link_to about_path do %>About<% end %></li>
       <li><%= link_to "Contact", contact_path %></li>
       <li>
         <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <%= link_to "Calendar", calendar_path, class: "dropdown-item" %>
-          <%= link_to "Holy Bible", bible_path, class: "dropdown-item" %>
-          <%= link_to "Pay Tithes/Donate", donate_path, class: "dropdown-item" %>
+          <%= link_to calendar_path, class: "dropdown-item" do %><i class="fas fa-calendar-alt"></i>Calendar<% end %>
+          <%= link_to bible_path, class: "dropdown-item" do %><i class="fas fa-bible"></i>Holy Bible<% end %>
+          <%= link_to donate_path, class: "dropdown-item" do %><i class="fas fa-donate"></i>Pay Tithes/Donate<% end %>
+          <%= link_to root_path, class: "dropdown-item" do %><i class="fas fa-book-open"></i>Teachings<% end %>
+          <%= link_to root_path, class: "dropdown-item" do %><i class="fas fa-camera-retro"></i>Media<% end %>
         </div>
       </li>
-      <li><%= link_to "Teachings", root_path %></li>
-      <li><%= link_to "Media", root_path %></li>
       <li><%= link_to "FAQ", faq_path %></li>
     </ul>
   </div>

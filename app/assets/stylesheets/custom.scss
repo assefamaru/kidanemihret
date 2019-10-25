@@ -117,31 +117,45 @@ a, a:hover, button, button:hover {
     float: left;
     height: inherit;
   }
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    display: block;
+    line-height: calc(#{$header-height} / 2);
+    padding: 0 2rem;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: lighten($black, 17%);
+    font-size: 1.5rem;
+    font-weight: 600;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+    i {
+      margin-right: 1rem;
+    }
+  }
   #hb-left {
-    width: calc(100% - 30rem);
+    width: 30rem;
     ul {
-      margin: 0;
-      padding: 0;
       li {
-        margin: 0;
-        padding: 0;
+        display: inline-block;
+      }
+    }
+  }
+  #hb-mid {
+    width: calc(100% - 60rem);
+    text-align: center;
+    ul {
+      li {
         display: inline-block;
         a {
-          display: block;
-          line-height: calc(#{$header-height} / 2);
-          padding: 0 2rem;
-          text-transform: uppercase;
-          font-family: 'Source Sans Pro', sans-serif;
-          color: lighten($black, 17%);
-          font-size: 1.5rem;
-          font-weight: 600;
           border-right: .1rem solid darken($white, 4%);
-          &:hover, &:focus {
-            text-decoration: none;
-          }
-          i {
-            margin-right: 1rem;
-            font-size: 1.3rem;
+          line-height: calc(calc(#{$header-height} / 2) - .1rem);
+          &:hover {
+            background-color: #FFFFFF;
           }
         }
         .dropdown-menu {
@@ -153,12 +167,14 @@ a, a:hover, button, button:hover {
           border-radius: 0;
           a {
             border-bottom: .1rem solid darken($white, 4%);
+            line-height: 5rem;
+            i {
+              margin-right: 2rem;
+            }
           }
         }
-        &:not(:first-child) {
-          a:hover, a:focus {
-            background-color: #FFFFFF;
-          }
+        &:first-child {
+          border-left: .1rem solid darken($white, 4%);
         }
       }
     }
@@ -167,25 +183,8 @@ a, a:hover, button, button:hover {
     width: 30rem;
     text-align: right;
     ul {
-      margin: 0;
-      padding: 0;
       li {
-        margin: 0;
-        padding: 0;
         display: inline-block;
-        a {
-          display: block;
-          line-height: calc(#{$header-height} / 2);
-          padding: 0 2rem;
-          text-transform: uppercase;
-          font-family: 'Source Sans Pro', sans-serif;
-          color: lighten($black, 17%);
-          font-size: 1.5rem;
-          font-weight: 600;
-          &:hover, &:focus {
-            text-decoration: none;
-          }
-        }
         &:last-child a {
           color: $white;
           background-color: darken($primary-color, 3%);
@@ -202,10 +201,11 @@ a, a:hover, button, button:hover {
 }
 
 @media screen and (max-width: 70rem) {
-  #hb-left ul li {
-    &:not(:first-child) {
-      display: none !important;
-    }
+  #hb-mid {
+    display: none !important;
+  }
+  #hb-left {
+    width: calc(100% - 30rem) !important;
   }
 }
 
