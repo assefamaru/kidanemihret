@@ -1,2 +1,10 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<% provide(:button_text, 'Submit') %>
+
+<div class="auth-form">
+    <h1>Sign up</h1>
+
+    <%= render 'form' %>
+
+    <p>Already have an account? <%= link_to "Log in!", login_path, class: "auth-form-link" %></p>
+</div>

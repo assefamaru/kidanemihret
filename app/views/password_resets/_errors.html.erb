@@ -1,0 +1,13 @@
+<% if @user.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="users-errors">
+        <strong>Oops!</strong> The form contains <%= pluralize(@user.errors.count, "error") %>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><i class="fas fa-angle-right"></i><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
