@@ -1,6 +1,8 @@
 <header id="header-top" class="header">
   <div id="ht-left" class="ht-child">
-    <a href="/"><% if I18n.locale == :am %>አማርኛ<% else %>English<% end %></a>
+    <a data-toggle="popover" title="Language Selector" data-content="This feature is currently being implemented. Coming soon!">
+      <span><% if I18n.locale == :am %>አማርኛ<% else %>English<% end %></span>
+    </a>
   </div>
   <div id="ht-mid" class="ht-child">
     <%= link_to "Hamere Noah Kidane Mihret EOTC", root_path %>
@@ -55,9 +57,9 @@
   </div>
   <div id="hb-right" class="hb-child">
     <ul>
-      <li><%= link_to "Log in/Sign up", root_path %></li>
+      <li><%= link_to "Log in/Sign up", login_path %></li>
       <li>
-        <a target="_blank" href="https://store.kidanemihret.org/"><i class="fas fa-store"></i>Shop</a>
+        <a data-toggle="popover" data-placement="bottom" title="Church Store" data-content="Currently under construction. Stay tuned!"><i class="fas fa-store"></i>Shop</a>
       </li>
     </ul>
   </div>

@@ -15,6 +15,11 @@ body {
   background-color: $white;
 }
 
+.section-container {
+  width: 100%;
+  padding: 5rem 0;
+}
+
 .control-width {
   width: calc(100% - 4rem);
   max-width: $control-width;
@@ -63,6 +68,7 @@ a, a:hover, button, button:hover {
       font-size: 1.5rem;
       text-transform: uppercase;
       margin-left: 2rem;
+      cursor: pointer;
       border-bottom: .05rem solid lighten($black, 5%);
       &:hover, &:focus {
         text-decoration: none;
@@ -152,10 +158,9 @@ a, a:hover, button, button:hover {
       li {
         display: inline-block;
         a {
-          border-right: .1rem solid darken($white, 4%);
           line-height: calc(calc(#{$header-height} / 2) - .1rem);
           &:hover {
-            background-color: #FFFFFF;
+            background-color: lighten($white, 2%);
           }
         }
         .dropdown-menu {
@@ -167,14 +172,10 @@ a, a:hover, button, button:hover {
           border-radius: 0;
           a {
             border-bottom: .1rem solid darken($white, 4%);
-            line-height: 5rem;
             i {
               margin-right: 2rem;
             }
           }
-        }
-        &:first-child {
-          border-left: .1rem solid darken($white, 4%);
         }
       }
     }
@@ -186,6 +187,7 @@ a, a:hover, button, button:hover {
       li {
         display: inline-block;
         &:last-child a {
+          cursor: pointer;
           color: $white;
           background-color: darken($primary-color, 3%);
           &:hover {
@@ -296,4 +298,10 @@ a, a:hover, button, button:hover {
       }
     }
   }
+}
+
+// Footer =======================================
+
+footer {
+
 }
