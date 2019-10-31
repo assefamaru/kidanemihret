@@ -1,0 +1,52 @@
+@import "settings";
+
+// Universal ====================================
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  background-color: $white;
+}
+
+.body-content-wrapper {
+  min-height: calc(calc(100vh - #{$header-height}) + 1rem);
+}
+
+.section-container {
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.control-width {
+  width: calc(100% - 4rem);
+  max-width: $control-width;
+  margin: 0 auto;
+  padding: 0;
+}
+
+a, a:hover, button, button:hover {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+// Header =======================================
+
+#header {
+  width: 100%;
+  top: 0;
+  background-color: $white;
+  border-bottom: .1rem solid darken($white, 4%);
+
+}
+
+// Sidebar ======================================
+
+// Footer =======================================

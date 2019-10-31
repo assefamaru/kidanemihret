@@ -1,15 +1,30 @@
+<%= spaceless do %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kidanemihret</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= full_title(yield(:title)) %></title>
+    <meta name="description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church serves the Orthodox Christian community of Kitchener-Waterloo in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
+    <meta name="author" content="@assefamaru">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
   </head>
 
   <body>
-    <%= yield %>
+    <%= react_component 'Header' %>
+    <%= react_component 'Sidebar' %>
+
+    <div class="body-content-wrapper">
+      <%= yield %>
+    </div>
+
+    <%= react_component 'Footer' %>
   </body>
 </html>
+<% end %>
