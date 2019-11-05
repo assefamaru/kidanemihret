@@ -11,6 +11,11 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get services" do
+    get static_pages_services_url
+    assert_response :success
+  end
+
   test "should get contact" do
     get static_pages_contact_url
     assert_response :success
@@ -28,6 +33,11 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get donate" do
     get static_pages_donate_url
+    assert_response :success
+  end
+
+  test "should get docs" do
+    get static_pages_docs_url
     assert_response :success
   end
 

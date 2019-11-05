@@ -5,6 +5,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def services
+  end
+
   def contact
   end
 
@@ -15,6 +18,9 @@ class StaticPagesController < ApplicationController
   end
 
   def donate
+  end
+
+  def docs
   end
 
   def faq

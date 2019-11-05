@@ -9,9 +9,10 @@
 body {
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: $header-height 0 0 0;
   font-size: 1.6rem;
   background-color: $white;
+  font-family: 'Roboto';
 }
 
 .body-content-wrapper {
@@ -41,12 +42,76 @@ a, a:hover, button, button:hover {
 
 #header {
   width: 100%;
+  height: $header-height;
   top: 0;
   background-color: $white;
   border-bottom: .1rem solid darken($white, 4%);
+  position: fixed;
+  z-index: 1000;
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    display: inline-block;
+    line-height: $header-height;
+  }
+  #header-left {
+    float: left;
+    a {
+      padding: 0 2rem;
+      text-transform: uppercase;
+      color: lighten($black, 13%);
+      letter-spacing: .2rem;
+      font-weight: 600;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.4rem;
+      &:hover, &:focus {
+        text-decoration: none;
+        background-color: $white;
+      }
+    }
+  }
+  #header-right {
+    float: right;
+    .header-right-link {
+      padding: 0 2rem;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: lighten($black, 13%);
+      text-transform: uppercase;
+      text-decoration: none;
+      &:hover, &:focus {
+        background-color: $white;
+      }
+    }
+  }
+}
 
+@media screen and (max-width: 70rem) {
+  #header-right ul li:nth-last-child(n+3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  #header-right {
+    display: none;
+  }
 }
 
 // Sidebar ======================================
 
-// Footer =======================================
+.MuiPaper-root {
+  background-color: $white !important;
+}
+
+.MuiTypography-body1 {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  color: $black !important;
+  text-transform: uppercase !important;
+  line-height: 4rem !important;
+}
