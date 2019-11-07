@@ -16,7 +16,7 @@ body {
 }
 
 .body-content-wrapper {
-  min-height: calc(calc(100vh - #{$header-height}) + 1rem);
+  min-height: calc(calc(100vh - #{$header-height}) - 10rem);
 }
 
 .section-container {
@@ -38,6 +38,13 @@ a, a:hover, button, button:hover {
 	transition: all 0.3s ease;
 }
 
+// @material-ui customization ===================
+
+// Form password input font size (login)
+.MuiOutlinedInput-root {
+  font-size: 1.5rem !important;
+}
+
 // Header =======================================
 
 #header {
@@ -45,7 +52,7 @@ a, a:hover, button, button:hover {
   height: $header-height;
   top: 0;
   background-color: $white;
-  border-bottom: .1rem solid darken($white, 4%);
+  border-bottom: .1rem solid $border-color;
   position: fixed;
   z-index: 1000;
   ul, li {
@@ -65,7 +72,7 @@ a, a:hover, button, button:hover {
       letter-spacing: .2rem;
       font-weight: 600;
       font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       &:hover, &:focus {
         text-decoration: none;
         background-color: $white;
@@ -89,29 +96,14 @@ a, a:hover, button, button:hover {
   }
 }
 
-@media screen and (max-width: 70rem) {
+@media (max-width: 70rem) {
   #header-right ul li:nth-last-child(n+3) {
     display: none;
   }
 }
 
-@media screen and (max-width: 40rem) {
+@media (max-width: 40rem) {
   #header-right {
     display: none;
   }
-}
-
-// Sidebar ======================================
-
-.MuiPaper-root {
-  background-color: $white !important;
-}
-
-.MuiTypography-body1 {
-  font-family: 'Source Sans Pro', sans-serif !important;
-  font-size: 1.4rem !important;
-  font-weight: 600 !important;
-  color: $black !important;
-  text-transform: uppercase !important;
-  line-height: 4rem !important;
 }

@@ -3,21 +3,26 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      if user.activated?
-        log_in user
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_back_or user
-      else
-        message  = "Pending! Account not activated. "
-        message += "Please check your email for the activation link."
-        flash[:warning] = message
-        redirect_to root_url
-      end
+    if ! User.any?
+      flash[:info] = "Sign up before attempting to log in."
+      redirect_to signup_path
     else
-      flash.now[:error] = 'Invalid email/password combination.'
-      render 'new'
+      user = User.find_by(email: params[:session][:email].downcase)
+      if user && user.authenticate(params[:session][:password])
+        if user.activated?
+          log_in user
+          params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+          redirect_back_or user
+        else
+          message  = "Pending! Account not activated. "
+          message += "Please check your email for the activation link."
+          flash[:warning] = message
+          redirect_to root_url
+        end
+      else
+        flash.now[:error] = 'Invalid email/password combination.'
+        render 'new'
+      end
     end
   end
 

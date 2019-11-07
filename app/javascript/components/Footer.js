@@ -1,14 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { makeStyles } from '@material-ui/core/styles'
 
-class Footer extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
+const useStyles = makeStyles(theme => ({
+  root: {
+    height: 400,
+    borderTop: '1px solid #E7E9F2',
+  },
+}));
 
-      </React.Fragment>
-    );
-  }
+export default function Footer(props) {
+  const classes = useStyles();
+
+  return (
+    <footer className={classes.root}>
+
+    </footer>
+  );
 }
-
-export default Footer

@@ -30,11 +30,13 @@ import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined'
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined'
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded'
 import StoreTwoToneIcon from '@material-ui/icons/StoreTwoTone'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles(theme => ({
   sideList: {
     width: 250,
     fontSize: 20,
+    backgroundColor: '#F4F5F9',
   },
   text: {
     fontSize: 20,
@@ -45,13 +47,17 @@ const useStyles = makeStyles(theme => ({
     width: 250,
     left: 0,
     padding: 0,
+    backgroundColor: '#F4F5F9',
   },
   sideListButton: {
     width: 300,
     fontSize: 14,
   },
   sideListLastItem: {
-    marginBottom: 60,
+    marginBottom: 100,
+  },
+  sideListBackgroundColor: {
+    backgroundColor: '#F4F5F9',
   },
   menuLogIn: {
     fontSize: 14,
@@ -80,7 +86,7 @@ const useStyles = makeStyles(theme => ({
 
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
+    border: '1px solid #D3D4D5',
   },
 })(props => (
   <Menu
@@ -100,8 +106,19 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles(theme => ({
   root: {
+    '& .MuiListItemIcon-root': {
+      color: '#212121',
+    },
+    '& .MuiListItemText-primary': {
+      color: '#212121',
+      lineHeight: 3,
+      textTransform: 'uppercase',
+      fontWeight: 600,
+      fontSize: 14,
+      fontFamily: 'Source Sans Pro',
+    },
     '&:focus': {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.primary.main,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
         color: theme.palette.common.white,
       },
@@ -227,10 +244,10 @@ export default function Header(props) {
         </StyledMenuItem>
       </List>
       <AppBar position="fixed" color="primary" className={classes.sideListAppBar}>
-        <Toolbar>
+        <Toolbar className={classes.sideListBackgroundColor}>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             className={classes.sideListButton}
             startIcon={<LockOpenIcon />}
             component="a"
@@ -282,6 +299,7 @@ export default function Header(props) {
               onClick={handleClick}
               component="a"
               className={classes.resLink}
+              endIcon={<ExpandMoreIcon />}
             >
               Resources
             </Button>
@@ -334,7 +352,7 @@ export default function Header(props) {
           <li>
             <Button
               variant="outlined"
-              color="secondary"
+              color="primary"
               className={classes.menuLogIn}
               startIcon={<StoreTwoToneIcon />}
               component="a"
@@ -347,7 +365,7 @@ export default function Header(props) {
           <li>
             <Button
               variant="contained"
-              color="secondary"
+              color="primary"
               className={classes.menuLogIn}
               startIcon={<LockOpenIcon />}
               component="a"

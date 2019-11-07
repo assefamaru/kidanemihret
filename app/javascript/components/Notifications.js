@@ -35,7 +35,7 @@ export default function Notifications(props) {
   const classes = useStyles();
   const notistackRef = React.createRef();
   const handleClose = key => () => {
-      notistackRef.current.closeSnackbar(key);
+    notistackRef.current.closeSnackbar(key);
   }
 
   return (
@@ -43,10 +43,6 @@ export default function Notifications(props) {
       maxSnack={3}
       ref={notistackRef}
       autoHideDuration={null}
-      // iconVariant={{
-      //   success: <CheckCircleIcon />,
-      //   error: <ErrorIcon />,
-      // }}
       classes={{
         variantSuccess: classes.message,
         variantError: classes.message,
