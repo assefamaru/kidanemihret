@@ -4,10 +4,7 @@ import { SnackbarProvider, useSnackbar } from 'notistack'
 import { makeStyles } from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import WarningIcon from '@material-ui/icons/Warning'
 import ErrorIcon from '@material-ui/icons/Error'
-import InfoIcon from '@material-ui/icons/Info'
 
 const useStyles = makeStyles(theme => ({
   message: {
@@ -18,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function NotificationsWrapper(props) {
+function ValidationsWrapper(props) {
   const classes = useStyles();
   const { message, variant, ...other } = props;
   const { enqueueSnackbar } = useSnackbar();
@@ -32,12 +29,12 @@ function NotificationsWrapper(props) {
   );
 }
 
-NotificationsWrapper.propTypes = {
+ValidationsWrapper.propTypes = {
   message: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'default']).isRequired,
+  variant: PropTypes.string.isRequired,
 };
 
-export default function Notifications(props) {
+export default function Validations(props) {
   const classes = useStyles();
   const notistackRef = React.createRef();
   const handleClose = key => () => {
@@ -46,15 +43,12 @@ export default function Notifications(props) {
 
   return (
     <SnackbarProvider
-      maxSnack={3}
+      maxSnack={5}
       ref={notistackRef}
       autoHideDuration={null}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       classes={{
-        variantSuccess: classes.message,
         variantError: classes.message,
-        variantWarning: classes.message,
-        variantInfo: classes.message,
       }}
       action={(key) => (
         <IconButton key="close" aria-label="close" color="inherit" onClick={handleClose(key)}>
@@ -62,17 +56,17 @@ export default function Notifications(props) {
         </IconButton>
       )}
     >
-      {props.notifications.map((notif, key) =>
-        <NotificationsWrapper
+      {props.errors.map((error, key) =>
+        <ValidationsWrapper
           key={key}
-          variant={notif[0]}
-          message={notif[1]}
+          variant='error'
+          message={error}
         />
       )}
     </SnackbarProvider>
   );
 }
 
-Notifications.propTypes = {
-  notifications: PropTypes.array.isRequired,
+Validations.propTypes = {
+  errors: PropTypes.array.isRequired,
 };

@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     fontSize: 15,
-    margin: theme.spacing(2, 1),
+    margin: theme.spacing(3, 1, 2, 1),
     height: 50,
   },
   linkLogIn: {
@@ -97,8 +97,9 @@ export default function SignUp(props) {
           <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
           <TextField
             id="outlined-first-name"
-            className={classes.textField}
+            className={clsx(classes.textField, "form-control")}
             label="First Name"
+            name="user[first_name]"
             margin="normal"
             variant="outlined"
             fullWidth
@@ -115,8 +116,9 @@ export default function SignUp(props) {
           />
           <TextField
             id="outlined-last-name"
-            className={classes.textField}
+            className={clsx(classes.textField, "form-control")}
             label="Last Name"
+            name="user[last_name]"
             margin="normal"
             variant="outlined"
             fullWidth
@@ -133,8 +135,9 @@ export default function SignUp(props) {
           />
           <TextField
             id="outlined-email"
-            className={classes.textField}
+            className={clsx(classes.textField, "form-control")}
             label="Email"
+            name="user[email]"
             placeholder="abebe@gmail.com"
             margin="normal"
             variant="outlined"
@@ -154,9 +157,10 @@ export default function SignUp(props) {
             <InputLabel className={classes.resize} htmlFor="outlined-adornment-password">Password</InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
-              className={classes.resize}
+              className={clsx(classes.resize, "form-control")}
               type={values.showPassword ? 'text' : 'password'}
               value={values.password}
+              name="user[password]"
               onChange={handleChange('password')}
               endAdornment={
                 <InputAdornment position="end">
@@ -176,9 +180,10 @@ export default function SignUp(props) {
             <InputLabel className={classes.resize} htmlFor="outlined-adornment-password">Password Confirmation</InputLabel>
             <OutlinedInput
               id="outlined-adornment-password-confirmation"
-              className={classes.resize}
+              className={clsx(classes.resize, "form-control")}
               type={values.showPassword ? 'text' : 'password'}
               value={values.password}
+              name="user[password_confirmation]"
               onChange={handleChange('password')}
               endAdornment={
                 <InputAdornment position="end">
@@ -208,7 +213,7 @@ export default function SignUp(props) {
         <p className={classes.margin}>
           Already have an account?
           <Link href="/login" className={classes.linkLogIn}>
-            Log In instead!
+            Log In!
           </Link>
         </p>
       </Paper>

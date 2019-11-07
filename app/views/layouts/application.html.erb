@@ -16,9 +16,19 @@
   </head>
 
   <body>
-    <%= react_component 'Header' %>
-    <%= react_component 'Sidebar' %>
-    <%= react_component("Notifications", { notifications: flash }) %>
+    <% if logged_in? %>
+      <%= react_component('Header', {
+        first_name: current_user.first_name,
+        profile_path: "/users/" + current_user.id.to_s,
+        settings_path: "/users/" + current_user.id.to_s + "/edit",
+        gravatar: gravatar_url(current_user),
+        exists: true
+      }) %>
+    <% else %>
+      <%= react_component('Header', { exists: false }) %>
+    <% end %>
+
+    <%= react_component('Notifications', { notifications: flash }) %>
 
     <div class="body-content-wrapper">
       <%= yield %>

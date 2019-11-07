@@ -31,6 +31,12 @@ import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined'
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded'
 import StoreTwoToneIcon from '@material-ui/icons/StoreTwoTone'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import Avatar from '@material-ui/core/Avatar'
+import Badge from '@material-ui/core/Badge'
+import SettingsIcon from '@material-ui/icons/Settings'
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline'
+import GroupIcon from '@material-ui/icons/Group'
+import LockIcon from '@material-ui/icons/Lock';
 
 const useStyles = makeStyles(theme => ({
   sideList: {
@@ -82,6 +88,21 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
   },
+  avatarDropdown: {
+    backgroundColor: '#F4F5F9',
+    marginRight: theme.spacing(1),
+    "&:hover": {
+      backgroundColor: '#F4F5F9',
+    },
+  },
+  avatar: {
+    // margin: 10,
+  },
+  bigAvatar: {
+    // margin: 10,
+    width: 60,
+    height: 60,
+  },
 }));
 
 const StyledMenu = withStyles({
@@ -126,6 +147,34 @@ const StyledMenuItem = withStyles(theme => ({
   },
 }))(MenuItem);
 
+const StyledBadge = withStyles(theme => ({
+  badge: {
+    backgroundColor: '#44b700',
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    '&::after': {
+      position: 'absolute',
+      top: -1,
+      left: -1,
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      animation: '$ripple 1.2s infinite ease-in-out',
+      border: '1px solid #44b700',
+      content: '""',
+    },
+  },
+  '@keyframes ripple': {
+    '0%': {
+      transform: 'scale(.8)',
+      opacity: 1,
+    },
+    '100%': {
+      transform: 'scale(2.4)',
+      opacity: 0,
+    },
+  },
+}))(Badge);
+
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
@@ -133,6 +182,7 @@ function ListItemLink(props) {
 export default function Header(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl2, setAnchorEl2] = React.useState(null);
   const [state, setState] = React.useState({
     left: false,
     right: false,
@@ -146,6 +196,14 @@ export default function Header(props) {
     setAnchorEl(null);
   };
 
+  const handleClick2 = event => {
+    setAnchorEl2(event.currentTarget);
+  };
+
+  const handleClose2 = () => {
+    setAnchorEl2(null);
+  };
+
   const preventDefault = event => event.preventDefault();
 
   const toggleDrawer = (side, open) => event => {
@@ -154,6 +212,98 @@ export default function Header(props) {
     }
 
     setState({ ...state, [side]: open });
+  };
+
+  const loggedInShop = exists => {
+    if (exists) {
+      return (
+        <List>
+          <StyledMenuItem href="https://store.kidanemihret.org/" component="a" target="_blank">
+            <ListItemIcon>
+              <StoreTwoToneIcon fontSize="large" />
+            </ListItemIcon>
+            <ListItemText primary="Shop" />
+          </StyledMenuItem>
+        </List>
+      );
+    } else {
+      return (
+        <List>
+          <StyledMenuItem href="https://store.kidanemihret.org/" component="a" target="_blank" className={classes.sideListLastItem}>
+            <ListItemIcon>
+              <StoreTwoToneIcon fontSize="large" />
+            </ListItemIcon>
+            <ListItemText primary="Shop" />
+          </StyledMenuItem>
+        </List>
+      );
+    }
+  }
+
+  const loggedInLinks = exists => {
+    if (exists) {
+      return (
+        <List>
+          <StyledMenuItem href={props.profile_path} component="a">
+            <ListItemIcon>
+              <PersonOutlineIcon fontSize="large" />
+            </ListItemIcon>
+            <ListItemText primary="View Profile" />
+          </StyledMenuItem>
+          <StyledMenuItem href="/users" component="a">
+            <ListItemIcon>
+              <GroupIcon fontSize="large" />
+            </ListItemIcon>
+            <ListItemText primary="All Users" />
+          </StyledMenuItem>
+          <StyledMenuItem href={props.settings_path} component="a" className={classes.sideListLastItem}>
+            <ListItemIcon>
+              <SettingsIcon fontSize="large" />
+            </ListItemIcon>
+            <ListItemText primary="Settings" />
+          </StyledMenuItem>
+        </List>
+      );
+    }
+  }
+
+  const logInOut = exists => {
+    if (exists) {
+      return (
+        <AppBar position="fixed" color="primary" className={classes.sideListAppBar}>
+          <Toolbar className={classes.sideListBackgroundColor}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.sideListButton}
+              startIcon={<LockIcon />}
+              component="a"
+              href="/logout"
+              data-method="delete"
+            >
+              Log Out
+            </Button>
+          </Toolbar>
+        </AppBar>
+      );
+    } else {
+      return (
+        <AppBar position="fixed" color="primary" className={classes.sideListAppBar}>
+          <Toolbar className={classes.sideListBackgroundColor}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.sideListButton}
+              startIcon={<LockOpenIcon />}
+              component="a"
+              href="/login"
+            >
+              Log In
+            </Button>
+          </Toolbar>
+        </AppBar>
+      );
+    }
   };
 
   const sideList = side => (
@@ -235,28 +385,10 @@ export default function Header(props) {
         </StyledMenuItem>
       </List>
       <Divider />
-      <List className={classes.sideListLastItem}>
-        <StyledMenuItem href="https://store.kidanemihret.org/" component="a" target="_blank">
-          <ListItemIcon>
-            <StoreTwoToneIcon fontSize="large" />
-          </ListItemIcon>
-          <ListItemText primary="Shop" />
-        </StyledMenuItem>
-      </List>
-      <AppBar position="fixed" color="primary" className={classes.sideListAppBar}>
-        <Toolbar className={classes.sideListBackgroundColor}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.sideListButton}
-            startIcon={<LockOpenIcon />}
-            component="a"
-            href="/login"
-          >
-            Log In
-          </Button>
-        </Toolbar>
-      </AppBar>
+      {loggedInShop(props.exists)}
+      <Divider />
+      {loggedInLinks(props.exists)}
+      {logInOut(props.exists)}
     </div>
   );
 
@@ -362,22 +494,84 @@ export default function Header(props) {
               Shop
             </Button>
           </li>
-          <li>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.menuLogIn}
-              startIcon={<LockOpenIcon />}
-              component="a"
-              href="/login"
-            >
-              Log In
-            </Button>
-          </li>
+          {props.exists ? (
+            <li>
+              <Button
+                className={classes.avatarDropdown}
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick2}
+              >
+                <StyledBadge
+                  overlap="circle"
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  variant="dot"
+                >
+                  <Avatar alt={props.first_name} src={props.gravatar} />
+                </StyledBadge>
+              </Button>
+              <StyledMenu
+                id="customized-menu"
+                anchorEl={anchorEl2}
+                keepMounted
+                open={Boolean(anchorEl2)}
+                onClose={handleClose2}
+              >
+                <StyledMenuItem href={props.profile_path} component="a">
+                  <ListItemIcon>
+                    <PersonOutlineIcon fontSize="large" />
+                  </ListItemIcon>
+                  <ListItemText primary="View Profile" />
+                </StyledMenuItem>
+                <StyledMenuItem href="/users" component="a">
+                  <ListItemIcon>
+                    <GroupIcon fontSize="large" />
+                  </ListItemIcon>
+                  <ListItemText primary="All Users" />
+                </StyledMenuItem>
+                <Divider />
+                <StyledMenuItem href={props.settings_path} component="a">
+                  <ListItemIcon>
+                    <SettingsIcon fontSize="large" />
+                  </ListItemIcon>
+                  <ListItemText primary="Settings" />
+                </StyledMenuItem>
+                <Divider />
+                <StyledMenuItem href="/logout" component="a" data-method="delete">
+                  <ListItemIcon>
+                    <LockIcon fontSize="large" />
+                  </ListItemIcon>
+                  <ListItemText primary="Log out" />
+                </StyledMenuItem>
+              </StyledMenu>
+            </li>
+          ) : (
+            <li>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.menuLogIn}
+                startIcon={<LockOpenIcon />}
+                component="a"
+                href="/login"
+              >
+                Log In
+              </Button>
+            </li>
+          )}
         </ul>
       </div>
     </header>
   );
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+  first_name: PropTypes.string,
+  gravatar: PropTypes.string,
+  profile_path: PropTypes.string,
+  settings_path: PropTypes.string,
+  exists: PropTypes.bool.isRequired,
+};

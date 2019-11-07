@@ -1,1 +1,7 @@
-<%= react_component("SignUp", { authenticityToken: form_authenticity_token }) %>
+<% provide(:title, "Sign Up") %>
+
+<%= react_component('SignUp', { authenticityToken: form_authenticity_token }) %>
+
+<% if @user.errors.any? %>
+  <%= react_component('Validations', { errors: @user.errors.full_messages.reverse }) %>
+<% end %>

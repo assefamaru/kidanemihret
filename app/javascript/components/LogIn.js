@@ -121,6 +121,7 @@ export default function LogIn(props) {
             id="outlined-email"
             className={classes.textField}
             label="Email"
+            name="session[email]"
             placeholder="abebe@gmail.com"
             margin="normal"
             variant="outlined"
@@ -143,6 +144,7 @@ export default function LogIn(props) {
               className={classes.resize}
               type={values.showPassword ? 'text' : 'password'}
               value={values.password}
+              name="session[password]"
               onChange={handleChange('password')}
               endAdornment={
                 <InputAdornment position="end">
@@ -168,6 +170,7 @@ export default function LogIn(props) {
               />
             }
             label="Remember me"
+            name="session[remember_me]"
             className={clsx(classes.checkbox, classes.margin)}
           />
           <Link href="/password_resets/new" className={classes.forgot}>
