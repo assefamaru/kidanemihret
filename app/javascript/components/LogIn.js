@@ -6,7 +6,6 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import Container from '@material-ui/core/Container'
-import Divider from '@material-ui/core/Divider'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import IconButton from '@material-ui/core/IconButton'
@@ -24,7 +23,7 @@ import SendIcon from '@material-ui/icons/Send'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(3, 1),
     backgroundColor: '#F4F5F9',
     marginTop: 50,
   },
@@ -62,10 +61,12 @@ const useStyles = makeStyles(theme => ({
     '& .MuiFormControlLabel-label': {
       fontSize: 15,
       color: '#3D3D3D',
+      marginTop: theme.spacing(0.3),
     },
   },
   forgot: {
-    margin: theme.spacing(2, 1),
+    marginRight: theme.spacing(1),
+    marginTop: theme.spacing(2.5),
     color: '#3D3D3D',
     textDecoration: 'underline',
     fontSize: 15,
@@ -88,16 +89,9 @@ export default function LogIn(props) {
     password: '',
     showPassword: false,
   });
-  const [state, setState] = React.useState({
-    checked: false,
-  });
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleCheckboxChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
   };
 
   const handleClickShowPassword = () => {
@@ -124,15 +118,13 @@ export default function LogIn(props) {
           <input name="utf8" type="hidden" value="&#x2713;" />
           <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
           <TextField
-            id="outlined-full-width"
+            id="outlined-email"
             className={classes.textField}
             label="Email"
             placeholder="abebe@gmail.com"
             margin="normal"
             variant="outlined"
             fullWidth
-            fontSize="14px"
-            variant="outlined"
             InputProps={{
               classes: {
                 root: classes.resize,
@@ -148,6 +140,7 @@ export default function LogIn(props) {
             <InputLabel className={classes.resize} htmlFor="outlined-adornment-password">Password</InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
+              className={classes.resize}
               type={values.showPassword ? 'text' : 'password'}
               value={values.password}
               onChange={handleChange('password')}

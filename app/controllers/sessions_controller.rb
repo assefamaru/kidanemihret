@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     if ! User.any?
-      flash[:info] = "Sign up before attempting to log in."
+      flash[:warning] = "Sign up before attempting to log in."
       redirect_to signup_path
     else
       user = User.find_by(email: params[:session][:email].downcase)
