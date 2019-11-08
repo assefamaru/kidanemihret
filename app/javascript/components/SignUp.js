@@ -138,7 +138,7 @@ export default function SignUp(props) {
             className={clsx(classes.textField, "form-control")}
             label="Email"
             name="user[email]"
-            placeholder="abebe@gmail.com"
+            placeholder="kidanemihret@gmail.com"
             margin="normal"
             variant="outlined"
             fullWidth

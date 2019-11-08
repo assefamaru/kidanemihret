@@ -19,6 +19,8 @@
     <% if logged_in? %>
       <%= react_component('Header', {
         first_name: current_user.first_name,
+        full_name: current_user.first_name + " " + current_user.last_name,
+        email: current_user.email,
         profile_path: "/users/" + current_user.id.to_s,
         settings_path: "/users/" + current_user.id.to_s + "/edit",
         gravatar: gravatar_url(current_user),

@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import clsx from 'clsx'
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -102,6 +103,12 @@ const useStyles = makeStyles(theme => ({
     // margin: 10,
     width: 60,
     height: 60,
+  },
+  profilePic: {
+    padding: theme.spacing(2),
+  },
+  profilePicName: {
+    marginLeft: theme.spacing(2),
   },
 }));
 
@@ -244,23 +251,30 @@ export default function Header(props) {
     if (exists) {
       return (
         <List>
-          <StyledMenuItem href={props.profile_path} component="a">
-            <ListItemIcon>
-              <PersonOutlineIcon fontSize="large" />
-            </ListItemIcon>
-            <ListItemText primary="View Profile" />
-          </StyledMenuItem>
           <StyledMenuItem href="/users" component="a">
             <ListItemIcon>
               <GroupIcon fontSize="large" />
             </ListItemIcon>
             <ListItemText primary="All Users" />
           </StyledMenuItem>
-          <StyledMenuItem href={props.settings_path} component="a" className={classes.sideListLastItem}>
+          <StyledMenuItem href={props.settings_path} component="a">
             <ListItemIcon>
               <SettingsIcon fontSize="large" />
             </ListItemIcon>
             <ListItemText primary="Settings" />
+          </StyledMenuItem>
+          <StyledMenuItem href={props.profile_path} component="a" className={clsx(classes.sideListLastItem, classes.profilePic)}>
+            <StyledBadge
+              overlap="circle"
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              variant="dot"
+            >
+              <Avatar alt={props.first_name} src={props.gravatar} />
+            </StyledBadge>
+            <ListItemText primary={props.full_name} className={classes.profilePicName} />
           </StyledMenuItem>
         </List>
       );
@@ -442,6 +456,7 @@ export default function Header(props) {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
+              <StyledMenuItem key="placeholder" style={{display: "none"}}></StyledMenuItem>
               <StyledMenuItem href="/calendar" component="a">
                 <ListItemIcon>
                   <EventAvailableTwoToneIcon fontSize="large" />
@@ -520,6 +535,7 @@ export default function Header(props) {
                 open={Boolean(anchorEl2)}
                 onClose={handleClose2}
               >
+                <StyledMenuItem key="placeholder" style={{display: "none"}}></StyledMenuItem>
                 <StyledMenuItem href={props.profile_path} component="a">
                   <ListItemIcon>
                     <PersonOutlineIcon fontSize="large" />
@@ -532,7 +548,6 @@ export default function Header(props) {
                   </ListItemIcon>
                   <ListItemText primary="All Users" />
                 </StyledMenuItem>
-                <Divider />
                 <StyledMenuItem href={props.settings_path} component="a">
                   <ListItemIcon>
                     <SettingsIcon fontSize="large" />
@@ -570,6 +585,8 @@ export default function Header(props) {
 
 Header.propTypes = {
   first_name: PropTypes.string,
+  full_name: PropTypes.string,
+  email: PropTypes.string,
   gravatar: PropTypes.string,
   profile_path: PropTypes.string,
   settings_path: PropTypes.string,

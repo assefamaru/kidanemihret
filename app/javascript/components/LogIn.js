@@ -122,7 +122,7 @@ export default function LogIn(props) {
             className={classes.textField}
             label="Email"
             name="session[email]"
-            placeholder="abebe@gmail.com"
+            placeholder="kidanemihret@gmail.com"
             margin="normal"
             variant="outlined"
             fullWidth
