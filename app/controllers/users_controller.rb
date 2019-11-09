@@ -20,9 +20,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:warning] = "Pending! Please check your email to activate your account."
+      flash[:warning] = "Pending activation! Please check your email to activate your account."
       redirect_to root_url
     else
+      @errors = sort_errors(@user.errors)
+      @params = user_params
+
       render 'new'
     end
   end

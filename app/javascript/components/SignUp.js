@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
+    marginTop: theme.spacing(1),
     fontSize: 20,
   },
   resize: {
@@ -66,6 +67,8 @@ export default function SignUp(props) {
   const [values, setValues] = React.useState({
     password: '',
     showPassword: false,
+    password_confirm: '',
+    showPasswordConfirm: false,
   });
 
   const handleChange = prop => event => {
@@ -76,8 +79,82 @@ export default function SignUp(props) {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
+  const handleClickShowPasswordConfirm = () => {
+    setValues({ ...values, showPasswordConfirm: !values.showPasswordConfirm });
+  };
+
   const handleMouseDownPassword = event => {
     event.preventDefault();
+  };
+
+  const userFirstNameInput = errors => {
+    if (errors) {
+      return (props.user.first_name);
+    }
+  };
+
+  const userLastNameInput = errors => {
+    if (errors) {
+      return (props.user.last_name);
+    }
+  };
+
+  const userPasswordInput = errors => {
+    if (errors) {
+      return (props.user.password);
+    }
+  }
+
+  const userPasswordConfirmationInput = errors => {
+    if (errors) {
+      return (props.user.password_confirmation);
+    }
+  }
+
+  const userEmailInput = errors => {
+    if (errors) {
+      return (props.user.email);
+    }
+  };
+
+  const userFirstNameError = errors => {
+    if (errors) {
+      return (props.errors[0]);
+    } else {
+      return null;
+    }
+  };
+
+  const userLastNameError = errors => {
+    if (errors) {
+      return (props.errors[1]);
+    } else {
+      return null;
+    }
+  };
+
+  const userEmailError = errors => {
+    if (errors) {
+      return (props.errors[2]);
+    } else {
+      return null;
+    }
+  };
+
+  const userPasswordError = errors => {
+    if (errors) {
+      return (props.errors[3]);
+    } else {
+      return null;
+    }
+  };
+
+  const userPasswordConfirmationError = errors => {
+    if (errors) {
+      return (props.errors[4]);
+    } else {
+      return null;
+    }
   };
 
   return (
@@ -103,6 +180,9 @@ export default function SignUp(props) {
             margin="normal"
             variant="outlined"
             fullWidth
+            helperText={userFirstNameError(props.first_name_errors)}
+            defaultValue={userFirstNameInput(props.errors_exist)}
+            error={props.first_name_errors}
             InputProps={{
               classes: {
                 root: classes.resize,
@@ -116,12 +196,15 @@ export default function SignUp(props) {
           />
           <TextField
             id="outlined-last-name"
-            className={clsx(classes.textField, "form-control")}
+            className={classes.textField}
             label="Last Name"
             name="user[last_name]"
             margin="normal"
             variant="outlined"
             fullWidth
+            helperText={userLastNameError(props.last_name_errors)}
+            defaultValue={userLastNameInput(props.errors_exist)}
+            error={props.last_name_errors}
             InputProps={{
               classes: {
                 root: classes.resize,
@@ -135,13 +218,16 @@ export default function SignUp(props) {
           />
           <TextField
             id="outlined-email"
-            className={clsx(classes.textField, "form-control")}
+            className={classes.textField}
             label="Email"
             name="user[email]"
             placeholder="kidanemihret@gmail.com"
             margin="normal"
             variant="outlined"
             fullWidth
+            helperText={userEmailError(props.email_errors)}
+            defaultValue={userEmailInput(props.errors_exist)}
+            error={props.email_errors}
             InputProps={{
               classes: {
                 root: classes.resize,
@@ -153,52 +239,69 @@ export default function SignUp(props) {
               },
             }}
           />
-          <FormControl fullWidth className={clsx(classes.margin, classes.textField)} variant="outlined">
-            <InputLabel className={classes.resize} htmlFor="outlined-adornment-password">Password</InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              className={clsx(classes.resize, "form-control")}
-              type={values.showPassword ? 'text' : 'password'}
-              value={values.password}
-              name="user[password]"
-              onChange={handleChange('password')}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                  >
-                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={70}
-            />
-          </FormControl>
-          <FormControl fullWidth className={clsx(classes.margin, classes.textField)} variant="outlined">
-            <InputLabel className={classes.resize} htmlFor="outlined-adornment-password">Password Confirmation</InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password-confirmation"
-              className={clsx(classes.resize, "form-control")}
-              type={values.showPassword ? 'text' : 'password'}
-              value={values.password}
-              name="user[password_confirmation]"
-              onChange={handleChange('password')}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                  >
-                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={160}
-            />
-          </FormControl>
+          <TextField
+            fullWidth
+            className={clsx(classes.margin, classes.textField)}
+            label="Password"
+            variant="outlined"
+            error={props.password_errors}
+            type={values.showPassword ? 'text' : 'password'}
+            defaultValue={userPasswordInput(props.errors_exist)}
+            helperText={userPasswordError(props.password_errors)}
+            name="user[password]"
+            onChange={handleChange('password')}
+            InputProps={{
+              classes: {
+                root: classes.resize,
+              },
+              endAdornment: <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>,
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.resize,
+              },
+            }}
+          />
+
+          <TextField
+            fullWidth
+            className={clsx(classes.margin, classes.textField)}
+            label="Password Confirmation"
+            variant="outlined"
+            error={props.password_confirmation_errors}
+            type={values.showPasswordConfirm ? 'text' : 'password'}
+            defaultValue={userPasswordConfirmationInput(props.errors_exist)}
+            helperText={userPasswordConfirmationError(props.password_confirmation_errors)}
+            name="user[password_confirmation]"
+            onChange={handleChange('password_confirm')}
+            InputProps={{
+              classes: {
+                root: classes.resize,
+              },
+              endAdornment: <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPasswordConfirm}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {values.showPasswordConfirm ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>,
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.resize,
+              },
+            }}
+          />
           <Button
             variant="contained"
             color="primary"
@@ -220,3 +323,15 @@ export default function SignUp(props) {
     </Container>
   );
 }
+
+SignUp.propTypes = {
+  authenticityToken: PropTypes.string.isRequired,
+  errors_exist: PropTypes.bool,
+  errors: PropTypes.array,
+  user: PropTypes.object,
+  first_name_errors: PropTypes.bool,
+  last_name_errors: PropTypes.bool,
+  email_errors: PropTypes.bool,
+  password_errors: PropTypes.bool,
+  password_confirmation_errors: PropTypes.bool,
+};
