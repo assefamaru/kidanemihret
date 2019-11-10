@@ -270,7 +270,6 @@ export default function SignUp(props) {
               },
             }}
           />
-
           <TextField
             fullWidth
             className={clsx(classes.margin, classes.textField)}
@@ -305,7 +304,7 @@ export default function SignUp(props) {
           <Button
             variant="contained"
             color="primary"
-            className={clsx(classes.button, classes.submit)}
+            className={classes.submit}
             endIcon={<SendIcon />}
             fullWidth
             type="submit"

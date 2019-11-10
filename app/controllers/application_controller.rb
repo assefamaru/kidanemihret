@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  def sort_errors(errors)
-    err = []
+  def get_errors(errors)
+    errorArr = []
+    errorMsg = ""
 
     first_name_errors = errors[:first_name]
     last_name_errors = errors[:last_name]
@@ -12,55 +13,40 @@ class ApplicationController < ActionController::Base
     password_confirmation_errors = errors[:password_confirmation]
 
     if first_name_errors.kind_of?(Array)
-      s = ""
-      first_name_errors.each do |error|
-        s = s + "* First name " + error + " "
-      end
-      err << s
+      errorMsg = "* First name " + first_name_errors[0].to_s
     else
-      err << first_name_errors
+      errorMsg = "* First name " + first_name_errors.to_s
     end
+    errorArr << errorMsg
 
     if last_name_errors.kind_of?(Array)
-      s = ""
-      last_name_errors.each do |error|
-        s = s + "* Last name " + error + " "
-      end
-      err << s
+      errorMsg = "* Last name " + last_name_errors[0].to_s
     else
-      err << last_name_errors
+      errorMsg = "* Last name " + last_name_errors.to_s
     end
+    errorArr << errorMsg
 
     if email_errors.kind_of?(Array)
-      s = ""
-      email_errors.each do |error|
-        s = s + "* Email " + error + " "
-      end
-      err << s
+      errorMsg = "* Email " + email_errors[0].to_s
     else
-      err << email_errors
+      errorMsg = "* Email " + email_errors.to_s
     end
+    errorArr << errorMsg
 
     if password_errors.kind_of?(Array)
-      s = ""
-      password_errors.each do |error|
-        s = s + "* Password " + error + " "
-      end
-      err << s
+      errorMsg = "* Password " + password_errors[0].to_s
     else
-      err << password_errors
+      errorMsg = "* Password " + password_errors.to_s
     end
+    errorArr << errorMsg
 
     if password_confirmation_errors.kind_of?(Array)
-      s = ""
-      password_confirmation_errors.each do |error|
-        s = s + "* Password confirmation " + error + " "
-      end
-      err << s
+      errorMsg = "* Password confirmation " + password_confirmation_errors[0].to_s
     else
-      err << password_confirmation_errors
+      errorMsg = "* Password confirmation " + password_confirmation_errors.to_s
     end
+    errorArr << errorMsg
 
-    return err
+    return errorArr
   end
 end

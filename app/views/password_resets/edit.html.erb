@@ -1,2 +1,12 @@
-<h1>PasswordResets#edit</h1>
-<p>Find me in app/views/password_resets/edit.html.erb</p>
+<% provide(:title, 'Reset Password') %>
+
+<%= react_component('ResetPassword', {
+  authenticityToken: form_authenticity_token,
+  actionPath: password_reset_path(params[:id]).to_s,
+  email: @user.email,
+  errors_exist: @user.errors.any?,
+  errors: @errors,
+  user: @params,
+  password_errors: @user.errors.include?(:password),
+  password_confirmation_errors: @user.errors.include?(:password_confirmation)
+}) %>

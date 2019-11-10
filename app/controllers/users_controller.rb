@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       flash[:warning] = "Pending activation! Please check your email to activate your account."
       redirect_to root_url
     else
-      @errors = sort_errors(@user.errors)
+      @errors = get_errors(@user.errors)
       @params = user_params
 
       render 'new'

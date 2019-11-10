@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 14,
   },
   sideListLastItem: {
-    marginBottom: 100,
+    marginBottom: 150,
   },
   sideListBackgroundColor: {
     backgroundColor: '#F4F5F9',
@@ -224,25 +224,21 @@ export default function Header(props) {
   const loggedInShop = exists => {
     if (exists) {
       return (
-        <List>
-          <StyledMenuItem href="https://store.kidanemihret.org/" component="a" target="_blank">
-            <ListItemIcon>
-              <StoreTwoToneIcon fontSize="large" />
-            </ListItemIcon>
-            <ListItemText primary="Shop" />
-          </StyledMenuItem>
-        </List>
+        <StyledMenuItem href="https://store.kidanemihret.org/" component="a" target="_blank">
+          <ListItemIcon>
+            <StoreTwoToneIcon fontSize="large" />
+          </ListItemIcon>
+          <ListItemText primary="Shop" />
+        </StyledMenuItem>
       );
     } else {
       return (
-        <List>
-          <StyledMenuItem href="https://store.kidanemihret.org/" component="a" target="_blank" className={classes.sideListLastItem}>
-            <ListItemIcon>
-              <StoreTwoToneIcon fontSize="large" />
-            </ListItemIcon>
-            <ListItemText primary="Shop" />
-          </StyledMenuItem>
-        </List>
+        <StyledMenuItem href="https://store.kidanemihret.org/" component="a" target="_blank" className={classes.sideListLastItem}>
+          <ListItemIcon>
+            <StoreTwoToneIcon fontSize="large" />
+          </ListItemIcon>
+          <ListItemText primary="Shop" />
+        </StyledMenuItem>
       );
     }
   }
@@ -250,7 +246,7 @@ export default function Header(props) {
   const loggedInLinks = exists => {
     if (exists) {
       return (
-        <List>
+        <div>
           <StyledMenuItem href="/users" component="a">
             <ListItemIcon>
               <GroupIcon fontSize="large" />
@@ -276,7 +272,7 @@ export default function Header(props) {
             </StyledBadge>
             <ListItemText primary={props.full_name} className={classes.profilePicName} />
           </StyledMenuItem>
-        </List>
+        </div>
       );
     }
   }
@@ -358,9 +354,6 @@ export default function Header(props) {
           </ListItemIcon>
           <ListItemText primary="FAQ" />
         </StyledMenuItem>
-      </List>
-      <Divider />
-      <List>
         <StyledMenuItem href="/calendar" component="a">
           <ListItemIcon>
             <EventAvailableTwoToneIcon fontSize="large" />
@@ -397,11 +390,9 @@ export default function Header(props) {
           </ListItemIcon>
           <ListItemText primary="Media" />
         </StyledMenuItem>
+        {loggedInShop(props.exists)}
+        {loggedInLinks(props.exists)}
       </List>
-      <Divider />
-      {loggedInShop(props.exists)}
-      <Divider />
-      {loggedInLinks(props.exists)}
       {logInOut(props.exists)}
     </div>
   );

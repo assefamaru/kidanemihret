@@ -1,25 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
-import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
+import clsx from 'clsx'
+import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import Link from '@material-ui/core/Link'
-import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import IconButton from '@material-ui/core/IconButton'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import OutlinedInput from '@material-ui/core/OutlinedInput'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank'
-import CheckBoxIcon from '@material-ui/icons/CheckBox'
-import SendIcon from '@material-ui/icons/Send'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,6 +21,9 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+  },
+  margin: {
+    margin: theme.spacing(1),
   },
   textField: {
     marginLeft: theme.spacing(1),
@@ -49,45 +43,20 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(3),
     color: '#3D3D3D',
   },
-  margin: {
-    margin: theme.spacing(1),
-  },
-  checkbox: {
-    color: '#3D3D3D',
-    flex: 1,
-    '& .MuiCheckbox-root': {
-      marginLeft: -10,
-    },
-    '& .MuiFormControlLabel-label': {
-      fontSize: 15,
-      color: '#3D3D3D',
-      marginTop: theme.spacing(0.3),
-    },
-  },
-  forgot: {
-    marginRight: theme.spacing(1),
-    marginTop: theme.spacing(2.5),
-    color: '#3D3D3D',
-    textDecoration: 'underline',
-    fontSize: 15,
-  },
   submit: {
     fontSize: 15,
-    margin: theme.spacing(2, 1),
+    margin: theme.spacing(3, 1),
     height: 50,
-  },
-  linkSignup: {
-    marginLeft: 5,
-    color: '#3D3D3D',
-    textDecoration: 'underline',
   },
 }));
 
-export default function LogIn(props) {
+export default function ResetPassword(props) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     password: '',
     showPassword: false,
+    password_confirm: '',
+    showPasswordConfirm: false,
   });
 
   const handleChange = prop => event => {
@@ -98,53 +67,69 @@ export default function LogIn(props) {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
+  const handleClickShowPasswordConfirm = () => {
+    setValues({ ...values, showPasswordConfirm: !values.showPasswordConfirm });
+  };
+
   const handleMouseDownPassword = event => {
     event.preventDefault();
+  };
+
+  const userPasswordInput = errors => {
+    if (errors) {
+      return (props.user.password);
+    }
+  }
+
+  const userPasswordConfirmationInput = errors => {
+    if (errors) {
+      return (props.user.password_confirmation);
+    }
+  }
+
+  const userPasswordError = errors => {
+    if (errors) {
+      return (props.errors[3]);
+    } else {
+      return null;
+    }
+  };
+
+  const userPasswordConfirmationError = errors => {
+    if (errors) {
+      return (props.errors[4]);
+    } else {
+      return null;
+    }
   };
 
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root} elevation={0}>
         <Typography variant="h1" component="h1" className={classes.h1}>
-          Log In
+          Reset password
         </Typography>
         <form
           className={classes.container}
           autoComplete="off"
-          action="/login"
+          action={props.actionPath}
           acceptCharset="UTF-8"
           method="post"
         >
           <input name="utf8" type="hidden" value="&#x2713;" />
+          <input type="hidden" name="_method" value="patch" />
           <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
-          <TextField
-            id="outlined-email"
-            className={classes.textField}
-            label="Email"
-            name="session[email]"
-            placeholder="kidanemihret@gmail.com"
-            margin="normal"
-            variant="outlined"
-            fullWidth
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
+          <input type="hidden" name="email" id="email" value={props.email} />
           <TextField
             fullWidth
             className={clsx(classes.margin, classes.textField)}
             label="Password"
             variant="outlined"
+            error={props.password_errors}
             type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            name="session[password]"
+            defaultValue={userPasswordInput(props.errors_exist)}
+            helperText={userPasswordError(props.password_errors)}
+            name="user[password]"
             onChange={handleChange('password')}
             InputProps={{
               classes: {
@@ -166,40 +151,58 @@ export default function LogIn(props) {
               },
             }}
           />
-          <FormControlLabel
-            control={
-              <Checkbox
-                icon={<CheckBoxOutlineBlankIcon fontSize="large" />}
-                checkedIcon={<CheckBoxIcon fontSize="large" />}
-                value="checked"
-                color="primary"
-              />
-            }
-            label="Remember me"
-            name="session[remember_me]"
-            className={clsx(classes.checkbox, classes.margin)}
+          <TextField
+            fullWidth
+            className={clsx(classes.margin, classes.textField)}
+            label="Password Confirmation"
+            variant="outlined"
+            error={props.password_confirmation_errors}
+            type={values.showPasswordConfirm ? 'text' : 'password'}
+            defaultValue={userPasswordConfirmationInput(props.errors_exist)}
+            helperText={userPasswordConfirmationError(props.password_confirmation_errors)}
+            name="user[password_confirmation]"
+            onChange={handleChange('password_confirm')}
+            InputProps={{
+              classes: {
+                root: classes.resize,
+              },
+              endAdornment: <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPasswordConfirm}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {values.showPasswordConfirm ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>,
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.resize,
+              },
+            }}
           />
-          <Link href="/password_resets/new" className={classes.forgot}>
-            Forgot password?
-          </Link>
           <Button
             variant="contained"
             color="primary"
             className={classes.submit}
-            endIcon={<SendIcon />}
             fullWidth
             type="submit"
           >
-            Log In
+            Submit
           </Button>
         </form>
-        <p className={classes.margin}>
-          Don't have an account?
-          <Link href="/signup" className={classes.linkSignup}>
-            Sign up now!
-          </Link>
-        </p>
       </Paper>
     </Container>
   );
 }
+
+ResetPassword.propTypes = {
+  authenticityToken: PropTypes.string.isRequired,
+  errors_exist: PropTypes.bool,
+  errors: PropTypes.array,
+  email: PropTypes.string,
+  user: PropTypes.object,
+  password_errors: PropTypes.bool,
+  password_confirmation_errors: PropTypes.bool,
+};

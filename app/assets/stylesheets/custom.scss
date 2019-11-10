@@ -21,7 +21,7 @@ body {
 }
 
 .body-content-wrapper {
-  min-height: calc(calc(100vh - #{$header-height}) - 10rem);
+  min-height: calc(calc(100vh - #{$header-height}) + 1rem);
 }
 
 .section-container {
