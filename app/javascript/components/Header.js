@@ -202,8 +202,6 @@ export default function Header(props) {
     setAnchorEl2(null);
   };
 
-  const preventDefault = event => event.preventDefault();
-
   const toggleSidebar = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -362,8 +360,9 @@ export default function Header(props) {
                   {url: "/bible", icon: <BookOutlinedIcon />, text: "Holy Bible"},
                   {url: "/donate", icon: <AttachMoneyOutlinedIcon />, text: "Pay Tithes/ Donate"},
                   {url: "/docs", icon: <FileCopyOutlinedIcon />, text: "Documents/ Forms"},
-                  {url: "#", icon: <MenuBookTwoToneIcon />, text: "Teachings"},
-                  {url: "#", icon: <MicNoneTwoToneIcon />, text: "Media"},
+                  {url: "", icon: <MenuBookTwoToneIcon />, text: "Teachings"},
+                  {url: "", icon: <MicNoneTwoToneIcon />, text: "Media"},
+                  {url: "", icon: <StoreTwoToneIcon />, text: "Shop"},
                 ])}
                 {props.isLoggedIn ? sidebarLinks([
                   {url: "/users", icon: <GroupIcon />, text: "All Users"},
@@ -406,8 +405,8 @@ export default function Header(props) {
               {url: "/bible", icon: <BookOutlinedIcon />, text: "Holy Bible", method: null},
               {url: "/donate", icon: <AttachMoneyOutlinedIcon />, text: "Pay Tithes/ Donate", method: null},
               {url: "/docs", icon: <FileCopyOutlinedIcon />, text: "Documents/ Forms", method: null},
-              {url: "#", icon: <MenuBookTwoToneIcon />, text: "Teachings", method: null},
-              {url: "#", icon: <MicNoneTwoToneIcon />, text: "Media", method: null}
+              {url: "", icon: <MenuBookTwoToneIcon />, text: "Teachings", method: null},
+              {url: "", icon: <MicNoneTwoToneIcon />, text: "Media", method: null}
             ], 1)}
 
             <Button
@@ -416,8 +415,7 @@ export default function Header(props) {
               className={clsx(classes.headerButton, classes.shopButton)}
               startIcon={<StoreTwoToneIcon />}
               component="a"
-              href="https://store.kidanemihret.org/"
-              target="_blank"
+              href=""
             >
               Shop
             </Button>
