@@ -2,106 +2,21 @@
 
 // Universal ====================================
 
-:root {
-  font-size: 62.5%;
-}
-
 html {
   overflow-y: auto !important;
   overflow-x: hidden !important;
 }
 
 body {
-  width: 100%;
-  margin: 0;
-  padding: $header-height 0 0 0;
-  font-size: 1.6rem;
   background-color: $white;
+  margin: 0;
   font-family: 'Roboto';
 }
 
-.body-content-wrapper {
-  min-height: calc(calc(100vh - #{$header-height}) + 1rem);
-}
+// Fonts ========================================
 
-.section-container {
-  width: 100%;
-  padding: 5rem 0;
-}
+// font-family: 'Source Sans Pro', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
 
-.control-width {
-  width: calc(100% - 4rem);
-  max-width: $control-width;
-  margin: 0 auto;
-  padding: 0;
-}
-
-a, a:hover, button, button:hover {
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-// Header =======================================
-
-#header {
-  width: 100%;
-  height: $header-height;
-  top: 0;
-  background-color: $white;
-  border-bottom: .1rem solid $border-color;
-  position: fixed;
-  z-index: 1000;
-  ul, li {
-    margin: 0;
-    padding: 0;
-  }
-  ul li {
-    display: inline-block;
-    line-height: $header-height;
-  }
-  #header-left {
-    float: left;
-    a {
-      padding: 0 2rem;
-      text-transform: uppercase;
-      color: lighten($black, 13%);
-      letter-spacing: .2rem;
-      font-weight: 600;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1.5rem;
-      &:hover, &:focus {
-        text-decoration: none;
-        background-color: $white;
-      }
-    }
-  }
-  #header-right {
-    float: right;
-    .header-right-link {
-      padding: 0 2rem;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: lighten($black, 13%);
-      text-transform: uppercase;
-      text-decoration: none;
-      &:hover, &:focus {
-        background-color: $white;
-      }
-    }
-  }
-}
-
-@media (max-width: 70rem) {
-  #header-right ul li:nth-last-child(n+3) {
-    display: none;
-  }
-}
-
-@media (max-width: 40rem) {
-  #header-right {
-    display: none;
-  }
-}
+// font-family: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');

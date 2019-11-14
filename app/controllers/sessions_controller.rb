@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
           message  = "Pending! Account not activated. "
           message += "Please check your email for the activation link."
           flash[:warning] = message
-          redirect_to root_url
+          redirect_to login_path
         end
       else
         flash.now[:error] = 'Invalid email/password combination.'

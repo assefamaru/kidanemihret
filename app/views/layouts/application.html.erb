@@ -9,40 +9,29 @@
     <meta name="description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church serves the Orthodox Christian community of Kitchener-Waterloo in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
     <meta name="author" content="@assefamaru">
 
-    <meta property="og:title" content="Kidane Mihret — Ethiopian Orthodox Tewahedo Church.">
-    <meta property="og:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church serves the Orthodox Christian community of Kitchener-Waterloo in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
-    <meta property="og:url" content="https://kidanemihret.org/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Kidane Mihret">
+    <meta property="og:site_name" content="kidanemihret.org">
+    <meta property="og:url" content="https://kidanemihret.org">
+    <meta property="og:title" content="Kidane Mihret — Ethiopian Orthodox Tewahedo Church.">
     <meta property="og:image" content="https://kidanemihret-ogimg.s3.ca-central-1.amazonaws.com/60647738_2327803990765030_8159586028651282432_o.jpg">
+    <meta property="og:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church serves the Orthodox Christian community of Kitchener-Waterloo in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kidane Mihret — Ethiopian Orthodox Tewahedo Church.">
     <meta name="twitter:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church serves the Orthodox Christian community of Kitchener-Waterloo in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
     <meta name="twitter:creator" content="@assefamaru">
     <meta name="twitter:domain" content="https://kidanemihret.org/">
-    <meta name="twitter:site" content="Kidane Mihret">
+    <meta name="twitter:site" content="@hnkidanemihret">
     <meta name="twitter:image" content="https://kidanemihret-ogimg.s3.ca-central-1.amazonaws.com/60647738_2327803990765030_8159586028651282432_o.jpg">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= react_component('Header', {
-        first_name: current_user.first_name,
-        full_name: current_user.first_name + " " + current_user.last_name,
-        email: current_user.email,
-        profile_path: "/users/" + current_user.id.to_s,
-        settings_path: "/users/" + current_user.id.to_s + "/edit",
-        gravatar: gravatar_url(current_user),
-        exists: true
-      }) %>
-    <% else %>
-      <%= react_component('Header', { exists: false }) %>
-    <% end %>
+    <%= react_component('Header', {
+      isLoggedIn: logged_in?,
+      loggedInUser: get_logged_in_user
+    }) %>
 
     <%= react_component('Notifications', { notifications: flash }) %>
 

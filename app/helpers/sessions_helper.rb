@@ -29,6 +29,21 @@ module SessionsHelper
     end
   end
 
+  # Returns currently logged in user with desired format for Header component.
+  def get_logged_in_user
+    if logged_in?
+      {
+        firstName: current_user.first_name,
+        lastName: current_user.last_name,
+        fullName: current_user.first_name + " " + current_user.last_name,
+        email: current_user.email,
+        profile: "/users/" + current_user.id.to_s,
+        settings: "/users/" + current_user.id.to_s + "/edit",
+        gravatar: gravatar_url(current_user),
+      }
+    end
+  end
+
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?
