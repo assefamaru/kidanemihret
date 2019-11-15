@@ -37,9 +37,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(1),
     fontSize: 20,
   },
-  resize: {
-    fontSize: 15,
-  },
   h1: {
     margin: theme.spacing(1),
     marginBottom: theme.spacing(3),
@@ -160,7 +157,7 @@ export default function SignUp(props) {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root} elevation={0}>
-        <Typography variant="h1" component="h1" className={classes.h1}>
+        <Typography variant="h2" component="h1" className={classes.h1}>
           Sign Up
         </Typography>
         <form
@@ -183,16 +180,6 @@ export default function SignUp(props) {
             helperText={userFirstNameError(props.first_name_errors)}
             defaultValue={userFirstNameInput(props.errors_exist)}
             error={props.first_name_errors}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
           />
           <TextField
             id="outlined-last-name"
@@ -205,16 +192,6 @@ export default function SignUp(props) {
             helperText={userLastNameError(props.last_name_errors)}
             defaultValue={userLastNameInput(props.errors_exist)}
             error={props.last_name_errors}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
           />
           <TextField
             id="outlined-email"
@@ -228,16 +205,6 @@ export default function SignUp(props) {
             helperText={userEmailError(props.email_errors)}
             defaultValue={userEmailInput(props.errors_exist)}
             error={props.email_errors}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
           />
           <TextField
             fullWidth
@@ -251,9 +218,6 @@ export default function SignUp(props) {
             name="user[password]"
             onChange={handleChange('password')}
             InputProps={{
-              classes: {
-                root: classes.resize,
-              },
               endAdornment: <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
@@ -263,11 +227,6 @@ export default function SignUp(props) {
                   {values.showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
             }}
           />
           <TextField
@@ -282,9 +241,6 @@ export default function SignUp(props) {
             name="user[password_confirmation]"
             onChange={handleChange('password_confirm')}
             InputProps={{
-              classes: {
-                root: classes.resize,
-              },
               endAdornment: <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
@@ -294,11 +250,6 @@ export default function SignUp(props) {
                   {values.showPasswordConfirm ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
             }}
           />
           <Button

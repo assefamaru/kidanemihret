@@ -30,9 +30,6 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     fontSize: 20,
   },
-  resize: {
-    fontSize: 15,
-  },
   h1: {
     margin: theme.spacing(1),
     marginBottom: theme.spacing(3),
@@ -106,7 +103,7 @@ export default function ResetPassword(props) {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root} elevation={0}>
-        <Typography variant="h1" component="h1" className={classes.h1}>
+        <Typography variant="h2" component="h1" className={classes.h1}>
           Reset password
         </Typography>
         <form
@@ -132,9 +129,6 @@ export default function ResetPassword(props) {
             name="user[password]"
             onChange={handleChange('password')}
             InputProps={{
-              classes: {
-                root: classes.resize,
-              },
               endAdornment: <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
@@ -144,11 +138,6 @@ export default function ResetPassword(props) {
                   {values.showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
             }}
           />
           <TextField
@@ -163,9 +152,6 @@ export default function ResetPassword(props) {
             name="user[password_confirmation]"
             onChange={handleChange('password_confirm')}
             InputProps={{
-              classes: {
-                root: classes.resize,
-              },
               endAdornment: <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
@@ -175,11 +161,6 @@ export default function ResetPassword(props) {
                   {values.showPasswordConfirm ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
             }}
           />
           <Button

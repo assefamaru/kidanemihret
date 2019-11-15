@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
@@ -22,9 +23,6 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     fontSize: 20,
   },
-  resize: {
-    fontSize: 15,
-  },
   h1: {
     margin: theme.spacing(1),
     marginBottom: theme.spacing(3),
@@ -40,6 +38,14 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3, 1),
     height: 50,
   },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  linkLogIn: {
+    marginLeft: 5,
+    color: '#3D3D3D',
+    textDecoration: 'underline',
+  },
 }));
 
 export default function PasswordReset(props) {
@@ -48,7 +54,7 @@ export default function PasswordReset(props) {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root} elevation={0}>
-        <Typography variant="h1" component="h1" className={classes.h1}>
+        <Typography variant="h2" component="h1" className={classes.h1}>
           Forgot password
         </Typography>
         <form
@@ -69,16 +75,6 @@ export default function PasswordReset(props) {
             margin="normal"
             variant="outlined"
             fullWidth
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
           />
           <Button
             variant="contained"
@@ -90,6 +86,12 @@ export default function PasswordReset(props) {
             Submit
           </Button>
         </form>
+        <p className={classes.margin}>
+          Go back to
+          <Link href="/login" className={classes.linkLogIn}>
+            log in page.
+          </Link>
+        </p>
       </Paper>
     </Container>
   );

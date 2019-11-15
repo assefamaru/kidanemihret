@@ -36,9 +36,6 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     fontSize: 20,
   },
-  resize: {
-    fontSize: 15,
-  },
   h1: {
     margin: theme.spacing(1),
     marginBottom: theme.spacing(3),
@@ -105,7 +102,7 @@ export default function LogIn(props) {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.root} elevation={0}>
-        <Typography variant="h1" component="h1" className={classes.h1}>
+        <Typography variant="h2" component="h1" className={classes.h1}>
           Log In
         </Typography>
         <form
@@ -126,16 +123,6 @@ export default function LogIn(props) {
             margin="normal"
             variant="outlined"
             fullWidth
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
           />
           <TextField
             fullWidth
@@ -147,9 +134,6 @@ export default function LogIn(props) {
             name="session[password]"
             onChange={handleChange('password')}
             InputProps={{
-              classes: {
-                root: classes.resize,
-              },
               endAdornment: <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
@@ -160,17 +144,12 @@ export default function LogIn(props) {
                 </IconButton>
               </InputAdornment>,
             }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
           />
           <FormControlLabel
             control={
               <Checkbox
-                icon={<CheckBoxOutlineBlankIcon fontSize="large" />}
-                checkedIcon={<CheckBoxIcon fontSize="large" />}
+                icon={<CheckBoxOutlineBlankIcon />}
+                checkedIcon={<CheckBoxIcon />}
                 value="checked"
                 color="primary"
               />
