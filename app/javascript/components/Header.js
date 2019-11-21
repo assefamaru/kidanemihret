@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import clsx from 'clsx'
-import { fade, makeStyles, withStyles } from '@material-ui/core/styles'
+import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
@@ -9,110 +10,153 @@ import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
 import Badge from '@material-ui/core/Badge'
 import Avatar from '@material-ui/core/Avatar'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded'
-import StoreTwoToneIcon from '@material-ui/icons/StoreTwoTone'
-import LockOpenIcon from '@material-ui/icons/LockOpen'
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline'
-import GroupIcon from '@material-ui/icons/Group'
-import SettingsIcon from '@material-ui/icons/Settings'
-import LockIcon from '@material-ui/icons/Lock'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import Divider from '@material-ui/core/Divider'
+import MenuIcon from '@material-ui/icons/Menu'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import EventAvailableTwoToneIcon from '@material-ui/icons/EventAvailableTwoTone'
-import BookOutlinedIcon from '@material-ui/icons/BookOutlined'
-import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined'
-import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined'
-import MenuBookTwoToneIcon from '@material-ui/icons/MenuBookTwoTone'
-import MicNoneTwoToneIcon from '@material-ui/icons/MicNoneTwoTone'
-import HomeTwoToneIcon from '@material-ui/icons/HomeTwoTone'
-import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone'
-import OfflineBoltOutlinedIcon from '@material-ui/icons/OfflineBoltOutlined'
-import RoomTwoToneIcon from '@material-ui/icons/RoomTwoTone'
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined'
+import HomeIcon from '@material-ui/icons/Home'
+import InfoIcon from '@material-ui/icons/Info'
+import ViewStreamIcon from '@material-ui/icons/ViewStream'
+import DraftsIcon from '@material-ui/icons/Drafts'
+import HelpIcon from '@material-ui/icons/Help'
+import EventAvailableIcon from '@material-ui/icons/EventAvailable'
+import BookIcon from '@material-ui/icons/Book'
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn'
+import FileCopyIcon from '@material-ui/icons/FileCopy'
+import MenuBookIcon from '@material-ui/icons/MenuBook'
+import MicIcon from '@material-ui/icons/Mic'
+import StoreIcon from '@material-ui/icons/Store'
+import LockOpenIcon from '@material-ui/icons/LockOpen'
+import PersonIcon from '@material-ui/icons/Person'
+import PeopleIcon from '@material-ui/icons/People'
+import EditIcon from '@material-ui/icons/Edit'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+
+const theme = createMuiTheme();
+const color = '#282A2E';
+const fontFamily = 'Merriweather';
+const fontSize = 13;
+const backgroundColor = '#FFFFFF';
+const hoverBackgroundColor = '#ffebee';
+
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  grow: {
     flexGrow: 1,
   },
-  sidebar: {
-    width: 230,
-    backgroundColor: '#FFF',
+  noOutline: {
+    outline: 'none',
   },
-  sidebarAppbar: {
-    top: 'auto',
-    left: 0,
-    bottom: 0,
-    padding: 0,
-    backgroundColor: '#FFF',
+  appBar: {
+    backgroundColor: backgroundColor,
+    color: color,
+    // boxShadow: '0px 1px 20px 0px rgba(238,238,238,1)',
   },
-  sidebarButton: {
-    width: 200,
-    margin: 15,
-    fontSize: 14,
-  },
-  appbar: {
-    color: '#3D3D3D',
-    backgroundColor: '#F4F5F9',
-    borderBottom: '1px solid #E7E9F2',
-  },
-  title: {
-    flexGrow: 1,
-  },
-  siteName: {
-    textTransform: 'uppercase',
-    letterSpacing: 2,
-    fontSize: 15,
-    fontFamily: 'Source Sans Pro',
-    fontWeight: 600,
-    margin: theme.spacing(0, 3),
+  menuButton: {
+    color: '#424242',
     '&:hover': {
-      textDecoration: 'none',
+      // color: '#FF0000',
     },
   },
   headerLink: {
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontWeight: 600,
-    fontFamily: 'Source Sans Pro',
-    margin: theme.spacing(0, 2),
-    '&:hover': {
+    fontFamily: fontFamily,
+    fontSize: fontSize,
+    marginLeft: theme.spacing(3),
+    textTransform: 'capitalize',
+    '&:hover, &:focus': {
       textDecoration: 'none',
+      backgroundColor: 'inherit',
     },
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
-  headerButton: {
-    fontSize: 14,
-    fontFamily: 'Source Sans Pro',
-    fontWeight: 600,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
-  shopButton: {
-    margin: theme.spacing(0, 2),
-  },
-  noHover: {
-    '&:hover': {
-      backgroundColor: "#F4F5F9",
-    },
-  },
-  noDisplay: {
     [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
   },
+  headerButton: {
+    marginLeft: theme.spacing(3),
+    fontFamily: fontFamily,
+    textTransform: 'capitalize',
+  },
+  shopButton: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+  avatarButton: {
+    marginLeft: theme.spacing(3),
+    '&:hover, &:focus': {
+      backgroundColor: 'inherit',
+    },
+  },
+  avatarMenuTitle: {
+    '& .MuiListItemText-primary, & .MuiListItemText-secondary': {
+      fontFamily: fontFamily,
+      fontSize: fontSize,
+    },
+  },
+  avatarDivider: {
+    marginBottom: theme.spacing(1),
+  },
+  avatarMenuLinkText: {
+    fontFamily: fontFamily,
+    fontSize: fontSize,
+  },
+  dropDownMenuItem: {
+    '&:hover': {
+      backgroundColor: hoverBackgroundColor,
+    },
+  },
+  sidebar: {
+    width: 230,
+  },
+  sidebarMenuButton: {
+    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(1),
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: theme.spacing(0.5),
+      marginTop: theme.spacing(0.5),
+    },
+  },
+  sidebarDivider: {
+    margin: theme.spacing(1, 0),
+    [theme.breakpoints.down('xs')]: {
+      margin: theme.spacing(0.5),
+    },
+  },
+  sidebarLink: {
+    fontFamily: fontFamily,
+    '&:hover, &:focus': {
+      backgroundColor: hoverBackgroundColor,
+      textDecoration: 'none',
+    },
+  },
+  sidebarLinkIcon: {
+    marginLeft: theme.spacing(1.5),
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: theme.spacing(0),
+    },
+  },
+  sidebarLinkText: {
+    fontFamily: fontFamily,
+    fontSize: fontSize,
+    color: color,
+  },
 }));
 
-const StyledMenu = withStyles({
+const StyledResourcesMenu = withStyles({
   paper: {
-    border: '1px solid #D3D4D5',
+    maxWidth: 250,
+    borderRadius: 0,
+    marginTop: theme.spacing(1.7),
+    borderLeft: '1px solid #D3D4D5',
+    borderRight: '1px solid #D3D4D5',
+    borderBottom: '1px solid #D3D4D5',
   },
 })(props => (
   <Menu
@@ -130,27 +174,33 @@ const StyledMenu = withStyles({
   />
 ));
 
-const StyledMenuItem = withStyles(theme => ({
-  root: {
-    '& .MuiListItemIcon-root': {
-      color: '#212121',
-    },
-    '& .MuiListItemText-primary': {
-      color: '#212121',
-      lineHeight: 3,
-      textTransform: 'uppercase',
-      fontWeight: 600,
-      fontSize: 14,
-      fontFamily: 'Source Sans Pro',
-    },
-    '&:focus': {
-      backgroundColor: theme.palette.primary.main,
-      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.common.white,
-      },
+const StyledAvatarMenu = withStyles({
+  paper: {
+    maxWidth: 250,
+    borderRadius: 0,
+    marginTop: theme.spacing(0.7),
+    borderLeft: '1px solid #D3D4D5',
+    borderRight: '1px solid #D3D4D5',
+    borderBottom: '1px solid #D3D4D5',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing(0.2),
     },
   },
-}))(MenuItem);
+})(props => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'left',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+));
 
 const StyledBadge = withStyles(theme => ({
   badge: {
@@ -158,8 +208,8 @@ const StyledBadge = withStyles(theme => ({
     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
     '&::after': {
       position: 'absolute',
-      top: -1,
-      left: -1,
+      top: 0,
+      left: 0,
       width: '100%',
       height: '100%',
       borderRadius: '50%',
@@ -182,24 +232,24 @@ const StyledBadge = withStyles(theme => ({
 
 export default function Header(props) {
   const classes = useStyles();
-  const [anchorEl1, setAnchorEl1] = React.useState(null);
-  const [anchorEl2, setAnchorEl2] = React.useState(null);
   const [state, setState] = React.useState({ left: false, });
+  const [anchorResourcesMenu, setAnchorResourcesMenu] = React.useState(null);
+  const [anchorAvatarMenu, setAnchorAvatarMenu] = React.useState(null);
 
-  const handleClick1 = event => {
-    setAnchorEl1(event.currentTarget);
+  const handleResourcesClick = event => {
+    setAnchorResourcesMenu(event.currentTarget);
   }
 
-  const handleClose1 = () => {
-    setAnchorEl1(null);
+  const handleResourcesClose = () => {
+    setAnchorResourcesMenu(null);
   };
 
-  const handleClick2 = event => {
-    setAnchorEl2(event.currentTarget);
+  const handleAvatarClick = event => {
+    setAnchorAvatarMenu(event.currentTarget);
   }
 
-  const handleClose2 = () => {
-    setAnchorEl2(null);
+  const handleAvatarClose = () => {
+    setAnchorAvatarMenu(null);
   };
 
   const toggleSidebar = (side, open) => event => {
@@ -209,45 +259,6 @@ export default function Header(props) {
 
     setState({ ...state, [side]: open });
   };
-
-  const sidebarLinks = list => {
-    return (
-      list.map(function(item) {
-        return (
-          <StyledMenuItem href={item.url} key={item.text} component="a">
-            <ListItemIcon>
-              {item.icon}
-            </ListItemIcon>
-            <ListItemText primary={item.text} />
-          </StyledMenuItem>
-        );
-      })
-    );
-  }
-
-  const sidebarLogInOut = isLoggedIn => {
-    return (
-      <div>
-        <AppBar position="fixed" color="primary" className={clsx(classes.sidebar, classes.sidebarAppbar)}>
-          <Toolbar className={clsx(classes.sidebar, classes.sidebarAppbar)}>
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={isLoggedIn ? <LockIcon /> : <LockOpenIcon />}
-              component="a"
-              href={isLoggedIn ? "/logout" : "/login"}
-              data-method={isLoggedIn ? "delete" : null}
-              className={classes.sidebarButton}
-            >
-              <div>{isLoggedIn ? "Log Out" : "Log In"}</div>
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <Toolbar />
-        <Toolbar />
-      </div>
-    );
-  }
 
   const headerLinks = list => {
     return (
@@ -261,87 +272,47 @@ export default function Header(props) {
     );
   }
 
-  const headerDropDownMenu = (links, type) => {
+  const dropDownMenuItems = list => {
     return (
-      <StyledMenu
-        id="customized-menu"
-        anchorEl={type == 1 ? anchorEl1 : anchorEl2}
-        keepMounted
-        open={type == 1 ? Boolean(anchorEl1) : Boolean(anchorEl2)}
-        onClose={type == 1 ? handleClose1 : handleClose2}
-      >
-        <StyledMenuItem key="placeholder" style={{display: "none"}}></StyledMenuItem>
-        {links.map(function(link) {
-          return (
-            <StyledMenuItem href={link.url} key={link.text} component="a"  data-method={link.method}>
-              <ListItemIcon>
-                {link.icon}
-              </ListItemIcon>
-              <ListItemText primary={link.text} />
-            </StyledMenuItem>
-          );
-        })}
-      </StyledMenu>
+      list.map(function(item) {
+        return (
+          <MenuItem
+            href={item.url}
+            key={item.name}
+            component="a"
+            data-method={item.method}
+            className={classes.dropDownMenuItem}
+          >
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <Typography className={classes.avatarMenuLinkText} noWrap>{item.name}</Typography>
+          </MenuItem>
+        );
+      })
     );
   }
 
-  const headerLogInOut = (isLoggedIn, loggedInUser) => {
-    if (isLoggedIn) {
-      return (
-        <div>
-          <Button
-            aria-controls="simple-menu"
-            aria-haspopup="true"
-            onClick={handleClick2}
-            className={classes.noDisplay}
-          >
-            <StyledBadge
-              overlap="circle"
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-              variant="dot"
-            >
-              <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
-            </StyledBadge>
-          </Button>
-          {headerDropDownMenu([
-            {url: props.loggedInUser.profile, icon: <PersonOutlineIcon />, text: "View Profile", method: null},
-            {url: "/users", icon: <GroupIcon />, text: "All users", method: null},
-            {url: props.loggedInUser.settings, icon: <SettingsIcon />, text: "Settings", method: null},
-            {url: "/logout", icon: <LockIcon />, text: "Log out", method: "delete"}
-          ], 2)}
-        </div>
-      );
-    } else {
-      return (
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.headerButton}
-          startIcon={<LockOpenIcon />}
-          component="a"
-          href="/login"
-        >
-          Log In
-        </Button>
-      );
-    }
+  const sidebarLinks = list => {
+    return (
+      list.map(function(item) {
+        return (
+          <ListItem href={item.url} key={item.name} className={classes.sidebarLink} component="a">
+            <ListItemIcon className={classes.sidebarLinkIcon}>{item.icon}</ListItemIcon>
+            <Typography className={classes.sidebarLinkText} noWrap>{item.name}</Typography>
+          </ListItem>
+        );
+      })
+    );
   }
 
   return (
     <React.Fragment>
-      <div className={classes.root}>
-        <AppBar position="fixed" className={classes.appbar} elevation={0}>
+      <CssBaseline />
+
+      <header className={classes.grow}>
+        <AppBar position="fixed" className={classes.appBar} elevation={0}>
           <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleSidebar('left', true)}
-            >
-              <MenuRoundedIcon />
+            <IconButton onClick={toggleSidebar('left', true)} className={classes.menuButton} edge="start" aria-label="menu">
+              <MenuIcon />
             </IconButton>
             <Drawer open={state.left} onClose={toggleSidebar('left', false)}>
               <div
@@ -350,86 +321,142 @@ export default function Header(props) {
                 onKeyDown={toggleSidebar('left', false)}
                 className={classes.sidebar}
               >
+                <IconButton onClick={toggleSidebar('left', false)} className={classes.sidebarMenuButton} edge="start" aria-label="menu">
+                  <MenuIcon />
+                </IconButton>
+                <Divider className={classes.sidebarDivider} />
                 {sidebarLinks([
-                  {url: "/", icon: <HomeTwoToneIcon />, text: "Home"},
-                  {url: "/about", icon: <InfoTwoToneIcon />, text: "About"},
-                  {url: "/services", icon: <OfflineBoltOutlinedIcon />, text: "Services"},
-                  {url: "/contact", icon: <RoomTwoToneIcon />, text: "Contact"},
-                  {url: "/faq", icon: <HelpOutlineOutlinedIcon />, text: "FAQ"},
-                  {url: "/calendar", icon: <EventAvailableTwoToneIcon />, text: "Calendar"},
-                  {url: "/bible", icon: <BookOutlinedIcon />, text: "Holy Bible"},
-                  {url: "/donate", icon: <AttachMoneyOutlinedIcon />, text: "Pay Tithes/ Donate"},
-                  {url: "/docs", icon: <FileCopyOutlinedIcon />, text: "Documents/ Forms"},
-                  {url: "", icon: <MenuBookTwoToneIcon />, text: "Teachings"},
-                  {url: "", icon: <MicNoneTwoToneIcon />, text: "Media"},
-                  {url: "", icon: <StoreTwoToneIcon />, text: "Shop"},
+                  {url: "/",          icon: <HomeIcon />,           name: "Home"},
+                  {url: "/about",     icon: <InfoIcon />,           name: "About"},
+                  {url: "/services",  icon: <ViewStreamIcon />,     name: "Services"},
+                  {url: "/contact",   icon: <DraftsIcon />,         name: "Contact"},
+                  {url: "/faq",       icon: <HelpIcon />,           name: "FAQ"},
+                  {url: "/calendar",  icon: <EventAvailableIcon />, name: "Calendar"},
+                  {url: "/bible",     icon: <BookIcon />,           name: "Holy Bible"},
+                  {url: "/donate",    icon: <MonetizationOnIcon />, name: "Pay Tithes or Donate"},
+                  {url: "/documents", icon: <FileCopyIcon />,       name: "Documents & Forms"},
+                  {url: "",           icon: <MenuBookIcon />,       name: "Teachings"},
+                  {url: "",           icon: <MicIcon />,            name: "Media"},
+                  {url: "",           icon: <StoreIcon />,          name: "Shop"},
                 ])}
-                {props.isLoggedIn ? sidebarLinks([
-                  {url: "/users", icon: <GroupIcon />, text: "All Users"},
-                  {url: props.loggedInUser.settings, icon: <SettingsIcon />, text: "Settings"},
-                  {url: props.loggedInUser.profile, icon: <PersonOutlineIcon />, text: "View Profile"},
-                ]) : null}
-                {sidebarLogInOut(props.isLoggedIn)}
               </div>
             </Drawer>
 
-            <Typography className={classes.title}>
-              <Link href="/" className={classes.siteName} color="inherit">
-                Kidane Mihret EOTC
-              </Link>
-            </Typography>
+            <div className={classes.grow} />
 
             <Typography>
               {headerLinks([
-                {url:"/",         name: "Home"},
-                {url:"/about",    name: "About"},
-                {url:"/services", name: "Services"},
-                {url:"/contact",  name: "Contact"},
-                {url:"/faq",      name: "FAQ"},
+                {url: '/',         name: "Home"},
+                {url: '/about',    name: "About"},
+                {url: '/services', name: "Services"},
               ])}
             </Typography>
 
             <Button
-              aria-controls="customized-menu"
+              aria-controls="simple-menu"
               aria-haspopup="true"
-              onClick={handleClick1}
-              component="a"
-              className={clsx(classes.headerButton, classes.noHover)}
-              color="inherit"
+              onClick={handleResourcesClick}
+              className={classes.headerLink}
               endIcon={<ExpandMoreIcon />}
             >
               Resources
             </Button>
-            {headerDropDownMenu([
-              {url: "/calendar", icon: <EventAvailableTwoToneIcon />, text: "Calendar", method: null},
-              {url: "/bible", icon: <BookOutlinedIcon />, text: "Holy Bible", method: null},
-              {url: "/donate", icon: <AttachMoneyOutlinedIcon />, text: "Pay Tithes/ Donate", method: null},
-              {url: "/docs", icon: <FileCopyOutlinedIcon />, text: "Documents/ Forms", method: null},
-              {url: "", icon: <MenuBookTwoToneIcon />, text: "Teachings", method: null},
-              {url: "", icon: <MicNoneTwoToneIcon />, text: "Media", method: null}
-            ], 1)}
+            <StyledResourcesMenu
+              anchorEl={anchorResourcesMenu}
+              open={Boolean(anchorResourcesMenu)}
+              onClose={handleResourcesClose}
+            >
+              {dropDownMenuItems([
+                {url: "/calendar",  icon: <EventAvailableIcon />, name: "Calendar",             method: null},
+                {url: "/bible",     icon: <BookIcon />,           name: "Holy Bible",           method: null},
+                {url: "/donate",    icon: <MonetizationOnIcon />, name: "Pay Tithes or Donate", method: null},
+                {url: "/documents", icon: <FileCopyIcon />,       name: "Documents & Forms",    method: null},
+                {url: "",           icon: <MenuBookIcon />,       name: "Teachings",            method: null},
+                {url: "",           icon: <MicIcon />,            name: "Media",                method: null}
+              ])}
+            </StyledResourcesMenu>
+
+            <Typography>
+              {headerLinks([
+                {url: '/contact',  name: "Contact"},
+                {url: '/faq', name: "FAQ"},
+              ])}
+            </Typography>
 
             <Button
-              variant="outlined"
-              color="primary"
-              className={clsx(classes.headerButton, classes.shopButton)}
-              startIcon={<StoreTwoToneIcon />}
+              href="/"
               component="a"
-              href=""
+              color="primary"
+              startIcon={<StoreIcon />}
+              className={clsx(classes.headerButton, classes.shopButton)}
             >
               Shop
             </Button>
 
-            {headerLogInOut(props.isLoggedIn, props.loggedInUser)}
+            {props.isLoggedIn ? (
+              <React.Fragment>
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={handleAvatarClick}
+                  className={classes.avatarButton}
+                >
+                  <StyledBadge
+                    overlap="circle"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
+                    variant="dot"
+                  >
+                    <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
+                  </StyledBadge>
+                </Button>
+                <StyledAvatarMenu
+                  anchorEl={anchorAvatarMenu}
+                  open={Boolean(anchorAvatarMenu)}
+                  onClose={handleAvatarClose}
+                >
+                  <ListItem className={classes.noOutline}>
+                    <ListItemAvatar>
+                      <Badge overlap="circle">
+                        <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
+                      </Badge>
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={props.loggedInUser.fullName}
+                      secondary={props.loggedInUser.email}
+                      className={classes.avatarMenuTitle}
+                    />
+                  </ListItem>
+                  <Divider className={classes.avatarDivider} />
+                  {dropDownMenuItems([
+                    {url: props.loggedInUser.profile,  icon: <PersonIcon />,    name: "View profile",      method: null},
+                    {url: '/users',                    icon: <PeopleIcon />,    name: "All users",         method: null},
+                    {url: props.loggedInUser.settings, icon: <EditIcon />,      name: "Edit your profile", method: null},
+                    {url: '/logout',                   icon: <ExitToAppIcon />, name: "Log out",           method: "delete"},
+                  ])}
+                </StyledAvatarMenu>
+              </React.Fragment>
+            ) : (
+              <Button
+                href="/login"
+                component="a"
+                variant="outlined"
+                color="primary"
+                className={classes.headerButton}
+                startIcon={<LockOpenIcon />}
+              >
+                Log In
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
-        <Toolbar />
-      </div>
+      </header>
+
+      <Toolbar />
     </React.Fragment>
   );
 }
 
 Header.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  loggedInUser: PropTypes.object,
+  loggedInUser: PropTypes.object
 };

@@ -10,9 +10,6 @@ import ErrorIcon from '@material-ui/icons/Error'
 import InfoIcon from '@material-ui/icons/Info'
 
 const useStyles = makeStyles(theme => ({
-  message: {
-    fontSize: 15,
-  },
   removeKeyDisplay: {
     display: 'none',
   },
@@ -34,7 +31,7 @@ function NotificationsWrapper(props) {
 
 NotificationsWrapper.propTypes = {
   message: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'default']).isRequired,
+  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info']).isRequired,
 };
 
 export default function Notifications(props) {
@@ -50,12 +47,6 @@ export default function Notifications(props) {
       ref={notistackRef}
       autoHideDuration={null}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      classes={{
-        variantSuccess: classes.message,
-        variantError: classes.message,
-        variantWarning: classes.message,
-        variantInfo: classes.message,
-      }}
       action={(key) => (
         <IconButton key="close" aria-label="close" color="inherit" onClick={handleClose(key)}>
           <CloseIcon />

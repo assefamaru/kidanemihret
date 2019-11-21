@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get    'calendar',            to: 'static_pages#calendar'
   get    'bible',               to: 'static_pages#bible'
   get    'donate',              to: 'static_pages#donate'
-  get    'docs',                to: 'static_pages#docs'
+  get    'documents',           to: 'static_pages#documents'
   get    'faq',                 to: 'static_pages#faq'
 
   get    '/signup',             to: 'users#new'

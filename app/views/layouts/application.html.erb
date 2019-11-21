@@ -15,6 +15,7 @@
     <meta property="og:title" content="Kidane Mihret — Ethiopian Orthodox Tewahedo Church.">
     <meta property="og:image" content="https://kidanemihret-ogimg.s3.ca-central-1.amazonaws.com/60647738_2327803990765030_8159586028651282432_o.jpg">
     <meta property="og:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church serves the Orthodox Christian community of Kitchener-Waterloo in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kidane Mihret — Ethiopian Orthodox Tewahedo Church.">
     <meta name="twitter:description" content="Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church serves the Orthodox Christian community of Kitchener-Waterloo in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
@@ -25,21 +26,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <%= react_component('Header', {
-      isLoggedIn: logged_in?,
-      loggedInUser: get_logged_in_user
-    }) %>
-
+    <%= react_component('Header', { isLoggedIn: logged_in?, loggedInUser: get_logged_in_user }) %>
     <%= react_component('Notifications', { notifications: flash }) %>
-
-    <div class="body-content-wrapper">
-      <%= yield %>
-    </div>
-
-    <%= react_component 'Footer' %>
+    <%= yield %>
+    <%= react_component('Footer') %>
   </body>
 </html>
 <% end %>

@@ -21,7 +21,6 @@ import SendIcon from '@material-ui/icons/Send'
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 1),
-    backgroundColor: '#F4F5F9',
     marginTop: 50,
   },
   container: {
