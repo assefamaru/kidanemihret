@@ -33,7 +33,11 @@
 
   <body>
     <%= react_component('Header', { isLoggedIn: logged_in?, loggedInUser: get_logged_in_user }) %>
-    <%= react_component('Notifications', { notifications: flash }) %>
+
+    <% flash.each do |message_type, message| %>
+        <%= react_component('Flash', { messageType: message_type, message: message }) %>
+    <% end %>
+
     <%= yield %>
     <%= react_component('Footer') %>
   </body>
