@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import clsx from 'clsx'
+import Header from './Header'
+import Footer from './Footer'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -23,21 +25,58 @@ import SendIcon from '@material-ui/icons/Send'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: 'transparent',
-    marginTop: theme.spacing(10),
+    padding: theme.spacing(3, 1),
+    marginTop: 50,
   },
-  margin: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-  title: {
-    marginBottom: theme.spacing(4),
-  },
-  form: {
+  container: {
     flexWrap: 'wrap',
   },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    fontSize: 20,
+  },
+  h1: {
+    margin: theme.spacing(1),
+    marginBottom: theme.spacing(3),
+    color: '#3D3D3D',
+  },
+  p: {
+    margin: theme.spacing(1),
+    marginBottom: theme.spacing(3),
+    color: '#3D3D3D',
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
   checkbox: {
+    color: '#3D3D3D',
     flex: 1,
+    '& .MuiCheckbox-root': {
+      marginLeft: -10,
+    },
+    '& .MuiFormControlLabel-label': {
+      fontSize: 15,
+      color: '#3D3D3D',
+      marginTop: theme.spacing(0.3),
+    },
+  },
+  forgot: {
+    marginRight: theme.spacing(1),
+    marginTop: theme.spacing(2.5),
+    color: '#3D3D3D',
+    textDecoration: 'underline',
+    fontSize: 15,
+  },
+  submit: {
+    fontSize: 15,
+    margin: theme.spacing(2, 1),
+    height: 50,
+  },
+  linkSignup: {
+    marginLeft: 5,
+    color: '#3D3D3D',
+    textDecoration: 'underline',
   },
 }));
 
@@ -62,31 +101,32 @@ export default function LogIn(props) {
 
   return (
     <Container maxWidth="sm">
-      <Paper elevation={0} className={classes.root}>
-        <Typography variant="h2" component="h1" className={classes.title}>
+      <Paper className={classes.root} elevation={0}>
+        <Typography variant="h2" component="h1" className={classes.h1}>
           Log In
         </Typography>
         <form
+          className={classes.container}
           autoComplete="off"
           action="/login"
           acceptCharset="UTF-8"
           method="post"
-          className={classes.form}
         >
           <input name="utf8" type="hidden" value="&#x2713;" />
           <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
           <TextField
             id="outlined-email"
+            className={classes.textField}
             label="Email"
             name="session[email]"
             placeholder="kidanemihret@gmail.com"
             margin="normal"
             variant="outlined"
             fullWidth
-            className={classes.margin}
           />
           <TextField
             fullWidth
+            className={clsx(classes.margin, classes.textField)}
             label="Password"
             variant="outlined"
             type={values.showPassword ? 'text' : 'password'}
@@ -104,7 +144,6 @@ export default function LogIn(props) {
                 </IconButton>
               </InputAdornment>,
             }}
-            className={classes.margin}
           />
           <FormControlLabel
             control={
@@ -117,25 +156,25 @@ export default function LogIn(props) {
             }
             label="Remember me"
             name="session[remember_me]"
-            className={clsx(classes.margin, classes.checkbox)}
+            className={clsx(classes.checkbox, classes.margin)}
           />
-          <Link href="/password_resets/new">
+          <Link href="/password_resets/new" className={classes.forgot}>
             Forgot password?
           </Link>
           <Button
             variant="contained"
             color="primary"
+            className={classes.submit}
             endIcon={<SendIcon />}
             fullWidth
             type="submit"
-            className={classes.margin}
           >
             Log In
           </Button>
         </form>
-        <p>
+        <p className={classes.margin}>
           Don't have an account?
-          <Link href="/signup">
+          <Link href="/signup" className={classes.linkSignup}>
             Sign up now!
           </Link>
         </p>

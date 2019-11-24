@@ -34,7 +34,7 @@ NotificationsWrapper.propTypes = {
   variant: PropTypes.oneOf(['success', 'error', 'warning', 'info']).isRequired,
 };
 
-export default function StackNotifications(props) {
+export default function DeprecatedNotifications(props) {
   const classes = useStyles();
   const notistackRef = React.createRef();
   const handleClose = key => () => {
@@ -64,6 +64,6 @@ export default function StackNotifications(props) {
   );
 }
 
-StackNotifications.propTypes = {
+DeprecatedNotifications.propTypes = {
   notifications: PropTypes.array.isRequired,
 };

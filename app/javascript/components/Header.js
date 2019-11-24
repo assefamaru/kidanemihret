@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import clsx from 'clsx'
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles'
+import { createMuiTheme, makeStyles, withStyles, MuiThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -18,8 +18,10 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
+import Tooltip from '@material-ui/core/Tooltip'
 import Divider from '@material-ui/core/Divider'
 import MenuIcon from '@material-ui/icons/Menu'
+import SearchIcon from '@material-ui/icons/Search'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import HomeIcon from '@material-ui/icons/Home'
 import InfoIcon from '@material-ui/icons/Info'
@@ -39,13 +41,16 @@ import PeopleIcon from '@material-ui/icons/People'
 import EditIcon from '@material-ui/icons/Edit'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
-const theme = createMuiTheme();
-const color = '#282A2E';
-const fontFamily = 'Merriweather';
+const theme = createMuiTheme({
+  palette: {
+    background: {
+      default: '#FFFFFF',
+    },
+  },
+});
+const color = '#282828';
 const fontSize = 13;
-const backgroundColor = '#FFFFFF';
-const hoverBackgroundColor = '#ffebee';
-
+const hoverBackgroundColor = '#ede7f6';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -55,69 +60,87 @@ const useStyles = makeStyles(theme => ({
     outline: 'none',
   },
   appBar: {
-    backgroundColor: backgroundColor,
+    backgroundColor: '#FFFFFF',
     color: color,
-    // boxShadow: '0px 1px 20px 0px rgba(238,238,238,1)',
+    borderBottom: '1px solid #ede7f6',
   },
-  menuButton: {
-    color: '#424242',
+  searchButton: {
     '&:hover': {
-      // color: '#FF0000',
+      backgroundColor: 'transparent',
     },
   },
   headerLink: {
-    fontFamily: fontFamily,
+    fontFamily: 'Source Sans Pro',
     fontSize: fontSize,
-    marginLeft: theme.spacing(3),
-    textTransform: 'capitalize',
+    textTransform: 'uppercase',
+    fontWeight: 600,
+    letterSpacing: 2,
+    marginRight: theme.spacing(4),
     '&:hover, &:focus': {
       textDecoration: 'none',
       backgroundColor: 'inherit',
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  headerButton: {
-    marginLeft: theme.spacing(3),
-    fontFamily: fontFamily,
-    textTransform: 'capitalize',
-  },
-  shopButton: {
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
+  logInButton: {
+    fontFamily: 'Source Sans Pro',
+    fontSize: fontSize,
+    textTransform: 'uppercase',
+    fontWeight: 600,
+    letterSpacing: 2,
+    backgroundColor: '#673ab7',
+    '&:hover, &:focus': {
+      backgroundColor: '#5e35b1',
     },
   },
   avatarButton: {
-    marginLeft: theme.spacing(3),
     '&:hover, &:focus': {
       backgroundColor: 'inherit',
     },
   },
   avatarMenuTitle: {
     '& .MuiListItemText-primary, & .MuiListItemText-secondary': {
-      fontFamily: fontFamily,
-      fontSize: fontSize,
+      fontSize: 14,
+    },
+    '& .MuiListItemText-primary,': {
+      fontWeight: 500,
     },
   },
   avatarDivider: {
     marginBottom: theme.spacing(1),
   },
   avatarMenuLinkText: {
-    fontFamily: fontFamily,
     fontSize: fontSize,
   },
-  dropDownMenuItem: {
+  dropDownMenuLink: {
+    height: theme.spacing(7),
     '&:hover': {
       backgroundColor: hoverBackgroundColor,
     },
   },
+  dropDownMenuLinkIcon: {
+    color: '#616161',
+  },
+  dropDownMenuLinkText: {
+    color: color,
+    fontFamily: 'Source Sans Pro',
+    fontSize: 14,
+    textTransform: 'uppercase',
+    fontWeight: 600,
+    letterSpacing: 1,
+  },
   sidebar: {
-    width: 230,
+    width: 250,
+    maxWidth: '90vw',
+    backgroundColor: '#FFFFFF',
   },
   sidebarMenuButton: {
-    marginLeft: theme.spacing(2),
+    color: color,
+    marginLeft: theme.spacing(1.5),
     marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1.1),
     [theme.breakpoints.down('xs')]: {
       marginLeft: theme.spacing(0.5),
       marginTop: theme.spacing(0.5),
@@ -130,33 +153,33 @@ const useStyles = makeStyles(theme => ({
     },
   },
   sidebarLink: {
-    fontFamily: fontFamily,
+    height: theme.spacing(7),
     '&:hover, &:focus': {
-      backgroundColor: hoverBackgroundColor,
+      backgroundColor: '#ede7f6',
       textDecoration: 'none',
     },
   },
   sidebarLinkIcon: {
-    marginLeft: theme.spacing(1.5),
+    color: '#616161',
+    marginLeft: theme.spacing(1),
     [theme.breakpoints.down('xs')]: {
       marginLeft: theme.spacing(0),
     },
   },
   sidebarLinkText: {
-    fontFamily: fontFamily,
-    fontSize: fontSize,
     color: color,
+    fontFamily: 'Source Sans Pro',
+    fontSize: fontSize,
+    textTransform: 'uppercase',
+    fontWeight: 600,
+    letterSpacing: 1,
   },
 }));
 
-const StyledResourcesMenu = withStyles({
+const StyledMenu = withStyles({
   paper: {
     maxWidth: 250,
-    borderRadius: 0,
-    marginTop: theme.spacing(1.7),
-    borderLeft: '1px solid #D3D4D5',
-    borderRight: '1px solid #D3D4D5',
-    borderBottom: '1px solid #D3D4D5',
+    border: '1px solid #ede7f6',
   },
 })(props => (
   <Menu
@@ -165,34 +188,6 @@ const StyledResourcesMenu = withStyles({
     anchorOrigin={{
       vertical: 'bottom',
       horizontal: 'center',
-    }}
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'center',
-    }}
-    {...props}
-  />
-));
-
-const StyledAvatarMenu = withStyles({
-  paper: {
-    maxWidth: 250,
-    borderRadius: 0,
-    marginTop: theme.spacing(0.7),
-    borderLeft: '1px solid #D3D4D5',
-    borderRight: '1px solid #D3D4D5',
-    borderBottom: '1px solid #D3D4D5',
-    [theme.breakpoints.down('xs')]: {
-      marginTop: theme.spacing(0.2),
-    },
-  },
-})(props => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={null}
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'left',
     }}
     transformOrigin={{
       vertical: 'top',
@@ -281,10 +276,10 @@ export default function Header(props) {
             key={item.name}
             component="a"
             data-method={item.method}
-            className={classes.dropDownMenuItem}
+            className={classes.dropDownMenuLink}
           >
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <Typography className={classes.avatarMenuLinkText} noWrap>{item.name}</Typography>
+            <ListItemIcon className={classes.dropDownMenuLinkIcon}>{item.icon}</ListItemIcon>
+            <Typography className={classes.dropDownMenuLinkText} noWrap>{item.name}</Typography>
           </MenuItem>
         );
       })
@@ -306,14 +301,21 @@ export default function Header(props) {
 
   return (
     <React.Fragment>
-      <CssBaseline />
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+      </MuiThemeProvider>
 
       <header className={classes.grow}>
         <AppBar position="fixed" className={classes.appBar} elevation={0}>
           <Toolbar>
-            <IconButton onClick={toggleSidebar('left', true)} className={classes.menuButton} edge="start" aria-label="menu">
+            <IconButton onClick={toggleSidebar('left', true)} edge="start" aria-label="menu" color="inherit">
               <MenuIcon />
             </IconButton>
+            <Tooltip title="Search feature coming soon.">
+              <IconButton aria-label="search" className={classes.searchButton} color="inherit">
+                <SearchIcon />
+              </IconButton>
+            </Tooltip>
             <Drawer open={state.left} onClose={toggleSidebar('left', false)}>
               <div
                 role="presentation"
@@ -324,19 +326,24 @@ export default function Header(props) {
                 <IconButton onClick={toggleSidebar('left', false)} className={classes.sidebarMenuButton} edge="start" aria-label="menu">
                   <MenuIcon />
                 </IconButton>
-                <Divider className={classes.sidebarDivider} />
                 {sidebarLinks([
                   {url: "/",          icon: <HomeIcon />,           name: "Home"},
                   {url: "/about",     icon: <InfoIcon />,           name: "About"},
                   {url: "/services",  icon: <ViewStreamIcon />,     name: "Services"},
                   {url: "/contact",   icon: <DraftsIcon />,         name: "Contact"},
-                  {url: "/faq",       icon: <HelpIcon />,           name: "FAQ"},
+                ])}
+                <Divider className={classes.sidebarDivider} />
+                {sidebarLinks([
                   {url: "/calendar",  icon: <EventAvailableIcon />, name: "Calendar"},
                   {url: "/bible",     icon: <BookIcon />,           name: "Holy Bible"},
-                  {url: "/donate",    icon: <MonetizationOnIcon />, name: "Pay Tithes or Donate"},
-                  {url: "/documents", icon: <FileCopyIcon />,       name: "Documents & Forms"},
+                  {url: "/donate",    icon: <MonetizationOnIcon />, name: "Pay Tithes/ Donate"},
+                  {url: "/documents", icon: <FileCopyIcon />,       name: "Documents/ Forms"},
                   {url: "",           icon: <MenuBookIcon />,       name: "Teachings"},
                   {url: "",           icon: <MicIcon />,            name: "Media"},
+                ])}
+                <Divider className={classes.sidebarDivider} />
+                {sidebarLinks([
+                  {url: "/faq",       icon: <HelpIcon />,           name: "FAQ"},
                   {url: "",           icon: <StoreIcon />,          name: "Shop"},
                 ])}
               </div>
@@ -349,49 +356,52 @@ export default function Header(props) {
                 {url: '/',         name: "Home"},
                 {url: '/about',    name: "About"},
                 {url: '/services', name: "Services"},
+                {url: '/contact',  name: "Contact"},
               ])}
             </Typography>
 
             <Button
               aria-controls="simple-menu"
               aria-haspopup="true"
+              component="a"
               onClick={handleResourcesClick}
               className={classes.headerLink}
               endIcon={<ExpandMoreIcon />}
             >
               Resources
             </Button>
-            <StyledResourcesMenu
+            <StyledMenu
               anchorEl={anchorResourcesMenu}
               open={Boolean(anchorResourcesMenu)}
               onClose={handleResourcesClose}
             >
               {dropDownMenuItems([
-                {url: "/calendar",  icon: <EventAvailableIcon />, name: "Calendar",             method: null},
-                {url: "/bible",     icon: <BookIcon />,           name: "Holy Bible",           method: null},
-                {url: "/donate",    icon: <MonetizationOnIcon />, name: "Pay Tithes or Donate", method: null},
-                {url: "/documents", icon: <FileCopyIcon />,       name: "Documents & Forms",    method: null},
-                {url: "",           icon: <MenuBookIcon />,       name: "Teachings",            method: null},
-                {url: "",           icon: <MicIcon />,            name: "Media",                method: null}
+                {url: "/calendar",  icon: <EventAvailableIcon fontSize="small" />, name: "Calendar",             method: null},
+                {url: "/bible",     icon: <BookIcon fontSize="small" />,           name: "Holy Bible",           method: null},
+                {url: "/donate",    icon: <MonetizationOnIcon fontSize="small" />, name: "Pay Tithes/ Donate", method: null},
+                {url: "/documents", icon: <FileCopyIcon fontSize="small" />,       name: "Documents/ Forms",    method: null},
+                {url: "",           icon: <MenuBookIcon fontSize="small" />,       name: "Teachings",            method: null},
+                {url: "",           icon: <MicIcon fontSize="small" />,            name: "Media",                method: null}
               ])}
-            </StyledResourcesMenu>
+            </StyledMenu>
 
             <Typography>
               {headerLinks([
-                {url: '/contact',  name: "Contact"},
                 {url: '/faq', name: "FAQ"},
               ])}
             </Typography>
 
-            <Button
-              href="/"
-              component="a"
-              color="primary"
-              startIcon={<StoreIcon />}
-              className={clsx(classes.headerButton, classes.shopButton)}
-            >
-              Shop
-            </Button>
+            <Tooltip title="Kidanemihret shop is under construction. Coming soon!">
+              <Button
+                href="/"
+                component="a"
+                color="inherit"
+                startIcon={<StoreIcon />}
+                className={classes.headerLink}
+              >
+                Shop
+              </Button>
+            </Tooltip>
 
             {props.isLoggedIn ? (
               <React.Fragment>
@@ -409,7 +419,7 @@ export default function Header(props) {
                     <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
                   </StyledBadge>
                 </Button>
-                <StyledAvatarMenu
+                <StyledMenu
                   anchorEl={anchorAvatarMenu}
                   open={Boolean(anchorAvatarMenu)}
                   onClose={handleAvatarClose}
@@ -428,20 +438,20 @@ export default function Header(props) {
                   </ListItem>
                   <Divider className={classes.avatarDivider} />
                   {dropDownMenuItems([
-                    {url: props.loggedInUser.profile,  icon: <PersonIcon />,    name: "View profile",      method: null},
-                    {url: '/users',                    icon: <PeopleIcon />,    name: "All users",         method: null},
-                    {url: props.loggedInUser.settings, icon: <EditIcon />,      name: "Edit your profile", method: null},
-                    {url: '/logout',                   icon: <ExitToAppIcon />, name: "Log out",           method: "delete"},
+                    {url: props.loggedInUser.profile,  icon: <PersonIcon fontSize="small" />,    name: "View profile", method: null},
+                    {url: '/users',                    icon: <PeopleIcon fontSize="small" />,    name: "All users",    method: null},
+                    {url: props.loggedInUser.settings, icon: <EditIcon fontSize="small" />,      name: "Settings",     method: null},
+                    {url: '/logout',                   icon: <ExitToAppIcon fontSize="small" />, name: "Log out",      method: "delete"},
                   ])}
-                </StyledAvatarMenu>
+                </StyledMenu>
               </React.Fragment>
             ) : (
               <Button
                 href="/login"
                 component="a"
-                variant="outlined"
+                variant="contained"
                 color="primary"
-                className={classes.headerButton}
+                className={classes.logInButton}
                 startIcon={<LockOpenIcon />}
               >
                 Log In
