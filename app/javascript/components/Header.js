@@ -1,9 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { makeStyles } from '@material-ui/core/styles'
+import { createMuiTheme, makeStyles, MuiThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+
+const theme = createMuiTheme({
+  palette: {
+    background: {
+      default: '#FFFFFF',
+    },
+  },
+});
 
 const useStyles = makeStyles(theme => ({
-
+  
 }));
 
 export default function Header(props) {
@@ -11,6 +20,11 @@ export default function Header(props) {
 
   return (
     <React.Fragment>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+      </MuiThemeProvider>
+
+
     </React.Fragment>
   );
 }
