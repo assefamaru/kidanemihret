@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function Header(props) {
+export default function Template(props) {
   const classes = useStyles();
 
   return (
@@ -15,6 +15,6 @@ export default function Header(props) {
   );
 }
 
-Header.propTypes = {
+Template.propTypes = {
   template: PropTypes.bool,
 };

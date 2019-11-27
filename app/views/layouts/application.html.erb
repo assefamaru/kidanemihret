@@ -27,7 +27,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
   </head>
 
@@ -35,7 +35,7 @@
     <%= react_component('Header', { isLoggedIn: logged_in?, loggedInUser: get_logged_in_user }) %>
 
     <% flash.each do |message_type, message| %>
-        <%= react_component('Flash', { messageType: message_type, message: message }) %>
+        <%= react_component('Notifications', { variant: message_type, message: message }) %>
     <% end %>
 
     <%= yield %>

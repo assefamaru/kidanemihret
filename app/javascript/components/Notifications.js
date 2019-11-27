@@ -78,7 +78,7 @@ MySnackbarContentWrapper.propTypes = {
   variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
 };
 
-export default function Flash(props) {
+export default function Notifications(props) {
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (event, reason) => {
@@ -100,14 +100,14 @@ export default function Flash(props) {
     >
       <MySnackbarContentWrapper
         onClose={handleClose}
-        variant={props.messageType}
+        variant={props.variant}
         message={props.message}
       />
     </Snackbar>
   );
 }
 
-Flash.propTypes = {
-  messageType: PropTypes.string.isRequired,
+Notifications.propTypes = {
+  variant: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
 };
