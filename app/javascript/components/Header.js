@@ -10,6 +10,8 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+import Drawer from '@material-ui/core/Drawer'
 import Badge from '@material-ui/core/Badge'
 import Avatar from '@material-ui/core/Avatar'
 import Menu from '@material-ui/core/Menu'
@@ -19,10 +21,23 @@ import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import Divider from '@material-ui/core/Divider'
+import MenuIcon from '@material-ui/icons/Menu'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import TranslateIcon from '@material-ui/icons/Translate'
 import StoreIcon from '@material-ui/icons/Store'
 import { Bell } from 'react-feather'
+import { Home } from 'react-feather'
+import { Info } from 'react-feather'
+import { Flag } from 'react-feather'
+import { Send } from 'react-feather'
+import { Calendar } from 'react-feather'
+import { Book } from 'react-feather'
+import { DollarSign } from 'react-feather'
+import { FileText } from 'react-feather'
+import { Bookmark } from 'react-feather'
+import { Mic } from 'react-feather'
+import { HelpCircle } from 'react-feather'
+import { ShoppingCart } from 'react-feather'
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -44,6 +59,15 @@ const useStyles = makeStyles(theme => ({
   toolbarBottom: {
     minHeight: 30,
     [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+  menuButton: {
+    marginRight: theme.spacing(3),
+    '&:hover': {
+      backgroundColor: '#FFFFFF',
+    },
+    [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
   },
@@ -141,6 +165,37 @@ const useStyles = makeStyles(theme => ({
       color: '#212121',
       backgroundColor: '#FFFFFF',
     },
+  },
+  sidebar: {
+    width: 240,
+    color: '#212121',
+    backgroundColor: '#FFFFFF',
+    fontFamily: 'sans-serif-book',
+  },
+  sidebarMenuButton: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(3),
+    marginTop: theme.spacing(0.5),
+    '&:hover': {
+      backgroundColor: '#FFFFFF',
+    },
+  },
+  sidebarMenuTitle: {
+    marginTop: theme.spacing(2),
+    position: 'absolute',
+  },
+  sidebarLink: {
+    paddingLeft: theme.spacing(3),
+  },
+  sidebarLinkIcon: {
+
+  },
+  sidebarLinkText: {
+    color: '#424242',
+    fontFamily: 'sans-serif-book',
+    textTransform: 'none',
+    fontSize: 16,
+    letterSpacing: 0,
   },
 }));
 
@@ -270,14 +325,69 @@ export default function Header(props) {
     );
   }
 
+  const sidebarLinks = list => {
+    return (
+      list.map(function(item) {
+        return (
+          <ListItem href={item.url} key={item.name} className={classes.sidebarLink} component="a">
+            <ListItemIcon className={classes.sidebarLinkIcon}>{item.icon}</ListItemIcon>
+            <Typography className={classes.sidebarLinkText} noWrap>{item.name}</Typography>
+          </ListItem>
+        );
+      })
+    );
+  }
+
   return (
     <React.Fragment>
       <HideOnScroll {...props}>
         <AppBar className={classes.appBar} elevation={0}>
           <Toolbar className={classes.toolbar}>
+            <IconButton className={classes.menuButton} onClick={toggleSidebar('left', true)} edge="start" aria-label="menu" color="inherit">
+              <MenuIcon />
+            </IconButton>
+
             <Link href="/" className={classes.title} color="inherit">
               Kidanemihret
             </Link>
+
+            <Drawer open={state.left} onClose={toggleSidebar('left', false)}>
+              <div
+                role="presentation"
+                onClick={toggleSidebar('left', false)}
+                onKeyDown={toggleSidebar('left', false)}
+                className={classes.sidebar}
+              >
+                <div className={classes.grow} >
+                  <IconButton onClick={toggleSidebar('left', false)} className={classes.sidebarMenuButton} edge="start" aria-label="menu" color="inherit">
+                    <MenuIcon />
+                  </IconButton>
+                  <Link href="/" className={clsx(classes.title, classes.sidebarMenuTitle)} color="inherit">
+                    Kidanemihret
+                  </Link>
+                </div>
+                {sidebarLinks([
+                  {url: "/",          icon: <Home size={18} />,        name: "Home"},
+                  {url: "/about",     icon: <Info size={18} />,        name: "About"},
+                  {url: "/services",  icon: <Flag size={18} />,        name: "Services"},
+                  {url: "/contact",   icon: <Send size={18} />,        name: "Contact"},
+                ])}
+                <Divider className={classes.customDivider} />
+                {sidebarLinks([
+                  {url: "/calendar",  icon: <Calendar size={18} />,    name: "Calendar"},
+                  {url: "/bible",     icon: <Book size={18} />,        name: "Holy Bible"},
+                  {url: "/donate",    icon: <DollarSign size={18} />,  name: "Pay Tithes/ Donate"},
+                  {url: "/documents", icon: <FileText size={18} />,    name: "Documents/ Forms"},
+                  {url: "#",          icon: <Bookmark size={18} />,    name: "Teachings"},
+                  {url: "#",          icon: <Mic size={18} />,         name: "Media"},
+                ])}
+                <Divider className={classes.customDivider} />
+                {sidebarLinks([
+                  {url: "/faq",       icon: <HelpCircle size={18} />,   name: "FAQ"},
+                  {url: "#",          icon: <ShoppingCart size={18} />, name: "Shop"},
+                ])}
+              </div>
+            </Drawer>
 
             <div className={classes.grow} />
 
