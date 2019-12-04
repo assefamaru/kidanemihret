@@ -26,11 +26,10 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <%= react_component('CssBaseLine') %>
     <%= react_component('Header', { isLoggedIn: logged_in?, loggedInUser: get_logged_in_user }) %>
 
     <% flash.each do |message_type, message| %>

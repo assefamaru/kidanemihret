@@ -41,6 +41,7 @@ import PeopleIcon from '@material-ui/icons/People'
 import EditIcon from '@material-ui/icons/Edit'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
+
 const theme = createMuiTheme({
   palette: {
     background: {
@@ -63,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     backgroundColor: '#FFFFFF',
     color: color,
-    borderBottom: '1px solid #ede7f6',
+    borderBottom: '1px solid #f5f5f5',
   },
   searchButton: {
     '&:hover': {
@@ -71,12 +72,12 @@ const useStyles = makeStyles(theme => ({
     },
   },
   headerLink: {
-    fontFamily: 'Source Sans Pro',
+    fontFamily: 'sans-serif-book',
     fontSize: 14,
     textTransform: 'uppercase',
-    fontWeight: 400,
-    letterSpacing: 1,
+    letterSpacing: 0.4,
     marginRight: theme.spacing(4),
+    color: '#9e9e9e',
     '&:hover, &:focus': {
       textDecoration: 'none',
       backgroundColor: 'inherit',
@@ -87,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   logInButton: {
-    fontFamily: 'Source Sans Pro',
+    fontFamily: 'sans-serif-book',
     fontSize: 14,
     textTransform: 'uppercase',
     fontWeight: 600,
@@ -127,7 +128,7 @@ const useStyles = makeStyles(theme => ({
   },
   dropDownMenuLinkText: {
     color: color,
-    fontFamily: 'Source Sans Pro',
+    fontFamily: 'sans-serif-book',
     fontSize: 14,
     textTransform: 'uppercase',
     fontWeight: 600,
@@ -170,7 +171,7 @@ const useStyles = makeStyles(theme => ({
   },
   sidebarLinkText: {
     color: color,
-    fontFamily: 'Source Sans Pro',
+    fontFamily: 'sans-serif-book',
     fontSize: fontSize,
     textTransform: 'uppercase',
     fontWeight: 600,

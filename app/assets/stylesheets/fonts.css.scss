@@ -1,0 +1,139 @@
+// Sans Serif fonts ===========================================================
+
+@font-face {
+  font-family: 'sans-serif-thin';
+  src: url(font-path('kievit/KievitOT-Thin.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-thin-italic';
+  src: url(font-path('kievit/KievitOT-ThinItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-extra-light';
+  src: url(font-path('kievit/KievitOT-ExtraLight.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-extra-light-italic';
+  src: url(font-path('kievit/KievitOT-ExtraLightItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-light';
+  src: url(font-path('kievit/KievitOT-Light.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-light-italic';
+  src: url(font-path('kievit/KievitOT-LightItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-regular';
+  src: url(font-path('kievit/KievitOT-Regular.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-italic';
+  src: url(font-path('kievit/KievitOT-Italic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-medium';
+  src: url(font-path('kievit/KievitOT-Medium.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-medium-italic';
+  src: url(font-path('kievit/KievitOT-MediumItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-bold';
+  src: url(font-path('kievit/KievitOT-Bold.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-bold-italic';
+  src: url(font-path('kievit/KievitOT-BoldItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-extra-bold';
+  src: url(font-path('kievit/KievitOT-ExtraBold.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-extra-bold-italic';
+  src: url(font-path('kievit/KievitOT-ExtraBoldItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-black';
+  src: url(font-path('kievit/KievitOT-Black.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-black-italic';
+  src: url(font-path('kievit/KievitOT-BlackItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-book';
+  src: url(font-path('kievit/KievitOT-Book.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif-book-italic';
+  src: url(font-path('kievit/KievitOT-BookItalic.otf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Serif fonts ================================================================
+
+@font-face {
+  font-family: 'serif-regular';
+  src: url(font-path('charter/Charter.ttf'));
+  font-weight: normal;
+  font-style: normal;
+}
+
+// font-family: 'Playfair Display', serif;
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900&display=swap');
