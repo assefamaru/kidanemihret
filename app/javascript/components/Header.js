@@ -73,6 +73,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontFamily: 'Playfair Display',
+    fontWeight: 900,
     fontSize: 25,
     '&:hover': {
       textDecoration: 'none',
