@@ -110,14 +110,18 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'none',
     color: '#00bfa5',
     letterSpacing: 0,
+    marginLeft: theme.spacing(2),
     '&:hover': {
       backgroundColor: '#FFFFFF',
       color: '#008573',
     }
   },
+  loginButton: {
+    padding: 0,
+    minWidth: 20,
+  },
   signupButton: {
     border: '1px solid #00bfa5',
-    marginLeft: theme.spacing(1),
     '&:hover': {
       border: '1px solid #008573',
     },
@@ -127,6 +131,8 @@ const useStyles = makeStyles(theme => ({
   },
   avatarButton: {
     padding: 0,
+    minWidth: 20,
+    marginLeft: theme.spacing(3),
     '&:hover, &:focus': {
       backgroundColor: '#FFFFFF',
     },
@@ -469,7 +475,7 @@ export default function Header(props) {
                     component="a"
                     variant="text"
                     color="primary"
-                    className={classes.authButton}
+                    className={clsx(classes.loginButton, classes.authButton)}
                   >
                     Log in
                   </Button>
