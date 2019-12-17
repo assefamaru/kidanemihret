@@ -43,6 +43,8 @@ const useStyles = makeStyles(theme => ({
   message: {
     display: 'flex',
     alignItems: 'center',
+    fontFamily: 'sans-serif-book',
+    fontSize: 15,
   },
 }));
 
@@ -92,7 +94,7 @@ export default function Notifications(props) {
   return (
     <Snackbar
       anchorOrigin={{
-        vertical: 'bottom',
+        vertical: 'top',
         horizontal: 'right',
       }}
       open={open}

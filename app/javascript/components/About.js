@@ -10,12 +10,20 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     padding: theme.spacing(5, 2.5),
   },
+  img: {
+    width: '100%',
+    height: 'auto',
+    display: 'block',
+  },
   title: {
-    fontFamily: 'Playfair Display',
+    fontFamily: 'sans-serif-bold',
     fontWeight: 400,
-    fontSize: 40,
-    color: '#212121',
+    fontSize: 35,
+    color: '#424242',
     marginTop: 30,
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 30,
+    },
   },
   caption: {
     fontFamily: 'sans-serif-book',
@@ -34,16 +42,19 @@ const useStyles = makeStyles(theme => ({
     fontSize: 22,
     color: '#212121',
     marginTop: 10,
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 18,
+    },
   },
   quotation: {
     fontFamily: 'serif-regular',
     fontStyle: 'italic',
-    borderLeft: '3px solid #212121',
-    paddingLeft: 10,
-    marginLeft: -10,
     fontSize: 22,
     color: '#212121',
     marginTop: 10,
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 18,
+    },
   },
   quotationOrigin: {
     fontStyle: 'normal',
@@ -56,6 +67,8 @@ export default function About(props) {
   return (
     <React.Fragment>
       <div className={classes.root}>
+        <img src={props.aboutImage} className={classes.img} />
+
         <Typography variant="h1" className={classes.title}>
           Brief History
         </Typography>
@@ -101,5 +114,5 @@ export default function About(props) {
 }
 
 About.propTypes = {
-  template: PropTypes.bool,
+  aboutImage: PropTypes.string,
 };

@@ -45,22 +45,24 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     color: '#212121',
-    backgroundColor: '#FFFFFF',
-    opacity: 0.95,
+    backgroundColor: '#FEFFFF',
+    opacity: 0.98,
     fontFamily: 'sans-serif-book',
+    padding: 0,
+    boxShadow: '0px 1px 20px 0px rgba(238,238,238,1)',
   },
   toolbar: {
-    width: '100vw',
-    maxWidth: 1100,
-    margin: 'auto',
-    paddingLeft: 20,
-    paddingRight: 20,
+    padding: 0,
   },
   toolbarBottom: {
-    minHeight: 30,
+    minHeight: 60,
+    backgroundColor: '#fafafa',
     [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
+  },
+  container: {
+    display: 'flex',
   },
   menuButton: {
     marginRight: theme.spacing(3),
@@ -75,8 +77,12 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Playfair Display',
     fontWeight: 900,
     fontSize: 25,
+    textTransform: 'capitalize',
+    color: '#424242',
+    padding: 0,
     '&:hover': {
       textDecoration: 'none',
+      backgroundColor: 'transparent',
     },
     [theme.breakpoints.down('xs')]: {
       fontSize: 18,
@@ -88,8 +94,10 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'none',
     color: '#424242',
     letterSpacing: 0,
+    padding: 0,
+    marginLeft: theme.spacing(3),
     '&:hover': {
-      backgroundColor: '#FFFFFF',
+      backgroundColor: 'transparent',
       color: '#212121',
     },
     [theme.breakpoints.down('xs')]: {
@@ -118,6 +126,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   avatarButton: {
+    padding: 0,
     '&:hover, &:focus': {
       backgroundColor: '#FFFFFF',
     },
@@ -155,16 +164,18 @@ const useStyles = makeStyles(theme => ({
     fontSize: 15,
   },
   link: {
-    color: '#424242',
+    color: '#616161',
     fontFamily: 'sans-serif-book',
-    textTransform: 'none',
-    fontSize: 16,
-    letterSpacing: 0,
+    textTransform: 'uppercase',
+    fontSize: 14,
+    letterSpacing: 0.5,
     marginRight: theme.spacing(3),
+    padding: 0,
+    minWidth: 20,
     '&:hover': {
       textDecoration: 'none',
       color: '#212121',
-      backgroundColor: '#FFFFFF',
+      backgroundColor: 'transparent',
     },
   },
   sidebar: {
@@ -188,9 +199,6 @@ const useStyles = makeStyles(theme => ({
   sidebarLink: {
     paddingLeft: theme.spacing(3),
   },
-  sidebarLinkIcon: {
-
-  },
   sidebarLinkText: {
     color: '#424242',
     fontFamily: 'sans-serif-book',
@@ -204,7 +212,6 @@ const StyledMenu = withStyles({
   paper: {
     maxWidth: 220,
     border: '1px solid #e0e0e0',
-    marginTop: 10,
     position: 'relative',
   },
 })(props => (
@@ -300,9 +307,14 @@ export default function Header(props) {
     return (
       list.map(function(item) {
         return (
-          <Link href={item.url} key={item.name} className={classes.link} color="inherit">
+          <Button
+            component="a"
+            href={item.url}
+            key={item.name}
+            className={classes.link}
+          >
             {item.name}
-          </Link>
+          </Button>
         );
       })
     );
@@ -331,7 +343,7 @@ export default function Header(props) {
       list.map(function(item) {
         return (
           <ListItem href={item.url} key={item.name} className={classes.sidebarLink} component="a">
-            <ListItemIcon className={classes.sidebarLinkIcon}>{item.icon}</ListItemIcon>
+            <ListItemIcon>{item.icon}</ListItemIcon>
             <Typography className={classes.sidebarLinkText} noWrap>{item.name}</Typography>
           </ListItem>
         );
@@ -344,196 +356,200 @@ export default function Header(props) {
       <HideOnScroll {...props}>
         <AppBar className={classes.appBar} elevation={0}>
           <Toolbar className={classes.toolbar}>
-            <IconButton className={classes.menuButton} onClick={toggleSidebar('left', true)} edge="start" aria-label="menu" color="inherit">
-              <MenuIcon />
-            </IconButton>
+            <Container className={classes.container}>
+              <IconButton className={classes.menuButton} onClick={toggleSidebar('left', true)} edge="start" aria-label="menu" color="inherit">
+                <MenuIcon />
+              </IconButton>
 
-            <Link href="/" className={classes.title} color="inherit">
-              Kidanemihret
-            </Link>
+              <Button href="/" component="a" className={classes.title} color="inherit">
+                Kidanemihret
+              </Button>
 
-            <Drawer open={state.left} onClose={toggleSidebar('left', false)}>
-              <div
-                role="presentation"
-                onClick={toggleSidebar('left', false)}
-                onKeyDown={toggleSidebar('left', false)}
-                className={classes.sidebar}
-              >
-                <div className={classes.grow} >
-                  <IconButton onClick={toggleSidebar('left', false)} className={classes.sidebarMenuButton} edge="start" aria-label="menu" color="inherit">
-                    <MenuIcon />
-                  </IconButton>
-                  <Link href="/" className={clsx(classes.title, classes.sidebarMenuTitle)} color="inherit">
-                    Kidanemihret
-                  </Link>
+              <Drawer open={state.left} onClose={toggleSidebar('left', false)}>
+                <div
+                  role="presentation"
+                  onClick={toggleSidebar('left', false)}
+                  onKeyDown={toggleSidebar('left', false)}
+                  className={classes.sidebar}
+                >
+                  <div className={classes.grow} >
+                    <IconButton onClick={toggleSidebar('left', false)} className={classes.sidebarMenuButton} edge="start" aria-label="menu" color="inherit">
+                      <MenuIcon />
+                    </IconButton>
+                    <Link href="/" className={clsx(classes.title, classes.sidebarMenuTitle)} color="inherit">
+                      Kidanemihret
+                    </Link>
+                  </div>
+                  {sidebarLinks([
+                    {url: "/",          icon: <Home size={18} />,        name: "Home"},
+                    {url: "/about",     icon: <Info size={18} />,        name: "About"},
+                    {url: "/services",  icon: <Flag size={18} />,        name: "Services"},
+                    {url: "/contact",   icon: <Send size={18} />,        name: "Contact"},
+                  ])}
+                  <Divider className={classes.customDivider} />
+                  {sidebarLinks([
+                    {url: "/calendar",  icon: <Calendar size={18} />,    name: "Calendar"},
+                    {url: "/bible",     icon: <Book size={18} />,        name: "Holy Bible"},
+                    {url: "/donate",    icon: <DollarSign size={18} />,  name: "Pay Tithes/ Donate"},
+                    {url: "/documents", icon: <FileText size={18} />,    name: "Documents/ Forms"},
+                    {url: "#",          icon: <Bookmark size={18} />,    name: "Teachings"},
+                    {url: "#",          icon: <Mic size={18} />,         name: "Media"},
+                  ])}
+                  <Divider className={classes.customDivider} />
+                  {sidebarLinks([
+                    {url: "/faq",       icon: <HelpCircle size={18} />,   name: "FAQ"},
+                    {url: "#",          icon: <ShoppingCart size={18} />, name: "Shop"},
+                  ])}
                 </div>
-                {sidebarLinks([
-                  {url: "/",          icon: <Home size={18} />,        name: "Home"},
-                  {url: "/about",     icon: <Info size={18} />,        name: "About"},
-                  {url: "/services",  icon: <Flag size={18} />,        name: "Services"},
-                  {url: "/contact",   icon: <Send size={18} />,        name: "Contact"},
-                ])}
-                <Divider className={classes.customDivider} />
-                {sidebarLinks([
-                  {url: "/calendar",  icon: <Calendar size={18} />,    name: "Calendar"},
-                  {url: "/bible",     icon: <Book size={18} />,        name: "Holy Bible"},
-                  {url: "/donate",    icon: <DollarSign size={18} />,  name: "Pay Tithes/ Donate"},
-                  {url: "/documents", icon: <FileText size={18} />,    name: "Documents/ Forms"},
-                  {url: "#",          icon: <Bookmark size={18} />,    name: "Teachings"},
-                  {url: "#",          icon: <Mic size={18} />,         name: "Media"},
-                ])}
-                <Divider className={classes.customDivider} />
-                {sidebarLinks([
-                  {url: "/faq",       icon: <HelpCircle size={18} />,   name: "FAQ"},
-                  {url: "#",          icon: <ShoppingCart size={18} />, name: "Shop"},
-                ])}
-              </div>
-            </Drawer>
+              </Drawer>
 
-            <div className={classes.grow} />
+              <div className={classes.grow} />
 
-            <Button
-              href="/donate"
-              component="a"
-              variant="text"
-              color="primary"
-              className={classes.hdrButton}
-              startIcon={<Bell size={16} />}
-            >
-              Pay tithes or donate
-            </Button>
+              <Button
+                href="/donate"
+                component="a"
+                variant="text"
+                color="primary"
+                className={classes.hdrButton}
+                startIcon={<Bell size={16} />}
+              >
+                Pay tithes or donate
+              </Button>
 
-            {props.isLoggedIn ? (
-              <React.Fragment>
-                <Button
-                  aria-controls="simple-menu"
-                  aria-haspopup="true"
-                  onClick={handleAvatarClick}
-                  className={classes.avatarButton}
-                >
-                  <StyledBadge
-                    overlap="circle"
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
-                    variant="dot"
+              {props.isLoggedIn ? (
+                <React.Fragment>
+                  <Button
+                    aria-controls="simple-menu"
+                    aria-haspopup="true"
+                    onClick={handleAvatarClick}
+                    className={classes.avatarButton}
                   >
-                    <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
-                  </StyledBadge>
-                </Button>
-                <StyledMenu
-                  anchorEl={anchorAvatarMenu}
-                  open={Boolean(anchorAvatarMenu)}
-                  onClose={handleAvatarClose}
-                >
-                  <ListItem className={classes.avatarMenuTitle}>
-                    <ListItemAvatar>
-                      <Badge overlap="circle">
-                        <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
-                      </Badge>
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={<Typography className={classes.avatarName} noWrap>{props.loggedInUser.fullName}</Typography>}
-                      secondary={<Typography className={classes.avatarEmail} noWrap>{props.loggedInUser.email}</Typography>}
-                    />
-                  </ListItem>
-                  <Divider className={classes.customDivider} />
-                  {dropDownMenuItems([
-                    {url: '/#',     name: "Admins",    method: null},
-                    {url: '#',      name: "Leaders",   method: null},
-                  ])}
-                  <Divider className={classes.customDivider} />
-                  {dropDownMenuItems([
-                    {url: props.loggedInUser.profile,  name: "Profile",   method: null},
-                    {url: props.loggedInUser.settings, name: "Settings",  method: null},
-                    {url: '/users',                    name: "All Users", method: null},
-                    {url: '/logout',                   name: "Sign out",  method: "delete"},
-                  ])}
-                </StyledMenu>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <Button
-                  href="/login"
-                  component="a"
-                  variant="text"
-                  color="primary"
-                  className={classes.authButton}
-                >
-                  Log in
-                </Button>
-                <Button
-                  href="/signup"
-                  component="a"
-                  variant="outlined"
-                  color="primary"
-                  className={clsx(classes.authButton, classes.signupButton)}
-                >
-                  Sign up
-                </Button>
-              </React.Fragment>
-            )}
+                    <StyledBadge
+                      overlap="circle"
+                      anchorOrigin={{ vertical: 'bottom', horizontal: 'right', }}
+                      variant="dot"
+                    >
+                      <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
+                    </StyledBadge>
+                  </Button>
+                  <StyledMenu
+                    anchorEl={anchorAvatarMenu}
+                    open={Boolean(anchorAvatarMenu)}
+                    onClose={handleAvatarClose}
+                  >
+                    <ListItem className={classes.avatarMenuTitle}>
+                      <ListItemAvatar>
+                        <Badge overlap="circle">
+                          <Avatar alt={props.loggedInUser.firstName} src={props.loggedInUser.gravatar} />
+                        </Badge>
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={<Typography className={classes.avatarName} noWrap>{props.loggedInUser.fullName}</Typography>}
+                        secondary={<Typography className={classes.avatarEmail} noWrap>{props.loggedInUser.email}</Typography>}
+                      />
+                    </ListItem>
+                    <Divider className={classes.customDivider} />
+                    {dropDownMenuItems([
+                      {url: '/#',     name: "Admins",    method: null},
+                      {url: '#',      name: "Leaders",   method: null},
+                    ])}
+                    <Divider className={classes.customDivider} />
+                    {dropDownMenuItems([
+                      {url: props.loggedInUser.profile,  name: "Profile",   method: null},
+                      {url: props.loggedInUser.settings, name: "Settings",  method: null},
+                      {url: '/users',                    name: "All Users", method: null},
+                      {url: '/logout',                   name: "Sign out",  method: "delete"},
+                    ])}
+                  </StyledMenu>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <Button
+                    href="/login"
+                    component="a"
+                    variant="text"
+                    color="primary"
+                    className={classes.authButton}
+                  >
+                    Log in
+                  </Button>
+                  <Button
+                    href="/signup"
+                    component="a"
+                    variant="outlined"
+                    color="primary"
+                    className={clsx(classes.authButton, classes.signupButton)}
+                  >
+                    Sign up
+                  </Button>
+                </React.Fragment>
+              )}
+            </Container>
           </Toolbar>
 
           <Toolbar className={clsx(classes.toolbar, classes.toolbarBottom)}>
-            {headerLinks([
-              {url: '/',         name: "Home"},
-              {url: '/about',    name: "About"},
-              {url: '/services', name: "Services"},
-              {url: '/contact',  name: "Contact"},
-            ])}
-
-            <Button
-              aria-controls="simple-menu"
-              aria-haspopup="true"
-              component="a"
-              onClick={handleResourcesClick}
-              className={classes.link}
-              endIcon={<ExpandMoreIcon />}
-            >
-              Resources
-            </Button>
-            <StyledMenu
-              anchorEl={anchorResourcesMenu}
-              open={Boolean(anchorResourcesMenu)}
-              onClose={handleResourcesClose}
-            >
-              {dropDownMenuItems([
-                {url: "/calendar",  name: "Calendar",             method: null},
-                {url: "/bible",     name: "Holy Bible",           method: null},
-                {url: "/donate",    name: "Pay Tithes/ Donate",   method: null},
-                {url: "/documents", name: "Documents/ Forms",     method: null},
+            <Container className={classes.container}>
+              {headerLinks([
+                {url: '/',         name: "Home"},
+                {url: '/about',    name: "About"},
+                {url: '/services', name: "Services"},
+                {url: '/contact',  name: "Contact"},
               ])}
-              <Divider className={classes.customDivider} />
-              {dropDownMenuItems([
-                {url: "#",          name: "Teachings",            method: null},
-                {url: "#",          name: "Media",                method: null}
+
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                component="a"
+                onClick={handleResourcesClick}
+                className={classes.link}
+                endIcon={<ExpandMoreIcon />}
+              >
+                Resources
+              </Button>
+              <StyledMenu
+                anchorEl={anchorResourcesMenu}
+                open={Boolean(anchorResourcesMenu)}
+                onClose={handleResourcesClose}
+              >
+                {dropDownMenuItems([
+                  {url: "/calendar",  name: "Calendar",             method: null},
+                  {url: "/bible",     name: "Holy Bible",           method: null},
+                  {url: "/donate",    name: "Pay Tithes/ Donate",   method: null},
+                  {url: "/documents", name: "Documents/ Forms",     method: null},
+                ])}
+                <Divider className={classes.customDivider} />
+                {dropDownMenuItems([
+                  {url: "#",          name: "Teachings",            method: null},
+                  {url: "#",          name: "Media",                method: null}
+                ])}
+              </StyledMenu>
+
+              {headerLinks([
+                {url: '/faq',      name: "FAQ"},
               ])}
-            </StyledMenu>
 
-            {headerLinks([
-              {url: '/faq',      name: "FAQ"},
-            ])}
+              <div className={classes.grow} />
 
-            <div className={classes.grow} />
+              <Button
+                href="#"
+                component="a"
+                color="inherit"
+                startIcon={<TranslateIcon />}
+                className={classes.hdrButton}
+              >
+                Languages
+              </Button>
 
-            <Button
-              href="#"
-              component="a"
-              color="inherit"
-              startIcon={<TranslateIcon />}
-              className={classes.hdrButton}
-            >
-              Languages
-            </Button>
-
-            <Button
-              href="#"
-              component="a"
-              color="inherit"
-              startIcon={<StoreIcon />}
-              className={classes.hdrButton}
-            >
-              Store
-            </Button>
+              <Button
+                href="#"
+                component="a"
+                color="inherit"
+                startIcon={<StoreIcon />}
+                className={classes.hdrButton}
+              >
+                Store
+              </Button>
+            </Container>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -544,5 +560,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-  template: PropTypes.bool,
+  isLoggedIn: PropTypes.bool,
+  loggedInUser: PropTypes.object,
 };
