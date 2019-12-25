@@ -29,10 +29,9 @@
   </head>
 
   <body>
-    <%= react_component('CssBaseLine') %>
     <%= react_component('Header', {
       isLoggedIn: logged_in?,
-      loggedInUser: get_logged_in_user,
+      loggedInUser: get_logged_in_user
     }) %>
 
     <% flash.each do |message_type, message| %>

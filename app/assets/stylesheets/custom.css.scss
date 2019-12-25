@@ -6,20 +6,9 @@ html {
 }
 
 body {
-  right: 0;
-  padding-right: 0 !important;
+  padding: 0 !important;
 }
 
-// html {
-//   overflow-y: auto !important;
-//   overflow-x: hidden !important;
-//   padding-right: 0 !important;
-// }
-//
-// body {
-//   padding-right: 0 !important;
-// }
-
 .body-content-wrapper {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 50px);
 }
