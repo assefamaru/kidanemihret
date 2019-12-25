@@ -94,7 +94,7 @@ export default function Notifications(props) {
   return (
     <Snackbar
       anchorOrigin={{
-        vertical: 'top',
+        vertical: 'bottom',
         horizontal: 'right',
       }}
       open={open}
