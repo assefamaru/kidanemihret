@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { makeStyles } from '@material-ui/core/styles'
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -8,37 +8,47 @@ import Link from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#4527a0',
+    },
+  },
+});
+
 const useStyles = makeStyles(theme => ({
+  rootContainer: {
+    maxWidth: 550,
+    margin: 'auto',
+  },
   root: {
-    padding: theme.spacing(3, 1),
-    marginTop: 50,
+    backgroundColor: 'transparent',
+    marginTop: theme.spacing(10),
+    color: '#424242',
   },
   container: {
     display: 'flex',
     flexWrap: 'wrap',
   },
+  title: {
+    fontFamily: 'sans-serif-light',
+    marginBottom: theme.spacing(4),
+  },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
     fontSize: 20,
   },
-  h1: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(3),
-    color: '#3D3D3D',
-  },
   p: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(3),
-    color: '#3D3D3D',
+    fontFamily: 'sans-serif-book',
+    color: '#424242',
+    fontSize: 16,
+    marginTop: theme.spacing(3),
   },
   submit: {
     fontSize: 15,
-    margin: theme.spacing(3, 1),
+    letterSpacing: 1,
+    marginTop: theme.spacing(3),
+    fontFamily: 'sans-serif-medium',
     height: 50,
-  },
-  margin: {
-    margin: theme.spacing(1),
   },
   linkLogIn: {
     marginLeft: 5,
@@ -51,48 +61,50 @@ export default function PasswordReset(props) {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="sm">
-      <Paper className={classes.root} elevation={0}>
-        <Typography variant="h2" component="h1" className={classes.h1}>
-          Forgot password
-        </Typography>
-        <form
-          className={classes.container}
-          autoComplete="off"
-          action="/password_resets"
-          acceptCharset="UTF-8"
-          method="post"
-        >
-          <input name="utf8" type="hidden" value="&#x2713;" />
-          <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
-          <TextField
-            id="outlined-email"
-            className={classes.textField}
-            label="Email"
-            name="password_reset[email]"
-            placeholder="kidanemihret@gmail.com"
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            fullWidth
-            type="submit"
+    <ThemeProvider theme={theme}>
+      <Container className={classes.rootContainer}>
+        <Paper className={classes.root} elevation={0}>
+          <Typography variant="h2" component="h1" className={classes.title}>
+            Forgot password
+          </Typography>
+          <form
+            className={classes.container}
+            autoComplete="off"
+            action="/password_resets"
+            acceptCharset="UTF-8"
+            method="post"
           >
-            Submit
-          </Button>
-        </form>
-        <p className={classes.margin}>
-          Go back to
-          <Link href="/login" className={classes.linkLogIn}>
-            log in page.
-          </Link>
-        </p>
-      </Paper>
-    </Container>
+            <input name="utf8" type="hidden" value="&#x2713;" />
+            <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
+            <TextField
+              id="outlined-email"
+              className={classes.textField}
+              label="Email"
+              name="password_reset[email]"
+              placeholder="kidanemihret@gmail.com"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              fullWidth
+              type="submit"
+            >
+              Submit
+            </Button>
+          </form>
+          <p className={classes.p}>
+            Go back to
+            <Link href="/login" className={classes.linkLogIn}>
+              log in page.
+            </Link>
+          </p>
+        </Paper>
+      </Container>
+    </ThemeProvider>
   );
 }
 
