@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -12,40 +12,44 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#4527a0',
+    },
+    error: {
+      main: '#e53935',
+    },
+  },
+});
+
 const useStyles = makeStyles(theme => ({
+  rootContainer: {
+    maxWidth: 550,
+    margin: 'auto',
+  },
   root: {
-    padding: theme.spacing(3, 1),
-    backgroundColor: '#F4F5F9',
-    marginTop: 50,
+    backgroundColor: 'transparent',
+    marginTop: theme.spacing(10),
+    color: '#424242',
   },
   container: {
     display: 'flex',
     flexWrap: 'wrap',
   },
-  margin: {
-    margin: theme.spacing(1),
+  title: {
+    fontFamily: 'sans-serif-light',
+    marginBottom: theme.spacing(4),
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
     fontSize: 20,
-  },
-  resize: {
-    fontSize: 15,
-  },
-  h1: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(3),
-    color: '#3D3D3D',
-  },
-  p: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(3),
-    color: '#3D3D3D',
+    marginBottom: theme.spacing(2),
   },
   submit: {
     fontSize: 15,
-    margin: theme.spacing(3, 1),
+    letterSpacing: 1,
+    marginTop: theme.spacing(3),
+    fontFamily: 'sans-serif-medium',
     height: 50,
   },
 }));
@@ -104,96 +108,82 @@ export default function ResetPassword(props) {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper className={classes.root} elevation={0}>
-        <Typography variant="h1" component="h1" className={classes.h1}>
-          Reset password
-        </Typography>
-        <form
-          className={classes.container}
-          autoComplete="off"
-          action={props.actionPath}
-          acceptCharset="UTF-8"
-          method="post"
-        >
-          <input name="utf8" type="hidden" value="&#x2713;" />
-          <input type="hidden" name="_method" value="patch" />
-          <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
-          <input type="hidden" name="email" id="email" value={props.email} />
-          <TextField
-            fullWidth
-            className={clsx(classes.margin, classes.textField)}
-            label="Password"
-            variant="outlined"
-            error={props.password_errors}
-            type={values.showPassword ? 'text' : 'password'}
-            defaultValue={userPasswordInput(props.errors_exist)}
-            helperText={userPasswordError(props.password_errors)}
-            name="user[password]"
-            onChange={handleChange('password')}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-              endAdornment: <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                >
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
-          <TextField
-            fullWidth
-            className={clsx(classes.margin, classes.textField)}
-            label="Password Confirmation"
-            variant="outlined"
-            error={props.password_confirmation_errors}
-            type={values.showPasswordConfirm ? 'text' : 'password'}
-            defaultValue={userPasswordConfirmationInput(props.errors_exist)}
-            helperText={userPasswordConfirmationError(props.password_confirmation_errors)}
-            name="user[password_confirmation]"
-            onChange={handleChange('password_confirm')}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-              endAdornment: <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPasswordConfirm}
-                  onMouseDown={handleMouseDownPassword}
-                >
-                  {values.showPasswordConfirm ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            fullWidth
-            type="submit"
+    <ThemeProvider theme={theme}>
+      <Container className={classes.rootContainer}>
+        <Paper className={classes.root} elevation={0}>
+          <Typography variant="h2" component="h1" className={classes.title}>
+            Reset password
+          </Typography>
+          <form
+            className={classes.container}
+            autoComplete="off"
+            action={props.actionPath}
+            acceptCharset="UTF-8"
+            method="post"
           >
-            Submit
-          </Button>
-        </form>
-      </Paper>
-    </Container>
+            <input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="hidden" name="_method" value="patch" />
+            <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
+            <input type="hidden" name="email" id="email" value={props.email} />
+            <TextField
+              fullWidth
+              className={classes.textField}
+              label="Password"
+              variant="outlined"
+              error={props.password_errors}
+              type={values.showPassword ? 'text' : 'password'}
+              defaultValue={userPasswordInput(props.errors_exist)}
+              helperText={userPasswordError(props.password_errors)}
+              name="user[password]"
+              onChange={handleChange('password')}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {values.showPassword ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" />}
+                  </IconButton>
+                </InputAdornment>,
+              }}
+            />
+            <TextField
+              fullWidth
+              className={classes.textField}
+              label="Password Confirmation"
+              variant="outlined"
+              error={props.password_confirmation_errors}
+              type={values.showPasswordConfirm ? 'text' : 'password'}
+              defaultValue={userPasswordConfirmationInput(props.errors_exist)}
+              helperText={userPasswordConfirmationError(props.password_confirmation_errors)}
+              name="user[password_confirmation]"
+              onChange={handleChange('password_confirm')}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPasswordConfirm}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {values.showPasswordConfirm ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" />}
+                  </IconButton>
+                </InputAdornment>,
+              }}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              fullWidth
+              type="submit"
+            >
+              Submit
+            </Button>
+          </form>
+        </Paper>
+      </Container>
+    </ThemeProvider>
   );
 }
 

@@ -20,7 +20,7 @@ class StaticPagesController < ApplicationController
   def donate
   end
 
-  def docs
+  def documents
   end
 
   def faq

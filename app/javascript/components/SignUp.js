@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import clsx from 'clsx'
-import { makeStyles } from '@material-ui/core/styles'
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
@@ -18,41 +18,53 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import SendIcon from '@material-ui/icons/Send'
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#4527a0',
+    },
+    error: {
+      main: '#e53935',
+    },
+  },
+});
+
 const useStyles = makeStyles(theme => ({
+  rootContainer: {
+    maxWidth: 550,
+    margin: 'auto',
+  },
   root: {
-    padding: theme.spacing(3, 1),
-    backgroundColor: '#F4F5F9',
-    marginTop: 50,
+    backgroundColor: 'transparent',
+    marginTop: theme.spacing(10),
+    color: '#424242',
+  },
+  title: {
+    fontFamily: 'sans-serif-light',
+    marginBottom: theme.spacing(4),
   },
   container: {
     display: 'flex',
     flexWrap: 'wrap',
   },
   margin: {
-    margin: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
     marginTop: theme.spacing(1),
-    fontSize: 20,
-  },
-  resize: {
-    fontSize: 15,
-  },
-  h1: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(3),
-    color: '#3D3D3D',
+    fontFamily: 'sans-serif-book',
+    color: '#424242',
   },
   p: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(3),
-    color: '#3D3D3D',
+    fontFamily: 'sans-serif-book',
+    color: '#424242',
+    fontSize: 16,
   },
   submit: {
     fontSize: 15,
-    margin: theme.spacing(3, 1, 2, 1),
+    letterSpacing: 1,
+    marginTop: theme.spacing(3),
+    fontFamily: 'sans-serif-medium',
     height: 50,
   },
   linkLogIn: {
@@ -158,168 +170,124 @@ export default function SignUp(props) {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper className={classes.root} elevation={0}>
-        <Typography variant="h1" component="h1" className={classes.h1}>
-          Sign Up
-        </Typography>
-        <form
-          className={classes.container}
-          autoComplete="off"
-          action="/users"
-          acceptCharset="UTF-8"
-          method="post"
-        >
-          <input name="utf8" type="hidden" value="&#x2713;" />
-          <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
-          <TextField
-            id="outlined-first-name"
-            className={clsx(classes.textField, "form-control")}
-            label="First Name"
-            name="user[first_name]"
-            margin="normal"
-            variant="outlined"
-            fullWidth
-            helperText={userFirstNameError(props.first_name_errors)}
-            defaultValue={userFirstNameInput(props.errors_exist)}
-            error={props.first_name_errors}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
-          <TextField
-            id="outlined-last-name"
-            className={classes.textField}
-            label="Last Name"
-            name="user[last_name]"
-            margin="normal"
-            variant="outlined"
-            fullWidth
-            helperText={userLastNameError(props.last_name_errors)}
-            defaultValue={userLastNameInput(props.errors_exist)}
-            error={props.last_name_errors}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
-          <TextField
-            id="outlined-email"
-            className={classes.textField}
-            label="Email"
-            name="user[email]"
-            placeholder="kidanemihret@gmail.com"
-            margin="normal"
-            variant="outlined"
-            fullWidth
-            helperText={userEmailError(props.email_errors)}
-            defaultValue={userEmailInput(props.errors_exist)}
-            error={props.email_errors}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
-          <TextField
-            fullWidth
-            className={clsx(classes.margin, classes.textField)}
-            label="Password"
-            variant="outlined"
-            error={props.password_errors}
-            type={values.showPassword ? 'text' : 'password'}
-            defaultValue={userPasswordInput(props.errors_exist)}
-            helperText={userPasswordError(props.password_errors)}
-            name="user[password]"
-            onChange={handleChange('password')}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-              endAdornment: <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                >
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
-          <TextField
-            fullWidth
-            className={clsx(classes.margin, classes.textField)}
-            label="Password Confirmation"
-            variant="outlined"
-            error={props.password_confirmation_errors}
-            type={values.showPasswordConfirm ? 'text' : 'password'}
-            defaultValue={userPasswordConfirmationInput(props.errors_exist)}
-            helperText={userPasswordConfirmationError(props.password_confirmation_errors)}
-            name="user[password_confirmation]"
-            onChange={handleChange('password_confirm')}
-            InputProps={{
-              classes: {
-                root: classes.resize,
-              },
-              endAdornment: <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPasswordConfirm}
-                  onMouseDown={handleMouseDownPassword}
-                >
-                  {values.showPasswordConfirm ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>,
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.resize,
-              },
-            }}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            endIcon={<SendIcon />}
-            fullWidth
-            type="submit"
-          >
+    <ThemeProvider theme={theme}>
+      <Container className={classes.rootContainer}>
+        <Paper className={classes.root} elevation={0}>
+          <Typography variant="h2" component="h1" className={classes.title}>
             Sign Up
-          </Button>
-        </form>
-        <p className={classes.margin}>
-          Already have an account?
-          <Link href="/login" className={classes.linkLogIn}>
-            Log In!
-          </Link>
-        </p>
-      </Paper>
-    </Container>
+          </Typography>
+          <form
+            className={classes.container}
+            autoComplete="off"
+            action="/users"
+            acceptCharset="UTF-8"
+            method="post"
+          >
+            <input name="utf8" type="hidden" value="&#x2713;" />
+            <input type='hidden' name="authenticity_token" value={props.authenticityToken} />
+            <TextField
+              id="outlined-first-name"
+              className={clsx(classes.textField, "form-control")}
+              label="First Name"
+              name="user[first_name]"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              helperText={userFirstNameError(props.first_name_errors)}
+              defaultValue={userFirstNameInput(props.errors_exist)}
+              error={props.first_name_errors}
+            />
+            <TextField
+              id="outlined-last-name"
+              className={classes.textField}
+              label="Last Name"
+              name="user[last_name]"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              helperText={userLastNameError(props.last_name_errors)}
+              defaultValue={userLastNameInput(props.errors_exist)}
+              error={props.last_name_errors}
+            />
+            <TextField
+              id="outlined-email"
+              className={classes.textField}
+              label="Email"
+              name="user[email]"
+              placeholder="kidanemihret@gmail.com"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              helperText={userEmailError(props.email_errors)}
+              defaultValue={userEmailInput(props.errors_exist)}
+              error={props.email_errors}
+            />
+            <TextField
+              fullWidth
+              className={clsx(classes.margin, classes.textField)}
+              label="Password"
+              variant="outlined"
+              error={props.password_errors}
+              type={values.showPassword ? 'text' : 'password'}
+              defaultValue={userPasswordInput(props.errors_exist)}
+              helperText={userPasswordError(props.password_errors)}
+              name="user[password]"
+              onChange={handleChange('password')}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {values.showPassword ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" />}
+                  </IconButton>
+                </InputAdornment>,
+              }}
+            />
+            <TextField
+              fullWidth
+              className={clsx(classes.margin, classes.textField)}
+              label="Password Confirmation"
+              variant="outlined"
+              error={props.password_confirmation_errors}
+              type={values.showPasswordConfirm ? 'text' : 'password'}
+              defaultValue={userPasswordConfirmationInput(props.errors_exist)}
+              helperText={userPasswordConfirmationError(props.password_confirmation_errors)}
+              name="user[password_confirmation]"
+              onChange={handleChange('password_confirm')}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPasswordConfirm}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {values.showPasswordConfirm ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" />}
+                  </IconButton>
+                </InputAdornment>,
+              }}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              endIcon={<SendIcon />}
+              fullWidth
+              type="submit"
+            >
+              Sign Up
+            </Button>
+          </form>
+          <p className={classes.p}>
+            Already have an account?
+            <Link href="/login" className={classes.linkLogIn}>
+              Log In!
+            </Link>
+          </p>
+        </Paper>
+      </Container>
+    </ThemeProvider>
   );
 }
 

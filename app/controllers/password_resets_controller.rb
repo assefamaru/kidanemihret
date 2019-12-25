@@ -14,7 +14,7 @@ class PasswordResetsController < ApplicationController
       flash[:warning] = "Pending! Email sent with password reset instructions."
       redirect_to root_url
     else
-      flash.now[:error] = "Error! Email address not found."
+      flash.now[:error] = "Email address not found."
       render 'new'
     end
   end

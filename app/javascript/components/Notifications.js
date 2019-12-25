@@ -1,78 +1,115 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { SnackbarProvider, useSnackbar } from 'notistack'
+import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
+import { amber, green } from '@material-ui/core/colors'
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import CloseIcon from '@material-ui/icons/Close'
+import Snackbar from '@material-ui/core/Snackbar'
+import SnackbarContent from '@material-ui/core/SnackbarContent'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import WarningIcon from '@material-ui/icons/Warning'
 import ErrorIcon from '@material-ui/icons/Error'
 import InfoIcon from '@material-ui/icons/Info'
+import WarningIcon from '@material-ui/icons/Warning'
+import CloseIcon from '@material-ui/icons/Close'
+
+const variantIcon = {
+  success: CheckCircleIcon,
+  warning: WarningIcon,
+  error: ErrorIcon,
+  info: InfoIcon,
+};
 
 const useStyles = makeStyles(theme => ({
-  message: {
-    fontSize: 15,
+  success: {
+    backgroundColor: green[600],
   },
-  removeKeyDisplay: {
-    display: 'none',
+  error: {
+    backgroundColor: theme.palette.error.dark,
+  },
+  info: {
+    backgroundColor: theme.palette.primary.main,
+  },
+  warning: {
+    backgroundColor: amber[700],
+  },
+  icon: {
+    fontSize: 20,
+  },
+  iconVariant: {
+    opacity: 0.9,
+    marginRight: theme.spacing(1),
+  },
+  message: {
+    display: 'flex',
+    alignItems: 'center',
+    fontFamily: 'sans-serif-book',
+    fontSize: 15,
   },
 }));
 
-function NotificationsWrapper(props) {
+function MySnackbarContentWrapper(props) {
   const classes = useStyles();
-  const { message, variant, ...other } = props;
-  const { enqueueSnackbar } = useSnackbar();
+  const { className, message, onClose, variant, ...other } = props;
+  const Icon = variantIcon[variant];
 
   return (
-    <React.Fragment>
-      <div className={classes.removeKeyDisplay}>
-        {enqueueSnackbar(message, { variant })}
-      </div>
-    </React.Fragment>
+    <SnackbarContent
+      className={clsx(classes[variant], className)}
+      aria-describedby="client-snackbar"
+      message={
+        <span id="client-snackbar" className={classes.message}>
+          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+          {message}
+        </span>
+      }
+      action={[
+        <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
+          <CloseIcon className={classes.icon} />
+        </IconButton>,
+      ]}
+      {...other}
+    />
   );
 }
 
-NotificationsWrapper.propTypes = {
-  message: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'default']).isRequired,
+MySnackbarContentWrapper.propTypes = {
+  className: PropTypes.string,
+  message: PropTypes.string,
+  onClose: PropTypes.func,
+  variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
 };
 
 export default function Notifications(props) {
-  const classes = useStyles();
-  const notistackRef = React.createRef();
-  const handleClose = key => () => {
-    notistackRef.current.closeSnackbar(key);
-  }
+  const [open, setOpen] = React.useState(true);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   return (
-    <SnackbarProvider
-      maxSnack={3}
-      ref={notistackRef}
-      autoHideDuration={null}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      classes={{
-        variantSuccess: classes.message,
-        variantError: classes.message,
-        variantWarning: classes.message,
-        variantInfo: classes.message,
+    <Snackbar
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'right',
       }}
-      action={(key) => (
-        <IconButton key="close" aria-label="close" color="inherit" onClick={handleClose(key)}>
-          <CloseIcon />
-        </IconButton>
-      )}
+      open={open}
+      onClose={handleClose}
     >
-      {props.notifications.map((notif, key) =>
-        <NotificationsWrapper
-          key={key}
-          variant={notif[0]}
-          message={notif[1]}
-        />
-      )}
-    </SnackbarProvider>
+      <MySnackbarContentWrapper
+        onClose={handleClose}
+        variant={props.variant}
+        message={props.message}
+      />
+    </Snackbar>
   );
 }
 
 Notifications.propTypes = {
-  notifications: PropTypes.array.isRequired,
+  variant: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };
