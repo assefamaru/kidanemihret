@@ -34,7 +34,6 @@ import { DollarSign } from 'react-feather'
 import { FileText } from 'react-feather'
 import { Bookmark } from 'react-feather'
 import { Mic } from 'react-feather'
-import { Key } from 'react-feather'
 import { ShoppingCart } from 'react-feather'
 import { HelpCircle } from 'react-feather'
 
@@ -113,8 +112,8 @@ const useStyles = makeStyles(theme => ({
     border: '1px solid #424242',
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
-    '&:hover': {
-      // backgroundColor: '#4527a0',
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0,
     },
   },
   dropDownMenuLink: {
@@ -499,7 +498,6 @@ export default function Header(props) {
                   href="/login"
                   component="a"
                   className={classes.loginButton}
-                  startIcon={<Key size={18} />}
                 >
                   Log in
                 </Button>
