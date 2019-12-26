@@ -222,13 +222,12 @@ DEPENDENCIES
   sass-rails (~> 5)
   selenium-webdriver
   turbolinks (~> 5)
-  tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.7.0p0
 
 BUNDLED WITH
-   1.17.2
+   2.1.2
