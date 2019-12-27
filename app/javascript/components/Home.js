@@ -54,6 +54,12 @@ const heroStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
+  img: {
+    maxWidth: 300,
+    height: 'auto',
+    marginTop: 120,
+    marginLeft: 100,
+  },
 }));
 
 function Hero(props) {
@@ -95,7 +101,7 @@ function Hero(props) {
             </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={6} className={classes.crossGrid}>
-            <img src={props.crossImage} alt="EOTC cross"  />
+            <img src={props.crossImage} alt="EOTC cross" className={classes.img}  />
           </Grid>
         </Grid>
       </Container>
