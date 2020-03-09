@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
+  username: <%= ENV['RDBUSER'] %>
+  password: "<%= ENV['RDBPASS'] %>"
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: kidanemihret_development
+  database: kidanemihret
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -43,12 +43,6 @@ test:
 #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
 #
 # You can use this database configuration with:
-#
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
-  <<: *default
-  database: kidanemihret_production
-  username: kidanemihret
-  password: <%= ENV['KIDANEMIHRET_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
