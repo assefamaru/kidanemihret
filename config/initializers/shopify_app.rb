@@ -9,6 +9,8 @@ ShopifyApp.configure do |config|
   config.after_authenticate_job = false
   config.api_version = "2020-01"
   config.session_repository = 'Shop'
+  config.root_url = '/store'
+  config.login_url = 'http://kidanemihret.org/store/login'
 end
 
 # ShopifyApp::Utils.fetch_known_api_versions                        # Uncomment to fetch known api versions from shopify servers on boot
