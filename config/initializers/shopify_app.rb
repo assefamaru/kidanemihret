@@ -1,5 +1,5 @@
 ShopifyApp.configure do |config|
-  config.application_name = "My Shopify App"
+  config.application_name = "Kidanemihret"
   config.api_key = ENV['SHOPIFY_API_KEY']
   config.secret = ENV['SHOPIFY_API_SECRET']
   config.old_secret = ""
@@ -10,7 +10,7 @@ ShopifyApp.configure do |config|
   config.api_version = "2020-01"
   config.session_repository = 'Shop'
   config.root_url = '/store'
-  # config.login_url = 'https://kidanemihret.org/store/login'
+  config.login_url = 'https://a76b9676.ngrok.io/store/login'
 end
 
 # ShopifyApp::Utils.fetch_known_api_versions                        # Uncomment to fetch known api versions from shopify servers on boot
