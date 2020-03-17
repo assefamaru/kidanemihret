@@ -10,7 +10,7 @@
         <% @products.each do |product| %>
             <tr>
                 <td><%= product.id %></td>
-                <td><a href="http://localhost:3000/store/<%= product.id %>"><%= product.title %></a></td>
+                <td><a href="/store/<%= product.id %>"><%= product.title %></a></td>
                 <td><%= product.body_html %></td>
                 <td><img src="<%= product.image.src %>" width="50" height="50" /></td>
                 <td><%= product.variants.first.price %></td>
