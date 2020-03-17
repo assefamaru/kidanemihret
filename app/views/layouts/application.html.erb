@@ -1,9 +1,25 @@
+<%= spaceless do %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kidanemihret</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"/>
+    <title><%= full_title(yield(:title)) %></title>
+    <meta name="description" content="Hamere Noah Kidane Mihret is an Ethiopian Orthodox Tewahedo Church located in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen.">
+    <meta name="author" content="@assefamaru">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta property="og:title" content="Hamere Noah Kidane Mihret EOTC" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="#" />
+    <meta property="og:url" content="https://kidanemihret.org" />
+    <meta property="og:description" content="Hamere Noah Kidane Mihret is an Ethiopian Orthodox Tewahedo Church located in Ontario, Canada. We welcome you in the name of the Father, the Son, and the Holy Spirit, One God, Amen." />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@hnkidanemihret">
+    <meta name="twitter:creator" content="@assefamaru">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,3 +29,4 @@
     <%= yield %>
   </body>
 </html>
+<% end %>
