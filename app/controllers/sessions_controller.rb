@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     if ! User.any?
       flash[:error] = "Sign up before attempting to log in."
-      redirect_to signup_path
+      redirect_to login_path
     else
       user = User.find_by(email: params[:session][:email].downcase)
       if user && user.authenticate(params[:session][:password])
