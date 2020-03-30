@@ -1,6 +1,7 @@
 <% provide(:title, @user.first_name) %>
 
+<%= link_to('Logout', logout_path, method: :delete) %>
+<div>----------------</div>
+
 <%= gravatar_for @user %>
 <p><%= @user.first_name %> <%= @user.last_name %>, <%= @user.email %></p>
-<br />
-<%= link_to('Logout', logout_path, method: :delete) %>
