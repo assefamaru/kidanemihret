@@ -1,4 +1,14 @@
-Hello, <%= @user.first_name %>!
+Hi <%= @user.first_name %>,
 
-Welcome to the Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church web-application! Click on the link to activate your account: 
+Thanks for joining the Kidane Mihret online community! Please confirm your email address by clicking the link below:
+
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+If you have any trouble with your account, you can always email us at support@kidanemihret.org
+
+In the name of the Father, the Son, and the Holy Spirit, One God, Amen.
+
+Blessings always,
+The Kidane Mihret team
+
+If you did not sign up for a Kidane Mihret account, please ignore this message.

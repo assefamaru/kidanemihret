@@ -1,7 +1,21 @@
-<h1>Hello, <%= @user.first_name %>!</h1>
+<p>Hi <%= @user.first_name %>,</p>
+
+<p>Thanks for joining the Kidane Mihret online community! Please confirm your email address by clicking the link below:</p>
 
 <p>
-Welcome to the Hamere Noah Kidane Mihret Ethiopian Orthodox Tewahedo Church web-application!
-Click on the link to activate your account:
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+  <%= link_to edit_account_activation_url(@user.activation_token, email: @user.email) do %>
+    <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+  <% end %>
 </p>
+
+<p>If you have any trouble with your account, you can always email us at support@kidanemihret.org</p>
+
+<p>In the name of the Father, the Son, and the Holy Spirit, One God, Amen.</p>
+
+<p>
+  Blessings always,
+  <br />
+  The Kidane Mihret team
+</p>
+
+<p>If you did not sign up for a Kidane Mihret account, please ignore this message.</p>
